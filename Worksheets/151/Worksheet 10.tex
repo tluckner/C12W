@@ -1,0 +1,389 @@
+\documentclass[10pt]{article}
+
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{array}
+\usepackage[all]{xy}
+\usepackage{fancyhdr}
+\usepackage{euscript}
+\usepackage{graphics}
+\usepackage{cancel}
+\usepackage{fancybox}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{pgf}
+\usepackage{pgfplots}
+\usepackage[all]{xy}
+\usepackage{graphicx}
+\pgfplotsset{compat=1.14}
+
+\usepackage{pstricks}
+\usepackage{pst-plot}
+
+\usepackage{setspace}
+\onehalfspacing
+
+\setlength{\oddsidemargin}{.5in}
+\setlength{\evensidemargin}{.5in}
+\setlength{\textwidth}{6.in}
+\setlength{\topmargin}{0in}
+\setlength{\headsep}{.20in}
+\setlength{\textheight}{8.5in}
+
+
+\pdfpagewidth 8.5in
+ \pdfpageheight 11in
+
+
+%General
+\newcommand{\WW}{\mathbb {W}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\RR}{\mathbb {R}}
+\newcommand{\II}{\mathbb {I}}
+\newcommand{\QQ}{\mathbb {Q}}
+\newcommand{\CC}{\mathbf C}
+\newcommand{\NN}{\mathbb {N}}
+\newcommand{\Zn}[1]{\mathbf{Z}/#1\mathbf{Z}}
+\newcommand{\Znx}[1]{(\mathbf{Z}/#1\mathbf{Z})^\times}
+\newcommand{\X}{\times} 
+\newcommand{\set}[2]{\left\{#1 : #2\right\}}          
+\newcommand{\sett}[1]{\left\{#1\right\}}                
+\newcommand{\nonempty}{\neq\varnothing}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\abs}[1]{\left| {#1} \right|}
+\newcommand{\qedbox}{\rule{2mm}{2mm}}
+\renewcommand{\qedsymbol}{\qedbox}											
+\newcommand{\aand}{\qquad\hbox{and}\qquad}
+\newcommand{\e}{\varepsilon}
+\newcommand{\tto}{\rightrightarrows}
+\newcommand{\gs}{\geqslant}
+\newcommand{\ls}{\leqslant}
+\renewcommand{\tilde}{\widetilde}
+\renewcommand{\hat}{\widehat}
+\newcommand{\norm}[1]{\left\| #1 \right\|}
+\newcommand{\md}[3]{#1\equiv#2\;(\mathrm{mod}\;#3)}     
+\newcommand{\gen}[1]{\left\langle #1 \right\rangle}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\zero}{\boldsymbol{0}}
+
+\newcommand{\be}[1]{\textbf{\emph{#1}}}
+\newcommand{\hhat}[1]{\hat{\! \hat{#1}}}
+
+\newcommand{\fto}[1]{\xrightarrow{\hspace{4pt} #1 \hspace{4pt}}}
+\newcommand{\flto}[1]{\xrightarrow{\quad #1 \quad}}
+
+
+
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\esssup}{\operatorname{ess\:sup}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\card}{\operatorname{card}}
+
+\newcommand{\dmu}{\:\mathrm{d}\mu}
+\newcommand{\dm}{\:\mathrm{d}m}
+\newcommand{\dx}{\:\mathrm{d}x}
+\newcommand{\dt}{\:\mathrm{d}t}
+\newcommand{\dz}{\:\mathrm{d}z}
+\newcommand{\dtheta}{\:\mathrm{d}\theta}
+\newcommand{\dw}{\:\mathrm{d}w}
+
+%Algebra
+\newcommand{\Sym}{\operatorname {Sym}}
+\newcommand{\Stab}{\operatorname {Stab}}
+\newcommand{\M}{\operatorname{M}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\PGL}{\operatorname{PGL}}
+\newcommand{\SL}{\operatorname{SL}}
+\newcommand{\PSL}{\operatorname{PSL}}
+\newcommand{\Heis}{\operatorname{Heis}}
+\newcommand{\Aff}{\operatorname{Aff}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\image}{\operatorname{im}}
+\newcommand{\Syl}[2]{\operatorname{\emph{Syl}}_{#1}\left(#2\right)}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Tor}{\operatorname{Tor}}
+\newcommand{\Gal}{\operatorname{Gal}}
+\newcommand{\ch}{\operatorname{ch}}
+\newcommand{\rad}{\operatorname{rad}}
+\newcommand{\iso}{\cong}
+\newcommand{\normal}{\unlhd}
+\newcommand{\semi}{\rtimes}
+\newcommand{\Nm}{\operatorname {N}}
+\newcommand{\Tr}{\operatorname {Tr}}
+\newcommand{\disc}{\operatorname {disc}}
+
+
+
+
+
+
+
+
+%Euler Script Characters
+\newcommand{\esa}{\EuScript{A}}
+\newcommand{\esb}{\EuScript{B}}
+\newcommand{\esc}{\EuScript{C}}
+\newcommand{\esd}{\EuScript{D}}
+\newcommand{\ese}{\EuScript{E}}
+\newcommand{\esf}{\EuScript{F}}
+\newcommand{\esg}{\EuScript{G}}
+\newcommand{\esh}{\EuScript{H}}
+\newcommand{\esi}{\EuScript{I}}
+\newcommand{\esj}{\EuScript{J}}
+\newcommand{\esk}{\EuScript{K}}
+\newcommand{\esl}{\EuScript{L}}
+\newcommand{\esm}{\EuScript{M}}
+\newcommand{\esn}{\EuScript{N}}
+\newcommand{\eso}{\EuScript{O}}
+\newcommand{\esp}{\EuScript{P}}
+\newcommand{\esq}{\EuScript{Q}}
+\newcommand{\esr}{\EuScript{R}}
+\newcommand{\ess}{\EuScript{S}}
+\newcommand{\est}{\EuScript{T}}
+\newcommand{\esu}{\EuScript{U}}
+\newcommand{\esv}{\EuScript{V}}
+\newcommand{\esw}{\EuScript{W}}
+\newcommand{\esx}{\EuScript{X}}
+\newcommand{\esy}{\EuScript{Y}}
+\newcommand{\esz}{\EuScript{Z}}
+
+%Calligraphic Characters
+\newcommand{\cala}{\mathcal{A}}
+\newcommand{\calb}{\mathcal{B}}
+\newcommand{\calc}{\mathcal{C}}
+\newcommand{\cald}{\mathcal{D}}
+\newcommand{\cale}{\mathcal{E}}
+\newcommand{\calf}{\mathcal{F}}
+\newcommand{\calg}{\mathcal{G}}
+\newcommand{\calh}{\mathcal{H}}
+\newcommand{\cali}{\mathcal{I}}
+\newcommand{\calj}{\mathcal{J}}
+\newcommand{\calk}{\mathcal{K}}
+\newcommand{\call}{\mathcal{L}}
+\newcommand{\calm}{\mathcal{M}}
+\newcommand{\caln}{\mathcal{N}}
+\newcommand{\calo}{\mathcal{O}}
+\newcommand{\calp}{\mathcal{P}}
+\newcommand{\calq}{\mathcal{Q}}
+\newcommand{\calr}{\mathcal{R}}
+\newcommand{\cals}{\mathcal{S}}
+\newcommand{\calt}{\mathcal{T}}
+\newcommand{\calu}{\mathcal{U}}
+\newcommand{\calv}{\mathcal{V}}
+\newcommand{\calw}{\mathcal{W}}
+\newcommand{\calx}{\mathcal{X}}
+\newcommand{\caly}{\mathcal{Y}}
+\newcommand{\calz}{\mathcal{Z}}
+
+%Gothic Characters
+\newcommand{\fraka}{\mathfrak{a}}
+\newcommand{\frakb}{\mathfrak{b}}
+\newcommand{\frakc}{\mathfrak{c}}
+\newcommand{\frakd}{\mathfrak{d}}
+\newcommand{\frake}{\mathfrak{e}}
+\newcommand{\frakf}{\mathfrak{f}}
+\newcommand{\frakg}{\mathfrak{g}}
+\newcommand{\frakh}{\mathfrak{h}}
+\newcommand{\fraki}{\mathfrak{i}}
+\newcommand{\frakj}{\mathfrak{j}}
+\newcommand{\frakk}{\mathfrak{k}}
+\newcommand{\frakl}{\mathfrak{l}}
+\newcommand{\frakm}{\mathfrak{m}}
+\newcommand{\frakn}{\mathfrak{n}}
+\newcommand{\frako}{\mathfrak{o}}
+\newcommand{\frakp}{\mathfrak{p}}
+\newcommand{\frakq}{\mathfrak{q}}
+\newcommand{\frakr}{\mathfrak{r}}
+\newcommand{\fraks}{\mathfrak{s}}
+\newcommand{\frakt}{\mathfrak{t}}
+\newcommand{\fraku}{\mathfrak{u}}
+\newcommand{\frakv}{\mathfrak{v}}
+\newcommand{\frakw}{\mathfrak{w}}
+\newcommand{\frakx}{\mathfrak{x}}
+\newcommand{\fraky}{\mathfrak{y}}
+\newcommand{\frakz}{\mathfrak{z}}
+
+\newcommand{\frakA}{\mathfrak{A}}
+\newcommand{\frakB}{\mathfrak{B}}
+\newcommand{\frakC}{\mathfrak{C}}
+\newcommand{\frakD}{\mathfrak{D}}
+\newcommand{\frakE}{\mathfrak{E}}
+\newcommand{\frakF}{\mathfrak{F}}
+\newcommand{\frakG}{\mathfrak{G}}
+\newcommand{\frakH}{\mathfrak{H}}
+\newcommand{\frakI}{\mathfrak{I}}
+\newcommand{\frakJ}{\mathfrak{J}}
+\newcommand{\frakK}{\mathfrak{K}}
+\newcommand{\frakL}{\mathfrak{L}}
+\newcommand{\frakM}{\mathfrak{M}}
+\newcommand{\frakN}{\mathfrak{N}}
+\newcommand{\frakO}{\mathfrak{O}}
+\newcommand{\frakP}{\mathfrak{P}}
+\newcommand{\frakQ}{\mathfrak{Q}}
+\newcommand{\frakR}{\mathfrak{R}}
+\newcommand{\frakS}{\mathfrak{S}}
+\newcommand{\frakT}{\mathfrak{T}}
+\newcommand{\frakU}{\mathfrak{U}}
+\newcommand{\frakV}{\mathfrak{V}}
+\newcommand{\frakW}{\mathfrak{W}}
+\newcommand{\frakX}{\mathfrak{X}}
+\newcommand{\frakY}{\mathfrak{Y}}
+\newcommand{\frakZ}{\mathfrak{Z}}
+
+%Lowercase Bold Letters
+\newcommand{\bfa}{\mathbf{a}}
+\newcommand{\bfb}{\mathbf{b}}
+\newcommand{\bfc}{\mathbf{c}}
+\newcommand{\bfd}{\mathbf{d}}
+\newcommand{\bfe}{\mathbf{e}}
+\newcommand{\bff}{\mathbf{f}}
+\newcommand{\bfg}{\mathbf{g}}
+\newcommand{\bfh}{\mathbf{h}}
+\newcommand{\bfi}{\mathbf{i}}
+\newcommand{\bfj}{\mathbf{j}}
+\newcommand{\bfk}{\mathbf{k}}
+\newcommand{\bfl}{\mathbf{l}}
+\newcommand{\bfm}{\mathbf{m}}
+\newcommand{\bfn}{\mathbf{n}}
+\newcommand{\bfo}{\mathbf{o}}
+\newcommand{\bfp}{\mathbf{p}}
+\newcommand{\bfq}{\mathbf{q}}
+\newcommand{\bfr}{\mathbf{r}}
+\newcommand{\bfs}{\mathbf{s}}
+\newcommand{\bft}{\mathbf{t}}
+\newcommand{\bfu}{\mathbf{u}}
+\newcommand{\bfv}{\mathbf{v}}
+\newcommand{\bfw}{\mathbf{w}}
+\newcommand{\bfx}{\mathbf{x}}
+\newcommand{\bfy}{\mathbf{y}}
+\newcommand{\bfz}{\mathbf{z}}
+
+
+
+
+%Customized Theorem Environments
+\newtheoremstyle%
+{custom}%
+{}%                         Space above
+{}%													Space below
+{}%													Body font
+{}%                         Indent amount
+{}%                         Theorem head font
+{.}%                        Punctuation after heading
+{ }%                        Space after heading
+{\thmname{}%                Additional specifications for theorem head
+\thmnumber{}%
+\thmnote{\bfseries #3}}%
+
+\newtheoremstyle%
+{Theorem}%
+{}%
+{}%
+{\itshape}%
+{}%
+{}%
+{.}%
+{ }%
+{\thmname{\bfseries #1}%
+\thmnumber{\;\bfseries #2}%
+\thmnote{\;(\bfseries #3)}}%
+
+%Theorem Environments
+\theoremstyle{Theorem}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{cor}{Corollary}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem*{nonumthm}{Theorem}
+\newtheorem*{nonumprop}{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem*{answer}{Answer}
+\newtheorem*{solution}{Solution}
+\newtheorem*{nonumdfn}{Definition}
+\newtheorem*{nonumex}{Example}
+\newtheorem{ex}{Example}[section]
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}[section]
+\newtheorem*{note}{Note}
+\newtheorem*{notation}{Notation}
+\theoremstyle{custom}
+\newtheorem*{cust}{Definition}
+\fancypagestyle{firststyle}
+{
+   \fancyhead[L]{\textbf{Name:}}
+   \fancyhead[R]{\textbf{Worksheet 10: Optimization}}
+   \fancyfoot[R]{ Thomas Luckner } %{\footnotesize Page \thepage\ of \pageref{LastPage}}
+}
+
+
+
+
+
+
+\begin{document}
+\thispagestyle{firststyle}
+\pagestyle{plain}
+
+Thoughts:\\\\
+This section is always a mystery to me. People tend to struggle with this section when the concept is very simple. Teachers say it is becasue of students not liking word problems, but I disagree! I think it is best to lay out the common struggles with this section before I get into what this section is about.
+\begin{enumerate}[1.]
+\item Word problems
+\item Finding the right equation (what I think the major issue is)
+\item Differentiating between this and a related rates problem
+\end{enumerate}
+These to me are the biggest issues for solving these types of questions. Becasue of this, once I finish talking about this topic, I will give ways to address these issues before you build up frustration about them and give a negative connotation to the subject.\\
+First, what is optimization? optimization is just a fancy word for finding the maximum and the minimum. Thus, this section has everything to do with finding the ABSOLUTE extrema! The best intro is an example. This is a question I wrote for my business calculus final. I hope you find it as entertaining as I do.\\
+\begin{ex}
+Mary wants to build a rectangular fenced area next to the interestion of two rivers so her little lambs do not need her to bring water. The area she found looks like the below with dashed lines representing the riversides. 
+	\begin{center}
+	\begin{tikzpicture}
+	 \draw [very thick, blue, dashed] (0,0) -- (0,2);
+      \draw [very thick, blue, dashed] (0,2) -- (4,2);
+      \draw [very thick] (4,2) -- (4,0);
+      \draw[very thick] (4,0) -- (0,0);
+      \end{tikzpicture}
+	\end{center}	
+	If Mary has 1000 feet of fencing, what is the maximum area of the land surrounded by water and fencing?\\\\
+	
+Mary realized the above area was a safety hazard for her lambs since they could fall in the river. Now she wants to construct a fenced rectangle of area 312500 square feet in the rainforest of Costa Rica, where the air is so humid it can act as their water, and away from any hazardous rivers (She does not realize the abundant hazards of the rainforest; silly Mary).  She does realize however that it will cost more for her to get fencing and is now concerned about this cost. For the first 3 sides, it costs \$8 per foot and there is a discount on the last side of \$2 per foot.  What is minimum cost of the fencing?
+\end{ex}
+You can see here we have an example of a question about maximums and minimums. Let's start with the first question. The first thing we do is identify the equations we can use. Here we are talking about area so area of a rectangle is $A=lw$. The other thing we can talk about is perimeter. In this case we care about perimeter in which fencing is used! That means perimeter with fencing is $P=l+w$. However, we know $P$! So we have $1000=l+w$. If we solve for one of the variables, we can reduce our area equation down to one variable. 
+\[
+1000=l+w\Rightarrow 1000-l=w \Rightarrow A=l(1000-l)
+\]
+Now we can maximize by taking the derivative with respect to $l$ and setting equal to 0.
+\[
+\dfrac{dA}{dl}=1000-2l=0 \Rightarrow l=500
+\]
+It is standard to check that this is a maximum and not a minimum or just a critical point, but most of the time this is assumed. Now we find $w$ via our previous equation and get $w=500$ as well. Are we done? NO!!! We want the maximum area! Thus, we need to plug this into area to get that number! We get max $A=250000$ ft$^2$. \\\\
+The second question takes a little more thought. Once again we have the area referenced. Thus, an important equation is $A=lw$. We also have the area so, $312500=lw$. Now we have information about cost. the first 3 sides will either be $2l+w$ or $2w+l$. Since we are maximizing, it is irrelevant which we choose. This gives us the equation $(2l+w)8+2w=C$ where $C$ is cost. We want to minimize cost, so let's use the area formula to replace a variable in $C$ and take the derivative with respect to what is left.
+\[
+w=\dfrac{312500}{l}\Rightarrow C=16l+10\dfrac{312500}{l}=16l+\dfrac{3125000}{l}=16l+3125000l^{-1} \Rightarrow 16-3125000l^{-2}=0
+\]
+\[
+\Rightarrow 16l^2=3125000 \Rightarrow l=\dfrac{\sqrt{3125000}}{4}
+\]
+Now we repeat the process as the previous question with the cost equation to find $w$ and find the minimum cost.\\
+You can see this is not the craziest thing to do. The problem is students struggle. So, now I will address those issues I talked about at the beginning. The first issue I cannot do anything about. It just takes time to become familiar with the formate of word problems, but some suggestions are to first write out everything you know and what you need. This helps organize the information. This also helps with the second issue. Finding the equation(s) is just a matter of making sense of what you have and what you need! Try this out if you are stuck. The last issue is about the difference between related rate and optimization. Here is the key: MAX AND MIN is optimization. Done and done! You can also notice the difference when your related rates problem talks about rates, but optimization does not. HOWEVER, this is a dangerous game since rate is a loose word. I would go with the max and min difference before the rate idea. Looking for rates may be a good way to confirm optimization or not.
+\newpage
+\noindent Problems:
+\begin{enumerate}[1.]
+\item Find two numbers whose product i s100 and whose sum is a minimum.
+\item What is the minium vertical difference between the parabolas $y=x^2+1$ and $y=x-x^2$?
+\item Find the area of the largest rectangle that can be inscribed in a right triangle with legs of length 3 cm and 4 cm if two sides of the rectangle lie along the legs. 
+\item A piece of wire 10 cm long is cut into 2 pieces. One piece is bent into a square and the other bent into a equilateral triangle. How should the wire be cut so that the total area enclosed is (a) maximum (b) minimum? (This means try maximizing then try minimizing)
+\item Find the point of the curve $y=\sqrt{x}$ that is closest to the point (3,0).
+\item At which points n the curve $y=1+40x^3-3x^5$ does the tangent line have the largest slope?
+\end{enumerate}
+\end{document}
+
+
+
+
+
+
+

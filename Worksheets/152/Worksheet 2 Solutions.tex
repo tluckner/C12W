@@ -1,0 +1,525 @@
+\documentclass[10pt]{article}
+
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{array}
+\usepackage[all]{xy}
+\usepackage{fancyhdr}
+\usepackage{euscript}
+\usepackage{graphics}
+\usepackage{cancel}
+\usepackage{fancybox}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{pgf}
+\usepackage{pgfplots}
+\usepackage[all]{xy}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\pgfplotsset{compat=1.14}
+
+\usepackage{pstricks}
+\usepackage{pst-plot}
+
+\usepackage{setspace}
+\onehalfspacing
+
+\setlength{\oddsidemargin}{.5in}
+\setlength{\evensidemargin}{.5in}
+\setlength{\textwidth}{6.in}
+\setlength{\topmargin}{0in}
+\setlength{\headsep}{.20in}
+\setlength{\textheight}{8.5in}
+
+
+\pdfpagewidth 8.5in
+ \pdfpageheight 11in
+
+
+%General
+\newcommand{\WW}{\mathbb {W}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\RR}{\mathbb {R}}
+\newcommand{\II}{\mathbb {I}}
+\newcommand{\QQ}{\mathbb {Q}}
+\newcommand{\CC}{\mathbf C}
+\newcommand{\NN}{\mathbb {N}}
+\newcommand{\Zn}[1]{\mathbf{Z}/#1\mathbf{Z}}
+\newcommand{\Znx}[1]{(\mathbf{Z}/#1\mathbf{Z})^\times}
+\newcommand{\X}{\times} 
+\newcommand{\set}[2]{\left\{#1 : #2\right\}}          
+\newcommand{\sett}[1]{\left\{#1\right\}}                
+\newcommand{\nonempty}{\neq\varnothing}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\abs}[1]{\left| {#1} \right|}
+\newcommand{\qedbox}{\rule{2mm}{2mm}}
+\renewcommand{\qedsymbol}{\qedbox}											
+\newcommand{\aand}{\qquad\hbox{and}\qquad}
+\newcommand{\e}{\varepsilon}
+\newcommand{\tto}{\rightrightarrows}
+\newcommand{\gs}{\geqslant}
+\newcommand{\ls}{\leqslant}
+\renewcommand{\tilde}{\widetilde}
+\renewcommand{\hat}{\widehat}
+\newcommand{\norm}[1]{\left\| #1 \right\|}
+\newcommand{\md}[3]{#1\equiv#2\;(\mathrm{mod}\;#3)}     
+\newcommand{\gen}[1]{\left\langle #1 \right\rangle}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\zero}{\boldsymbol{0}}
+
+\newcommand{\be}[1]{\textbf{\emph{#1}}}
+\newcommand{\hhat}[1]{\hat{\! \hat{#1}}}
+
+\newcommand{\fto}[1]{\xrightarrow{\hspace{4pt} #1 \hspace{4pt}}}
+\newcommand{\flto}[1]{\xrightarrow{\quad #1 \quad}}
+
+
+
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\esssup}{\operatorname{ess\:sup}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\card}{\operatorname{card}}
+
+\newcommand{\dmu}{\:\mathrm{d}\mu}
+\newcommand{\dm}{\:\mathrm{d}m}
+\newcommand{\dx}{\:\mathrm{d}x}
+\newcommand{\dt}{\:\mathrm{d}t}
+\newcommand{\dz}{\:\mathrm{d}z}
+\newcommand{\dtheta}{\:\mathrm{d}\theta}
+\newcommand{\dw}{\:\mathrm{d}w}
+
+%Algebra
+\newcommand{\Sym}{\operatorname {Sym}}
+\newcommand{\Stab}{\operatorname {Stab}}
+\newcommand{\M}{\operatorname{M}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\PGL}{\operatorname{PGL}}
+\newcommand{\SL}{\operatorname{SL}}
+\newcommand{\PSL}{\operatorname{PSL}}
+\newcommand{\Heis}{\operatorname{Heis}}
+\newcommand{\Aff}{\operatorname{Aff}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\image}{\operatorname{im}}
+\newcommand{\Syl}[2]{\operatorname{\emph{Syl}}_{#1}\left(#2\right)}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Tor}{\operatorname{Tor}}
+\newcommand{\Gal}{\operatorname{Gal}}
+\newcommand{\ch}{\operatorname{ch}}
+\newcommand{\rad}{\operatorname{rad}}
+\newcommand{\iso}{\cong}
+\newcommand{\normal}{\unlhd}
+\newcommand{\semi}{\rtimes}
+\newcommand{\Nm}{\operatorname {N}}
+\newcommand{\Tr}{\operatorname {Tr}}
+\newcommand{\disc}{\operatorname {disc}}
+
+
+
+
+
+
+
+
+%Euler Script Characters
+\newcommand{\esa}{\EuScript{A}}
+\newcommand{\esb}{\EuScript{B}}
+\newcommand{\esc}{\EuScript{C}}
+\newcommand{\esd}{\EuScript{D}}
+\newcommand{\ese}{\EuScript{E}}
+\newcommand{\esf}{\EuScript{F}}
+\newcommand{\esg}{\EuScript{G}}
+\newcommand{\esh}{\EuScript{H}}
+\newcommand{\esi}{\EuScript{I}}
+\newcommand{\esj}{\EuScript{J}}
+\newcommand{\esk}{\EuScript{K}}
+\newcommand{\esl}{\EuScript{L}}
+\newcommand{\esm}{\EuScript{M}}
+\newcommand{\esn}{\EuScript{N}}
+\newcommand{\eso}{\EuScript{O}}
+\newcommand{\esp}{\EuScript{P}}
+\newcommand{\esq}{\EuScript{Q}}
+\newcommand{\esr}{\EuScript{R}}
+\newcommand{\ess}{\EuScript{S}}
+\newcommand{\est}{\EuScript{T}}
+\newcommand{\esu}{\EuScript{U}}
+\newcommand{\esv}{\EuScript{V}}
+\newcommand{\esw}{\EuScript{W}}
+\newcommand{\esx}{\EuScript{X}}
+\newcommand{\esy}{\EuScript{Y}}
+\newcommand{\esz}{\EuScript{Z}}
+
+%Calligraphic Characters
+\newcommand{\cala}{\mathcal{A}}
+\newcommand{\calb}{\mathcal{B}}
+\newcommand{\calc}{\mathcal{C}}
+\newcommand{\cald}{\mathcal{D}}
+\newcommand{\cale}{\mathcal{E}}
+\newcommand{\calf}{\mathcal{F}}
+\newcommand{\calg}{\mathcal{G}}
+\newcommand{\calh}{\mathcal{H}}
+\newcommand{\cali}{\mathcal{I}}
+\newcommand{\calj}{\mathcal{J}}
+\newcommand{\calk}{\mathcal{K}}
+\newcommand{\call}{\mathcal{L}}
+\newcommand{\calm}{\mathcal{M}}
+\newcommand{\caln}{\mathcal{N}}
+\newcommand{\calo}{\mathcal{O}}
+\newcommand{\calp}{\mathcal{P}}
+\newcommand{\calq}{\mathcal{Q}}
+\newcommand{\calr}{\mathcal{R}}
+\newcommand{\cals}{\mathcal{S}}
+\newcommand{\calt}{\mathcal{T}}
+\newcommand{\calu}{\mathcal{U}}
+\newcommand{\calv}{\mathcal{V}}
+\newcommand{\calw}{\mathcal{W}}
+\newcommand{\calx}{\mathcal{X}}
+\newcommand{\caly}{\mathcal{Y}}
+\newcommand{\calz}{\mathcal{Z}}
+
+%Gothic Characters
+\newcommand{\fraka}{\mathfrak{a}}
+\newcommand{\frakb}{\mathfrak{b}}
+\newcommand{\frakc}{\mathfrak{c}}
+\newcommand{\frakd}{\mathfrak{d}}
+\newcommand{\frake}{\mathfrak{e}}
+\newcommand{\frakf}{\mathfrak{f}}
+\newcommand{\frakg}{\mathfrak{g}}
+\newcommand{\frakh}{\mathfrak{h}}
+\newcommand{\fraki}{\mathfrak{i}}
+\newcommand{\frakj}{\mathfrak{j}}
+\newcommand{\frakk}{\mathfrak{k}}
+\newcommand{\frakl}{\mathfrak{l}}
+\newcommand{\frakm}{\mathfrak{m}}
+\newcommand{\frakn}{\mathfrak{n}}
+\newcommand{\frako}{\mathfrak{o}}
+\newcommand{\frakp}{\mathfrak{p}}
+\newcommand{\frakq}{\mathfrak{q}}
+\newcommand{\frakr}{\mathfrak{r}}
+\newcommand{\fraks}{\mathfrak{s}}
+\newcommand{\frakt}{\mathfrak{t}}
+\newcommand{\fraku}{\mathfrak{u}}
+\newcommand{\frakv}{\mathfrak{v}}
+\newcommand{\frakw}{\mathfrak{w}}
+\newcommand{\frakx}{\mathfrak{x}}
+\newcommand{\fraky}{\mathfrak{y}}
+\newcommand{\frakz}{\mathfrak{z}}
+
+\newcommand{\frakA}{\mathfrak{A}}
+\newcommand{\frakB}{\mathfrak{B}}
+\newcommand{\frakC}{\mathfrak{C}}
+\newcommand{\frakD}{\mathfrak{D}}
+\newcommand{\frakE}{\mathfrak{E}}
+\newcommand{\frakF}{\mathfrak{F}}
+\newcommand{\frakG}{\mathfrak{G}}
+\newcommand{\frakH}{\mathfrak{H}}
+\newcommand{\frakI}{\mathfrak{I}}
+\newcommand{\frakJ}{\mathfrak{J}}
+\newcommand{\frakK}{\mathfrak{K}}
+\newcommand{\frakL}{\mathfrak{L}}
+\newcommand{\frakM}{\mathfrak{M}}
+\newcommand{\frakN}{\mathfrak{N}}
+\newcommand{\frakO}{\mathfrak{O}}
+\newcommand{\frakP}{\mathfrak{P}}
+\newcommand{\frakQ}{\mathfrak{Q}}
+\newcommand{\frakR}{\mathfrak{R}}
+\newcommand{\frakS}{\mathfrak{S}}
+\newcommand{\frakT}{\mathfrak{T}}
+\newcommand{\frakU}{\mathfrak{U}}
+\newcommand{\frakV}{\mathfrak{V}}
+\newcommand{\frakW}{\mathfrak{W}}
+\newcommand{\frakX}{\mathfrak{X}}
+\newcommand{\frakY}{\mathfrak{Y}}
+\newcommand{\frakZ}{\mathfrak{Z}}
+
+%Lowercase Bold Letters
+\newcommand{\bfa}{\mathbf{a}}
+\newcommand{\bfb}{\mathbf{b}}
+\newcommand{\bfc}{\mathbf{c}}
+\newcommand{\bfd}{\mathbf{d}}
+\newcommand{\bfe}{\mathbf{e}}
+\newcommand{\bff}{\mathbf{f}}
+\newcommand{\bfg}{\mathbf{g}}
+\newcommand{\bfh}{\mathbf{h}}
+\newcommand{\bfi}{\mathbf{i}}
+\newcommand{\bfj}{\mathbf{j}}
+\newcommand{\bfk}{\mathbf{k}}
+\newcommand{\bfl}{\mathbf{l}}
+\newcommand{\bfm}{\mathbf{m}}
+\newcommand{\bfn}{\mathbf{n}}
+\newcommand{\bfo}{\mathbf{o}}
+\newcommand{\bfp}{\mathbf{p}}
+\newcommand{\bfq}{\mathbf{q}}
+\newcommand{\bfr}{\mathbf{r}}
+\newcommand{\bfs}{\mathbf{s}}
+\newcommand{\bft}{\mathbf{t}}
+\newcommand{\bfu}{\mathbf{u}}
+\newcommand{\bfv}{\mathbf{v}}
+\newcommand{\bfw}{\mathbf{w}}
+\newcommand{\bfx}{\mathbf{x}}
+\newcommand{\bfy}{\mathbf{y}}
+\newcommand{\bfz}{\mathbf{z}}
+
+
+
+
+%Customized Theorem Environments
+\newtheoremstyle%
+{custom}%
+{}%                         Space above
+{}%													Space below
+{}%													Body font
+{}%                         Indent amount
+{}%                         Theorem head font
+{.}%                        Punctuation after heading
+{ }%                        Space after heading
+{\thmname{}%                Additional specifications for theorem head
+\thmnumber{}%
+\thmnote{\bfseries #3}}%
+
+\newtheoremstyle%
+{Theorem}%
+{}%
+{}%
+{\itshape}%
+{}%
+{}%
+{.}%
+{ }%
+{\thmname{\bfseries #1}%
+\thmnumber{\;\bfseries #2}%
+\thmnote{\;(\bfseries #3)}}%
+
+%Theorem Environments
+\theoremstyle{Theorem}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{cor}{Corollary}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem*{nonumthm}{Theorem}
+\newtheorem*{nonumprop}{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem*{answer}{Answer}
+\newtheorem*{solution}{Solution}
+\newtheorem*{nonumdfn}{Definition}
+\newtheorem*{nonumex}{Example}
+\newtheorem{ex}{Example}[section]
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}[section]
+\newtheorem*{note}{Note}
+\newtheorem*{notation}{Notation}
+\theoremstyle{custom}
+\newtheorem*{cust}{Definition}
+\fancypagestyle{firststyle}
+{
+   \fancyhead[L]{\textbf{Name:}}
+   \fancyhead[R]{\textbf{Worksheet 2: Partial Fraction Decomp., Trapezoidal Rule, and Simpson's Rule}}
+   \fancyfoot[R]{ Thomas Luckner } %{\footnotesize Page \thepage\ of \pageref{LastPage}}
+}
+
+
+
+
+
+
+\begin{document}
+\thispagestyle{firststyle}
+\pagestyle{plain}
+
+
+Thoughts:\\\\
+Partial Fraction Decomp.- This is typically your last resort when it comes to integration. You'll seek a simple integral or a basic $u$-sub and not find it. Then see if you have an expression between 2 squares for trig sub or maybe a trig identity if the integral includes trig functions. All that is a no go and here you are; stuck with a rational function.  Time for partial fraction decomp.  There are really 3 rules here:
+\begin{enumerate}[1.]
+\item A factor of the denominator is linear with power 1 ex: $denom=(2x-1)(x^2+2)(x^2-3)^2(x+1)^2$. Here the $2x-1$ is the lienar term of power 1.
+\item A factor of the denominator is of degree greater than 1 \textbf{UNFACTORABLE} and power of the whole factor is 1. ex: $denom=(2x-1)(x^2+2)(x^2-3)^2(x+1)^2$. Here $x^2+2$ is our example.
+\item Any factor with power greater than 1. ex: $denom=(2x-1)(x^2+2)(x^2-3)^2(x+1)^2$. Here $(x+1)^2$ is an example.
+\end{enumerate}
+NOTE: These rules cases can overlap! ex: $denom=(2x-1)(x^2+2)(x^2-3)^2(x+1)^2$. Here $(x^2-3)^2$ is the example.\\\\
+Now what do we do for each case? Let's lay is out with our example: $denom=(2x-1)(x^2+2)(x^2-3)^2(x+1)^2$. For now say the numerator is $x$.
+\begin{enumerate}[1.]
+\item $\dfrac{x}{(2x-1)(x^2+2)(x^2-3)^2(x+1)^2}=\dfrac{A}{2x-1}+\cdots$.
+\item $\dfrac{x}{(2x-1)(x^2+2)(x^2-3)^2(x+1)^2}=\dfrac{A}{2x-1}+\dfrac{Bx+C}{x^2+2}+\cdots.$ Note: the power of the numerator should be 1 less than the power of the denominator. In other words, case 1 is a subcase of case 2.
+\item $\dfrac{x}{(2x-1)(x^2+2)(x^2-3)^2(x+1)^2}=\dfrac{A}{2x-1}+\dfrac{Bx+C}{x^2+2}+\dfrac{D}{x+1}+\dfrac{E}{(x+1)^2}+ \cdots$. Note: go until your reach the power in the denominator.
+\end{enumerate}
+Thus, our combo piece gives us, $$\dfrac{x}{(2x-1)(x^2+2)(x^2-3)^2(x+1)^2}=\dfrac{A}{2x-1}+\dfrac{Bx+C}{x^2+2}+\dfrac{D}{x+1}+\dfrac{E}{(x+1)^2}+\dfrac{Fx+G}{x^2-3}+\dfrac{Hx+I}{(x^2-3)^2}.$$
+Obviously, this is not something you will given in class since the expression is very long. This example was chosen to show you every case. Now the question is so what? Why do all this? Let's choose a smaller example and explain.
+$$\int \dfrac{10}{(x-1)(x^2+9)}\dx$$
+Let's do as we did previously and express this in partial fractions.
+ $$\dfrac{10}{(x-1)(x^2+9)}=\dfrac{A}{x-1}+\dfrac{Bx+C}{x^2+9}.$$
+ Let's get a common denominator on the right so we can equate the numerators to find $A$, $B$, and $C$!
+ $$\dfrac{10}{(x-1)(x^2+9)}=\dfrac{A(x^2+9)}{(x^2+9)(x-1)}+\dfrac{(Bx+C)(x-1)}{(x^2+9)(x-1)}.$$
+ Now we can equate the numerators. 
+ $$10=A(x^2+9)+(Bx+C)(x-1).$$
+ How do we find $A$, $B$, and $C$. Notice that the left side has no $x^2$ or $x$ terms. That means the coefficient of those is 0! For the constant we have 10! Let's make 3 equations representing this.
+ \begin{eqnarray*}
+ A+B=0\\
+ C=0\\
+ 9A-C=10
+ \end{eqnarray*}
+ Now we solve the system! This should not be too hard, so we get $A=10/9$, $B=-10/9$, and $C=0$.\\
+NOTE: There is another way to solve! You can plug in values for $x$ such that the other letters are not a factor. For example, plug in 1 for $x$ and the $(Bx+C)(x-1)=0$. Now you can just solve for $A$.\\
+Now we can plug in to our partial fraction decomp.!
+ $$\dfrac{10}{(x-1)(x^2+9)}=\dfrac{10/9}{(x-1)}+\dfrac{((-10/9)x}{(x^2+9)}.$$
+This is better for integration!\\
+Note: A common trick is to use $\arctan(x)$. Not here though!
+$$=(10/9)\int \dfrac{1}{u}du-(10/18)\int \dfrac{1}{u}du.\text{ (Different u's here!)}$$
+$$=(10/9)\ln|x-1|-(5/9)\ln|x^2+9|+C.$$
+\newpage
+Trapezoidal Rule- The whole goal with this rule (and Simpson's rule) is to approximate the integral. If you take a bunch of trapezoids and put them under a curve you are not going to get the exact area under the curve. It is just that simple. However, it does provide an estimate. Now your instructor probably drew a picture and said "Tada" here is the formula. The hard part is where did this formula come from. If you remember the formula for the area of a trapezoid is (1/2)(height)(bigger base + smaller base). This is essentially what we are doing, but with a set number of trapezoids. Most of the time you are given an $n$ or number of partitions/trapezoids. This will give us the $h$ for each trapezoid. Let's use an example to really tie this all together.
+$$\int_1^9 f(x) \dx, n=4.$$
+To get a trapezoidal approximation with $n=4$ trapezoids of equal height, we must take the length of the interval and divide it into 4 equal lengths! That gives each trapezoid a height of 2.  Now let's get our trapezoids! Our first trapezoid is from 1 to 3. That means our first base has length $f(1)$ and our second base has length $f(3)$! So we get an area of trap 1$=(1/2)(2)(f(1)+f(3))$. Similarly, trap 2$=(1/2)(2)(f(3)+f(5))$, trap 3$=(1/2)(2)(f(5)+f(7))$, and trap 4$=(1/2)(2)(f(7)+f(9))$. If we add those up we get our approximation! Let's take a close look at what that looks like and simplify!
+$$(1/2)(2)(f(1)+f(3))+(1/2)(2)(f(3)+f(5))+(1/2)(2)(f(5)+f(7))+(1/2)(2)(f(7)+f(9))$$
+$$=(1/2)(2)(f(1)+2f(3)+2f(5)+2f(7)+f(9)).$$
+In other words, taking the context of the problem out,
+$$\dfrac{h}{2}\left(f(x_0)+2f(x_1)+2f(x_2)+\cdots 2f(x_{n-1})+f(x_n)\right).$$
+Now we have a trapezoidal rule to approximate. The more difficult part is error.\\
+These there is little showing I can do without getting too complex. Thus, I will give you an example of use! First the formula.
+$$|E_T|\leq \dfrac{K(b-a)^3}{12n^2}$$
+where $|f''(x)|\leq K$ for $a\leq x\leq b$. What on earth does this mean? I will use an example of the book but with my own flavor!
+$$f(x)=1/x, 1\leq x\leq 2, n=5.$$
+First let's find $f''$.  $f''(x)=\dfrac{2}{x^3}$.  Now on the interval of $[1,2]$ how big can the absolute value of this be? This is a decreasing function. Thus, the smaller the input the larger the output. Therefore, $x=1$ is where this function is largest! This will give us our $k$!
+$$|\dfrac{2}{x^3}|\leq \dfrac{2}{(1)^3}=2.$$
+Now we can find the upperbound on the error. 
+$$|E_T|\leq\dfrac{2(2-1)^3}{12(5)^2}=\dfrac{1}{150}.$$
+Another question can be asked as to how large $n$ must be to approximate within some amount. Let's take that amount to be .00001 above. Then we have
+$$|E_T|\leq\dfrac{2(2-1)^3}{12(n)^2}\leq .00001.$$
+$$\dfrac{1}{6n^2}\leq .00001 \Rightarrow \dfrac{1}{n^2}\leq .00006 \Rightarrow n^2\geq \dfrac{1}{.00006}=\dfrac{100000}{6}\Rightarrow n\geq \dfrac{\sqrt{100000}}{\sqrt{6}}.$$\\
+Simpson's Rule- This is just like trapezoidal, but with different formulas.  What Simpson did was use a parabola instead of a straight edge to approximate the curve which is what trapezoidal does.  This is done by taking the parabolas between the initial, midpoint, and end point of each interval and deriving the formula! This takes a lot of explanation, so I will not waste the paper, but if needed please ask! What you end up with is the following formulas for approximation and error.
+$$S_n=\dfrac{\text{interval length}}{3}(f(x_0)+4f(x_1)+2f(x_2)+4f(x_3)+\cdots +2f(x_{n-2})+4f(x_{n-1})+f(x_n))$$
+$$|E_S|\leq \dfrac{K(b-a)^5}{180n^4}$$
+where $|f^{(4)}(x)|\leq K$ for $a\leq x\leq b$. Notice the subtleties here that make it different from trapezoidal! I feel an example here is redundant, but do try this with the example for trapezoidal we used.\\
+\newpage
+
+\noindent Problems:\\
+Evaluate the integrals.
+\begin{enumerate}[1.]
+\item $\int \dfrac{4x}{x^3+x^2+x+1}\dx$
+\begin{solution}
+Here we will use partial fraction, but with the other technique I talked about above.
+\[
+\dfrac{4x}{x^3+x^2+x+1}=\dfrac{4x}{(x^2+1)(x+1)}=\dfrac{A}{x+1}+\dfrac{Bx+C}{x^2+1}.
+\]
+Now we get common denominator and get rid of it.
+\[
+4x=A(x^2+1)+(Bx+C)(x+1).
+\]
+Now is when we will use the other trick. Notice if we plug in $-1$ for $x$, $(Bx+C)(x+1)=0$. Let's see what that does for us.
+\[
+4(-1)=A((-1)^2+1) \Rightarrow A=-2.
+\]
+Now we will plug that in as well as $x=0$ to rid of $B$.
+\[
+4(0)=-2(0^2+1)+C(0+1) \Rightarrow C=2.
+\]
+Now we are left to find $B$. We can use our previous tactic of equating term-wise. In this case, we know $A+B=0$ since those are the coefficients of the $x^2$ term and there is no $x^2$ term on the other side of the equality. This means $B=2$. Now we can plug back in to find our integral.
+\begin{align*}
+\int \dfrac{4x}{x^3+x^2+x+1}\dx
+&=\int \dfrac{-2}{x+1}+\dfrac{2(x+1)}{x^2+1}\dx \\[2pt]
+&=-2\ln|x+1|+\int \dfrac{2x}{x^2+1}\dx+ \int \dfrac{2}{x^2+1}\dx\\[2pt]
+&=-2\ln|x+1|+\ln|x^2+1|+2\arctan(x)+C.
+\end{align*}
+\end{solution}
+\item $\int \dfrac{3x^2+x+4}{x^4+3x^2+2}\dx$
+\begin{solution}
+This solution will be less words and more derivation.
+\[
+\dfrac{3x^2+x+4}{x^4+3x^2+2}=\dfrac{Ax+B}{x^2+2}+\dfrac{Cx+D}{x^2+1}.
+\]
+\[ 
+\Rightarrow 3x^2+x+4=(Ax+B)(x^2+1)(Cx+D)(x^2+2).
+\]
+\[
+\Rightarrow A+C=0, B+D=3, A+2C=1, B+2D=4.
+\]
+We solve the system and get $A=-1$, $B=2$, $C=1$, and $D=1$. 
+\begin{align*}
+\int \dfrac{3x^2+x+4}{x^4+3x^2+2}\dx&=\int \dfrac{2-x}{x^2+2}+\dfrac{x+1}{x^2+1}\dx \\[2pt]
+&=\int \dfrac{2}{x^2+2}\dx-\int \dfrac{x}{x^2+2}\dx+\int \dfrac{x}{x^2+1}\dx +\int \dfrac{1}{x^2+1}\dx\\[2pt]
+&=\sqrt{2}\arctan(x)-(1/2)\ln|x^2+2|+(1/2)\ln|x^2+1|+\arctan(x/\sqrt{2})+C
+\end{align*}
+\end{solution}
+\item $\int \dfrac{x^3+2x^2+3x-2}{(x^2+2x+2)^2}\dx$
+\begin{solution}
+First notice the polynomial inside the parentheses is not factorable.
+\[
+\dfrac{x^3+2x^2+3x-2}{(x^2+2x+2)^2}=\dfrac{Ax+B}{x^2+2x+2}+\dfrac{Cx+D}{(x^2+2x+2)^2}.
+\]
+\[
+x^3+2x^2+3x-2=(Ax+B)(x^2+2x+2)+(Cx+D) \Rightarrow A=1, B=0, C=1, D=-2.
+\]
+\begin{align*}
+\int \dfrac{x^3+2x^2+3x-2}{(x^2+2x+2)^2}\dx&=\int \dfrac{x}{x^2+2x+2}+\dfrac{x-2}{(x^2+2x+2)^2}\dx\\[2pt]
+&=\int \dfrac{x}{x^2+2x+2}\dx+ \int \dfrac{x}{(x^2+2x+2)^2}\dx-\int \dfrac{2}{(x^2+2x+2)^2}\dx\\[2pt]
+\end{align*}
+Now we can use completing the square on the denominator for the first integral.
+\begin{align*}
+\int \dfrac{x}{x^2+2x+2}\dx&=\int \dfrac{x}{(x+1)^2+1}\dx = \int \dfrac{u-1}{u^2+1}du\\[2pt]
+&=\int \dfrac{u}{u^2+1}du - \int \dfrac{1}{u^2+1}du=(1/2)\ln|(x+1)^2+1|-\arctan(x+1)+C.
+\end{align*}
+Now we do the second integral by similar process.
+\begin{align*}
+ \int \dfrac{x}{(x^2+2x+2)^2}\dx&= \int \dfrac{x}{((x+1)^2+1)^2}\dx\\[2pt]
+ &=\int \dfrac{u-1}{(u^2+1)^2}du\\[2pt]
+ &=\int \dfrac{u}{(u^2+1)^2}du-\int \dfrac{1}{(u^2+1)^2}du\\[2pt]
+ &=(-1/2)\dfrac{1}{u^2+1}-\left(\dfrac{\arctan(u)}{2}+\dfrac{u}{2(u^2+1)}\right)+C \text{ (This is by trig sub with tan)}.
+ \end{align*}
+ Make the substitution back to $x$. Now we have our last integral which we proceed similarly.
+\begin{align*}
+\int \dfrac{2}{(x^2+2x+2)^2}\dx&=\int \dfrac{2}{(x+1)^2+1}\dx\\[2pt]
+&=\int \dfrac{2}{u^2+1}du\\[2pt]
+&= 2\arctan(x+1)+C.
+\end{align*}
+Combine these 3 and we are done!
+\end{solution}
+\end{enumerate}
+For problems (1-3), use both Trapezoidal and Simpson's Rule to Approximate the integrals. Feel free to use a calculator.
+\begin{enumerate}[1.]
+\item $\ds\int_1^2 \sqrt{x^3-1}\dx, n=10$
+\begin{solution}
+Try these links to help! \\
+Trapezoidal: \url{https://www.emathhelp.net/calculators/calculus-2/trapezoidal-rule-calculator/}.\\
+Simpson's: \url{https://www.emathhelp.net/calculators/calculus-2/simpsons-rule-calculator/}.\\
+$T_{10}=1.50636...$.\\
+$S_{10}=1.5115...$.
+\end{solution}
+\item $\ds\int_0^{\pi/2} \sqrt[3]{1+\cos(x)}\dx, n=4$
+\begin{solution}
+$T_4=1.83896...$\\
+$S_4=1.843245...$
+\end{solution}
+\item $\ds\int^6_4\ln(x^3+2)\dx, n=10$
+\begin{solution}
+$T_{10}=9.64975...$\\
+$S_{10}=9.6505...$
+\end{solution}
+\item How large should $n$ be so that Simpson's Rule is accurate within .00001? What about trapezoidal rule? What about for both trapezoidal and Simpson's Rule within .001? What is the upper bound for both rules when $n$=10?
+\begin{solution}
+$|E_T|\leq \dfrac{K(b-a)^3}{12n^2}\leq .00001$.\\
+$12n^2 (.00001)\geq K(b-a)^3 \Rightarrow n\geq \left(\dfrac{K(b-a)^3}{12(.00001)}\right)^{1/2}$.\\\\
+$E_S\leq \dfrac{K(b-a)^5}{180n^4}\leq .00001$.\\
+$n\geq \left(\dfrac{K(b-a)^5}{180(.00001)}\right)^{1/4}$.\\\\
+Change $.00001$ to $.001$ above and you have your answers.\\\\
+Since a function is not given here, let's try with $x^2$ from 1 to 5 with $n=5$.\\
+\[
+(x^2)'=2x.
+\]
+This is an increasing function. Thus, it is largest at 5. Therefore, take $K=10$. Here is our solution.
+\[
+|E_T|\leq \dfrac{10(4)^3}{12(5)^2}.
+\]
+\[
+|E_S|\leq \dfrac{10(4)^5}{180(5)^4}.
+\]
+\end{solution}
+\end{enumerate}
+\end{document}
+
+
+
+
+
+
+

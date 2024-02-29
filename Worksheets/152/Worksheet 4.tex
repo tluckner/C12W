@@ -1,0 +1,388 @@
+\documentclass[10pt]{article}
+
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{array}
+\usepackage[all]{xy}
+\usepackage{fancyhdr}
+\usepackage{euscript}
+\usepackage{graphics}
+\usepackage{cancel}
+\usepackage{fancybox}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{pgf}
+\usepackage{pgfplots}
+\usepackage[all]{xy}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\pgfplotsset{compat=1.14}
+
+\usepackage{pstricks}
+\usepackage{pst-plot}
+
+\usepackage{setspace}
+\onehalfspacing
+
+\setlength{\oddsidemargin}{.5in}
+\setlength{\evensidemargin}{.5in}
+\setlength{\textwidth}{6.in}
+\setlength{\topmargin}{0in}
+\setlength{\headsep}{.20in}
+\setlength{\textheight}{8.5in}
+
+
+\pdfpagewidth 8.5in
+ \pdfpageheight 11in
+
+
+%General
+\newcommand{\WW}{\mathbb {W}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\RR}{\mathbb {R}}
+\newcommand{\II}{\mathbb {I}}
+\newcommand{\QQ}{\mathbb {Q}}
+\newcommand{\CC}{\mathbf C}
+\newcommand{\NN}{\mathbb {N}}
+\newcommand{\Zn}[1]{\mathbf{Z}/#1\mathbf{Z}}
+\newcommand{\Znx}[1]{(\mathbf{Z}/#1\mathbf{Z})^\times}
+\newcommand{\X}{\times} 
+\newcommand{\set}[2]{\left\{#1 : #2\right\}}          
+\newcommand{\sett}[1]{\left\{#1\right\}}                
+\newcommand{\nonempty}{\neq\varnothing}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\abs}[1]{\left| {#1} \right|}
+\newcommand{\qedbox}{\rule{2mm}{2mm}}
+\renewcommand{\qedsymbol}{\qedbox}											
+\newcommand{\aand}{\qquad\hbox{and}\qquad}
+\newcommand{\e}{\varepsilon}
+\newcommand{\tto}{\rightrightarrows}
+\newcommand{\gs}{\geqslant}
+\newcommand{\ls}{\leqslant}
+\renewcommand{\tilde}{\widetilde}
+\renewcommand{\hat}{\widehat}
+\newcommand{\norm}[1]{\left\| #1 \right\|}
+\newcommand{\md}[3]{#1\equiv#2\;(\mathrm{mod}\;#3)}     
+\newcommand{\gen}[1]{\left\langle #1 \right\rangle}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\zero}{\boldsymbol{0}}
+
+\newcommand{\be}[1]{\textbf{\emph{#1}}}
+\newcommand{\hhat}[1]{\hat{\! \hat{#1}}}
+
+\newcommand{\fto}[1]{\xrightarrow{\hspace{4pt} #1 \hspace{4pt}}}
+\newcommand{\flto}[1]{\xrightarrow{\quad #1 \quad}}
+
+
+
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\esssup}{\operatorname{ess\:sup}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\card}{\operatorname{card}}
+
+\newcommand{\dmu}{\:\mathrm{d}\mu}
+\newcommand{\dm}{\:\mathrm{d}m}
+\newcommand{\dx}{\:\mathrm{d}x}
+\newcommand{\dt}{\:\mathrm{d}t}
+\newcommand{\dz}{\:\mathrm{d}z}
+\newcommand{\dtheta}{\:\mathrm{d}\theta}
+\newcommand{\dw}{\:\mathrm{d}w}
+
+%Algebra
+\newcommand{\Sym}{\operatorname {Sym}}
+\newcommand{\Stab}{\operatorname {Stab}}
+\newcommand{\M}{\operatorname{M}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\PGL}{\operatorname{PGL}}
+\newcommand{\SL}{\operatorname{SL}}
+\newcommand{\PSL}{\operatorname{PSL}}
+\newcommand{\Heis}{\operatorname{Heis}}
+\newcommand{\Aff}{\operatorname{Aff}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\image}{\operatorname{im}}
+\newcommand{\Syl}[2]{\operatorname{\emph{Syl}}_{#1}\left(#2\right)}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Tor}{\operatorname{Tor}}
+\newcommand{\Gal}{\operatorname{Gal}}
+\newcommand{\ch}{\operatorname{ch}}
+\newcommand{\rad}{\operatorname{rad}}
+\newcommand{\iso}{\cong}
+\newcommand{\normal}{\unlhd}
+\newcommand{\semi}{\rtimes}
+\newcommand{\Nm}{\operatorname {N}}
+\newcommand{\Tr}{\operatorname {Tr}}
+\newcommand{\disc}{\operatorname {disc}}
+
+
+
+
+
+
+
+
+%Euler Script Characters
+\newcommand{\esa}{\EuScript{A}}
+\newcommand{\esb}{\EuScript{B}}
+\newcommand{\esc}{\EuScript{C}}
+\newcommand{\esd}{\EuScript{D}}
+\newcommand{\ese}{\EuScript{E}}
+\newcommand{\esf}{\EuScript{F}}
+\newcommand{\esg}{\EuScript{G}}
+\newcommand{\esh}{\EuScript{H}}
+\newcommand{\esi}{\EuScript{I}}
+\newcommand{\esj}{\EuScript{J}}
+\newcommand{\esk}{\EuScript{K}}
+\newcommand{\esl}{\EuScript{L}}
+\newcommand{\esm}{\EuScript{M}}
+\newcommand{\esn}{\EuScript{N}}
+\newcommand{\eso}{\EuScript{O}}
+\newcommand{\esp}{\EuScript{P}}
+\newcommand{\esq}{\EuScript{Q}}
+\newcommand{\esr}{\EuScript{R}}
+\newcommand{\ess}{\EuScript{S}}
+\newcommand{\est}{\EuScript{T}}
+\newcommand{\esu}{\EuScript{U}}
+\newcommand{\esv}{\EuScript{V}}
+\newcommand{\esw}{\EuScript{W}}
+\newcommand{\esx}{\EuScript{X}}
+\newcommand{\esy}{\EuScript{Y}}
+\newcommand{\esz}{\EuScript{Z}}
+
+%Calligraphic Characters
+\newcommand{\cala}{\mathcal{A}}
+\newcommand{\calb}{\mathcal{B}}
+\newcommand{\calc}{\mathcal{C}}
+\newcommand{\cald}{\mathcal{D}}
+\newcommand{\cale}{\mathcal{E}}
+\newcommand{\calf}{\mathcal{F}}
+\newcommand{\calg}{\mathcal{G}}
+\newcommand{\calh}{\mathcal{H}}
+\newcommand{\cali}{\mathcal{I}}
+\newcommand{\calj}{\mathcal{J}}
+\newcommand{\calk}{\mathcal{K}}
+\newcommand{\call}{\mathcal{L}}
+\newcommand{\calm}{\mathcal{M}}
+\newcommand{\caln}{\mathcal{N}}
+\newcommand{\calo}{\mathcal{O}}
+\newcommand{\calp}{\mathcal{P}}
+\newcommand{\calq}{\mathcal{Q}}
+\newcommand{\calr}{\mathcal{R}}
+\newcommand{\cals}{\mathcal{S}}
+\newcommand{\calt}{\mathcal{T}}
+\newcommand{\calu}{\mathcal{U}}
+\newcommand{\calv}{\mathcal{V}}
+\newcommand{\calw}{\mathcal{W}}
+\newcommand{\calx}{\mathcal{X}}
+\newcommand{\caly}{\mathcal{Y}}
+\newcommand{\calz}{\mathcal{Z}}
+
+%Gothic Characters
+\newcommand{\fraka}{\mathfrak{a}}
+\newcommand{\frakb}{\mathfrak{b}}
+\newcommand{\frakc}{\mathfrak{c}}
+\newcommand{\frakd}{\mathfrak{d}}
+\newcommand{\frake}{\mathfrak{e}}
+\newcommand{\frakf}{\mathfrak{f}}
+\newcommand{\frakg}{\mathfrak{g}}
+\newcommand{\frakh}{\mathfrak{h}}
+\newcommand{\fraki}{\mathfrak{i}}
+\newcommand{\frakj}{\mathfrak{j}}
+\newcommand{\frakk}{\mathfrak{k}}
+\newcommand{\frakl}{\mathfrak{l}}
+\newcommand{\frakm}{\mathfrak{m}}
+\newcommand{\frakn}{\mathfrak{n}}
+\newcommand{\frako}{\mathfrak{o}}
+\newcommand{\frakp}{\mathfrak{p}}
+\newcommand{\frakq}{\mathfrak{q}}
+\newcommand{\frakr}{\mathfrak{r}}
+\newcommand{\fraks}{\mathfrak{s}}
+\newcommand{\frakt}{\mathfrak{t}}
+\newcommand{\fraku}{\mathfrak{u}}
+\newcommand{\frakv}{\mathfrak{v}}
+\newcommand{\frakw}{\mathfrak{w}}
+\newcommand{\frakx}{\mathfrak{x}}
+\newcommand{\fraky}{\mathfrak{y}}
+\newcommand{\frakz}{\mathfrak{z}}
+
+\newcommand{\frakA}{\mathfrak{A}}
+\newcommand{\frakB}{\mathfrak{B}}
+\newcommand{\frakC}{\mathfrak{C}}
+\newcommand{\frakD}{\mathfrak{D}}
+\newcommand{\frakE}{\mathfrak{E}}
+\newcommand{\frakF}{\mathfrak{F}}
+\newcommand{\frakG}{\mathfrak{G}}
+\newcommand{\frakH}{\mathfrak{H}}
+\newcommand{\frakI}{\mathfrak{I}}
+\newcommand{\frakJ}{\mathfrak{J}}
+\newcommand{\frakK}{\mathfrak{K}}
+\newcommand{\frakL}{\mathfrak{L}}
+\newcommand{\frakM}{\mathfrak{M}}
+\newcommand{\frakN}{\mathfrak{N}}
+\newcommand{\frakO}{\mathfrak{O}}
+\newcommand{\frakP}{\mathfrak{P}}
+\newcommand{\frakQ}{\mathfrak{Q}}
+\newcommand{\frakR}{\mathfrak{R}}
+\newcommand{\frakS}{\mathfrak{S}}
+\newcommand{\frakT}{\mathfrak{T}}
+\newcommand{\frakU}{\mathfrak{U}}
+\newcommand{\frakV}{\mathfrak{V}}
+\newcommand{\frakW}{\mathfrak{W}}
+\newcommand{\frakX}{\mathfrak{X}}
+\newcommand{\frakY}{\mathfrak{Y}}
+\newcommand{\frakZ}{\mathfrak{Z}}
+
+%Lowercase Bold Letters
+\newcommand{\bfa}{\mathbf{a}}
+\newcommand{\bfb}{\mathbf{b}}
+\newcommand{\bfc}{\mathbf{c}}
+\newcommand{\bfd}{\mathbf{d}}
+\newcommand{\bfe}{\mathbf{e}}
+\newcommand{\bff}{\mathbf{f}}
+\newcommand{\bfg}{\mathbf{g}}
+\newcommand{\bfh}{\mathbf{h}}
+\newcommand{\bfi}{\mathbf{i}}
+\newcommand{\bfj}{\mathbf{j}}
+\newcommand{\bfk}{\mathbf{k}}
+\newcommand{\bfl}{\mathbf{l}}
+\newcommand{\bfm}{\mathbf{m}}
+\newcommand{\bfn}{\mathbf{n}}
+\newcommand{\bfo}{\mathbf{o}}
+\newcommand{\bfp}{\mathbf{p}}
+\newcommand{\bfq}{\mathbf{q}}
+\newcommand{\bfr}{\mathbf{r}}
+\newcommand{\bfs}{\mathbf{s}}
+\newcommand{\bft}{\mathbf{t}}
+\newcommand{\bfu}{\mathbf{u}}
+\newcommand{\bfv}{\mathbf{v}}
+\newcommand{\bfw}{\mathbf{w}}
+\newcommand{\bfx}{\mathbf{x}}
+\newcommand{\bfy}{\mathbf{y}}
+\newcommand{\bfz}{\mathbf{z}}
+
+
+
+
+%Customized Theorem Environments
+\newtheoremstyle%
+{custom}%
+{}%                         Space above
+{}%													Space below
+{}%													Body font
+{}%                         Indent amount
+{}%                         Theorem head font
+{.}%                        Punctuation after heading
+{ }%                        Space after heading
+{\thmname{}%                Additional specifications for theorem head
+\thmnumber{}%
+\thmnote{\bfseries #3}}%
+
+\newtheoremstyle%
+{Theorem}%
+{}%
+{}%
+{\itshape}%
+{}%
+{}%
+{.}%
+{ }%
+{\thmname{\bfseries #1}%
+\thmnumber{\;\bfseries #2}%
+\thmnote{\;(\bfseries #3)}}%
+
+%Theorem Environments
+\theoremstyle{Theorem}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{cor}{Corollary}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem*{nonumthm}{Theorem}
+\newtheorem*{nonumprop}{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem*{answer}{Answer}
+\newtheorem*{solution}{Solution}
+\newtheorem*{nonumdfn}{Definition}
+\newtheorem*{nonumex}{Example}
+\newtheorem{ex}{Example}[section]
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}[section]
+\newtheorem*{note}{Note}
+\newtheorem*{notation}{Notation}
+\theoremstyle{custom}
+\newtheorem*{cust}{Definition}
+\fancypagestyle{firststyle}
+{
+   \fancyhead[L]{\textbf{Name:}}
+   \fancyhead[R]{\textbf{Worksheet 4: Sequences and intro to Series}}
+   \fancyfoot[R]{ Thomas Luckner } %{\footnotesize Page \thepage\ of \pageref{LastPage}}
+}
+
+
+
+\begin{document}
+\thispagestyle{firststyle}
+\pagestyle{plain}
+
+
+\noindent Thoughts: \\
+Sequences- A sequence, to put it in non-math terms, is a set of things following a pattern. For example, all your counting numbers: 0, 1, 2, 3, 4, ... are terms in the sequence $a_n=n$ for $n$ starting at 0 or $a_n=n-1$ for $n$ starting at 1. Notice $a_0=0$, $a_1=1$, ... The question is does this sequence converge (to a number) or diverge (does not converge to a number). The example above diverges since you are increasing infinitely! Some are not as obvious, but there is a mathematical way to approach this answer. Mathematically, converging to $a$ means
+\[
+\lim_{n\rightarrow \infty}a_n=a.
+\]
+Why? Besides actually writing $\lim$, this should seem almost intuiitive. This is saying as $n$ approaches infinity, $a_n$ approaches $a$. Nothing too crazy here. Thus, limit rules like  sandwich/squeeze theorem, multiplying by conjugates, dividing by the highest power in the denominator, moving limits in and out, L'Hospital's, Monotone Convergence Theorem (every bounded monotonic sequence is convergent- monotone means nondecreasing or nonincreasing always)\\\\
+I do not think an example is really going to drive home anything for these for finding convergence or divergence, but there is a question that is typically asked in this class, and really in life, that I think should be addressed.  The question is "what's the pattern?" You look for patterns every day, but now we are doing it with numbers and generalizing. Understanding how to do this now will make your life with series MUCH MUCH easier. This is where an example makes sense.
+\[
+1, (1/2), (1/4), (1/8), \cdots
+\]
+This as a sequence is written $a_n=\dfrac{1}{2^n}$ for $n$ starting at 0. Not too bad to see. Might take some time to do on your own. Now I'm going to show another that is more intimidating.
+\[
+1, (5/2), (9/4), (13/8), \cdots
+\]
+We have the same thing going on in the denominator as before, but there is something different in the numerator. The answer is $a_n=\dfrac{1+4n}{2^n}$ with $n$ starting at 0. The observation to be made here is that viewing the numerator and denominator of the sequences as independent is SUPER helpful. Many times this helps with not just fractions, but products, differences, etc. You can always view seperately first to see if you get what you want! Once again the rest takes practice, but do take note of strategies you can use to make your life easier.\\\\
+One last common thing you'll see is what is called an "alternating piece".  This means the sign of the numbers in the sequence changes every term. Like 1, $-1$, 1, $-1$, ... This is still a sequence and can be written a few ways. The classical way to include an alternating piece is with $(-1)^n$ or $(-1)^{n+1}$ depending on where you want it to be negative or positive. Another way that catches a lot of students of guard is $\cos(\pi n)$ or $\cos(\pi(n+1))$ depending the starting sign.  Go ahead and try with $n=0, 1$ and 2.  You typically multiply the classical form to a sequence to make it alternate.
+\newpage
+I do not want to go too in depth with series yet since you wil not have gotten there most likely, but introing a topic is never a bad idea to prepare you for a dense area.  A series is quite simple to define once you have a sequence.
+\begin{center}
+A series is a sum of all the terms in a sequence. $\ds\sum_{n=0}^{\infty}a_n$
+\end{center}
+Done! That simple! There are infinite and finite series just like there are infinite and finite sequences. Finite series are not particularly useful right away since you can just go ahead and add the terms. Infinite series are much more interesting for the obvious reason that you cannot add them all.  Now the notion of divergent and convergent from series comes to series the same way. A series is convergent if it equals a number and divergent if it doesn't! This is easy to say, but not easy to figure out for most series. The first observation that can be made is something I want to share and then we'll call it for this worksheet. Let's look at the infinite series below
+\[
+\sum_{n=1}^{\infty}a_n
+\]
+where $a_n\geq 1$ for all $n$. First notice I'm starting from 1 in the series. This changes so do take note of this. Now focus on the condition of $a_n$. Why does this matter? Let's take the smallest possible value for each $n$ and add them up! This would be the sum of 1 infinitely many times! Clearly this is infinity! Thus, anything larger is also infinity. So this series is divergent. This idea should make you start thinking: "So what is convergent as a infinite series?" Great question! I will leave you with two examples and let you think about it.
+\[
+\sum_{n=1}^{\infty}\dfrac{1}{n}-\dfrac{1}{n+1}
+\]
+\[
+\sum_{n=0}^{\infty}\dfrac{2}{3^n}
+\]
+If you think you have an idea go ahead and tell me! I'd be glad to discuss it.
+\newpage
+\noindent Problems:
+\begin{enumerate}[1.]
+\item Give a formula for the sequence, $a_n$, where $a_n$ is the $n$th term of the sequence.
+\begin{enumerate}[a.]
+\item $\{(1/2), (-4/3), (9/4), (-16,5), (25/6),\cdots \}$
+\item $\{-3, 2, (-4/3), (8/9), (-16/27), \cdots \}$
+\end{enumerate}
+\item Determine if the sequences are convergent or divergent. If convergent, find what the sequence converges to.
+\begin{enumerate}[a.]
+\item $a_n=\dfrac{n^3}{n^3+1}$
+\item $a_n=\dfrac{n^3}{n+1}$
+\item $a_n=\cos(2/n)$
+\item $a_n=\lbrace \dfrac{(2n-1)!}{(2n+1)!}$
+\item $a_n=\ln(n+1)-\ln(n)$
+\item $a_n=\dfrac{\sin(2n)}{1+\sqrt{n}}$
+\end{enumerate}
+\end{enumerate}
+\end{document}
+
+
+
+
+
+
+

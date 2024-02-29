@@ -1,0 +1,385 @@
+\documentclass[10pt]{article}
+
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{array}
+\usepackage[all]{xy}
+\usepackage{fancyhdr}
+\usepackage{euscript}
+\usepackage{graphics}
+\usepackage{cancel}
+\usepackage{fancybox}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{pgf}
+\usepackage{pgfplots}
+\usepackage[all]{xy}
+\usepackage{graphicx}
+\pgfplotsset{compat=1.14}
+
+\usepackage{pstricks}
+\usepackage{pst-plot}
+
+\usepackage{setspace}
+\onehalfspacing
+
+\setlength{\oddsidemargin}{.5in}
+\setlength{\evensidemargin}{.5in}
+\setlength{\textwidth}{6.in}
+\setlength{\topmargin}{0in}
+\setlength{\headsep}{.20in}
+\setlength{\textheight}{8.5in}
+
+
+\pdfpagewidth 8.5in
+ \pdfpageheight 11in
+
+
+%General
+\newcommand{\WW}{\mathbb {W}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\RR}{\mathbb {R}}
+\newcommand{\II}{\mathbb {I}}
+\newcommand{\QQ}{\mathbb {Q}}
+\newcommand{\CC}{\mathbf C}
+\newcommand{\NN}{\mathbb {N}}
+\newcommand{\Zn}[1]{\mathbf{Z}/#1\mathbf{Z}}
+\newcommand{\Znx}[1]{(\mathbf{Z}/#1\mathbf{Z})^\times}
+\newcommand{\X}{\times} 
+\newcommand{\set}[2]{\left\{#1 : #2\right\}}          
+\newcommand{\sett}[1]{\left\{#1\right\}}                
+\newcommand{\nonempty}{\neq\varnothing}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\abs}[1]{\left| {#1} \right|}
+\newcommand{\qedbox}{\rule{2mm}{2mm}}
+\renewcommand{\qedsymbol}{\qedbox}											
+\newcommand{\aand}{\qquad\hbox{and}\qquad}
+\newcommand{\e}{\varepsilon}
+\newcommand{\tto}{\rightrightarrows}
+\newcommand{\gs}{\geqslant}
+\newcommand{\ls}{\leqslant}
+\renewcommand{\tilde}{\widetilde}
+\renewcommand{\hat}{\widehat}
+\newcommand{\norm}[1]{\left\| #1 \right\|}
+\newcommand{\md}[3]{#1\equiv#2\;(\mathrm{mod}\;#3)}     
+\newcommand{\gen}[1]{\left\langle #1 \right\rangle}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\zero}{\boldsymbol{0}}
+
+\newcommand{\be}[1]{\textbf{\emph{#1}}}
+\newcommand{\hhat}[1]{\hat{\! \hat{#1}}}
+
+\newcommand{\fto}[1]{\xrightarrow{\hspace{4pt} #1 \hspace{4pt}}}
+\newcommand{\flto}[1]{\xrightarrow{\quad #1 \quad}}
+
+
+
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\esssup}{\operatorname{ess\:sup}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\card}{\operatorname{card}}
+
+\newcommand{\dmu}{\:\mathrm{d}\mu}
+\newcommand{\dm}{\:\mathrm{d}m}
+\newcommand{\dx}{\:\mathrm{d}x}
+\newcommand{\dt}{\:\mathrm{d}t}
+\newcommand{\dz}{\:\mathrm{d}z}
+\newcommand{\dtheta}{\:\mathrm{d}\theta}
+\newcommand{\dw}{\:\mathrm{d}w}
+
+%Algebra
+\newcommand{\Sym}{\operatorname {Sym}}
+\newcommand{\Stab}{\operatorname {Stab}}
+\newcommand{\M}{\operatorname{M}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\PGL}{\operatorname{PGL}}
+\newcommand{\SL}{\operatorname{SL}}
+\newcommand{\PSL}{\operatorname{PSL}}
+\newcommand{\Heis}{\operatorname{Heis}}
+\newcommand{\Aff}{\operatorname{Aff}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\image}{\operatorname{im}}
+\newcommand{\Syl}[2]{\operatorname{\emph{Syl}}_{#1}\left(#2\right)}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Tor}{\operatorname{Tor}}
+\newcommand{\Gal}{\operatorname{Gal}}
+\newcommand{\ch}{\operatorname{ch}}
+\newcommand{\rad}{\operatorname{rad}}
+\newcommand{\iso}{\cong}
+\newcommand{\normal}{\unlhd}
+\newcommand{\semi}{\rtimes}
+\newcommand{\Nm}{\operatorname {N}}
+\newcommand{\Tr}{\operatorname {Tr}}
+\newcommand{\disc}{\operatorname {disc}}
+
+
+
+
+
+
+
+
+%Euler Script Characters
+\newcommand{\esa}{\EuScript{A}}
+\newcommand{\esb}{\EuScript{B}}
+\newcommand{\esc}{\EuScript{C}}
+\newcommand{\esd}{\EuScript{D}}
+\newcommand{\ese}{\EuScript{E}}
+\newcommand{\esf}{\EuScript{F}}
+\newcommand{\esg}{\EuScript{G}}
+\newcommand{\esh}{\EuScript{H}}
+\newcommand{\esi}{\EuScript{I}}
+\newcommand{\esj}{\EuScript{J}}
+\newcommand{\esk}{\EuScript{K}}
+\newcommand{\esl}{\EuScript{L}}
+\newcommand{\esm}{\EuScript{M}}
+\newcommand{\esn}{\EuScript{N}}
+\newcommand{\eso}{\EuScript{O}}
+\newcommand{\esp}{\EuScript{P}}
+\newcommand{\esq}{\EuScript{Q}}
+\newcommand{\esr}{\EuScript{R}}
+\newcommand{\ess}{\EuScript{S}}
+\newcommand{\est}{\EuScript{T}}
+\newcommand{\esu}{\EuScript{U}}
+\newcommand{\esv}{\EuScript{V}}
+\newcommand{\esw}{\EuScript{W}}
+\newcommand{\esx}{\EuScript{X}}
+\newcommand{\esy}{\EuScript{Y}}
+\newcommand{\esz}{\EuScript{Z}}
+
+%Calligraphic Characters
+\newcommand{\cala}{\mathcal{A}}
+\newcommand{\calb}{\mathcal{B}}
+\newcommand{\calc}{\mathcal{C}}
+\newcommand{\cald}{\mathcal{D}}
+\newcommand{\cale}{\mathcal{E}}
+\newcommand{\calf}{\mathcal{F}}
+\newcommand{\calg}{\mathcal{G}}
+\newcommand{\calh}{\mathcal{H}}
+\newcommand{\cali}{\mathcal{I}}
+\newcommand{\calj}{\mathcal{J}}
+\newcommand{\calk}{\mathcal{K}}
+\newcommand{\call}{\mathcal{L}}
+\newcommand{\calm}{\mathcal{M}}
+\newcommand{\caln}{\mathcal{N}}
+\newcommand{\calo}{\mathcal{O}}
+\newcommand{\calp}{\mathcal{P}}
+\newcommand{\calq}{\mathcal{Q}}
+\newcommand{\calr}{\mathcal{R}}
+\newcommand{\cals}{\mathcal{S}}
+\newcommand{\calt}{\mathcal{T}}
+\newcommand{\calu}{\mathcal{U}}
+\newcommand{\calv}{\mathcal{V}}
+\newcommand{\calw}{\mathcal{W}}
+\newcommand{\calx}{\mathcal{X}}
+\newcommand{\caly}{\mathcal{Y}}
+\newcommand{\calz}{\mathcal{Z}}
+
+%Gothic Characters
+\newcommand{\fraka}{\mathfrak{a}}
+\newcommand{\frakb}{\mathfrak{b}}
+\newcommand{\frakc}{\mathfrak{c}}
+\newcommand{\frakd}{\mathfrak{d}}
+\newcommand{\frake}{\mathfrak{e}}
+\newcommand{\frakf}{\mathfrak{f}}
+\newcommand{\frakg}{\mathfrak{g}}
+\newcommand{\frakh}{\mathfrak{h}}
+\newcommand{\fraki}{\mathfrak{i}}
+\newcommand{\frakj}{\mathfrak{j}}
+\newcommand{\frakk}{\mathfrak{k}}
+\newcommand{\frakl}{\mathfrak{l}}
+\newcommand{\frakm}{\mathfrak{m}}
+\newcommand{\frakn}{\mathfrak{n}}
+\newcommand{\frako}{\mathfrak{o}}
+\newcommand{\frakp}{\mathfrak{p}}
+\newcommand{\frakq}{\mathfrak{q}}
+\newcommand{\frakr}{\mathfrak{r}}
+\newcommand{\fraks}{\mathfrak{s}}
+\newcommand{\frakt}{\mathfrak{t}}
+\newcommand{\fraku}{\mathfrak{u}}
+\newcommand{\frakv}{\mathfrak{v}}
+\newcommand{\frakw}{\mathfrak{w}}
+\newcommand{\frakx}{\mathfrak{x}}
+\newcommand{\fraky}{\mathfrak{y}}
+\newcommand{\frakz}{\mathfrak{z}}
+
+\newcommand{\frakA}{\mathfrak{A}}
+\newcommand{\frakB}{\mathfrak{B}}
+\newcommand{\frakC}{\mathfrak{C}}
+\newcommand{\frakD}{\mathfrak{D}}
+\newcommand{\frakE}{\mathfrak{E}}
+\newcommand{\frakF}{\mathfrak{F}}
+\newcommand{\frakG}{\mathfrak{G}}
+\newcommand{\frakH}{\mathfrak{H}}
+\newcommand{\frakI}{\mathfrak{I}}
+\newcommand{\frakJ}{\mathfrak{J}}
+\newcommand{\frakK}{\mathfrak{K}}
+\newcommand{\frakL}{\mathfrak{L}}
+\newcommand{\frakM}{\mathfrak{M}}
+\newcommand{\frakN}{\mathfrak{N}}
+\newcommand{\frakO}{\mathfrak{O}}
+\newcommand{\frakP}{\mathfrak{P}}
+\newcommand{\frakQ}{\mathfrak{Q}}
+\newcommand{\frakR}{\mathfrak{R}}
+\newcommand{\frakS}{\mathfrak{S}}
+\newcommand{\frakT}{\mathfrak{T}}
+\newcommand{\frakU}{\mathfrak{U}}
+\newcommand{\frakV}{\mathfrak{V}}
+\newcommand{\frakW}{\mathfrak{W}}
+\newcommand{\frakX}{\mathfrak{X}}
+\newcommand{\frakY}{\mathfrak{Y}}
+\newcommand{\frakZ}{\mathfrak{Z}}
+
+%Lowercase Bold Letters
+\newcommand{\bfa}{\mathbf{a}}
+\newcommand{\bfb}{\mathbf{b}}
+\newcommand{\bfc}{\mathbf{c}}
+\newcommand{\bfd}{\mathbf{d}}
+\newcommand{\bfe}{\mathbf{e}}
+\newcommand{\bff}{\mathbf{f}}
+\newcommand{\bfg}{\mathbf{g}}
+\newcommand{\bfh}{\mathbf{h}}
+\newcommand{\bfi}{\mathbf{i}}
+\newcommand{\bfj}{\mathbf{j}}
+\newcommand{\bfk}{\mathbf{k}}
+\newcommand{\bfl}{\mathbf{l}}
+\newcommand{\bfm}{\mathbf{m}}
+\newcommand{\bfn}{\mathbf{n}}
+\newcommand{\bfo}{\mathbf{o}}
+\newcommand{\bfp}{\mathbf{p}}
+\newcommand{\bfq}{\mathbf{q}}
+\newcommand{\bfr}{\mathbf{r}}
+\newcommand{\bfs}{\mathbf{s}}
+\newcommand{\bft}{\mathbf{t}}
+\newcommand{\bfu}{\mathbf{u}}
+\newcommand{\bfv}{\mathbf{v}}
+\newcommand{\bfw}{\mathbf{w}}
+\newcommand{\bfx}{\mathbf{x}}
+\newcommand{\bfy}{\mathbf{y}}
+\newcommand{\bfz}{\mathbf{z}}
+
+
+
+
+%Customized Theorem Environments
+\newtheoremstyle%
+{custom}%
+{}%                         Space above
+{}%													Space below
+{}%													Body font
+{}%                         Indent amount
+{}%                         Theorem head font
+{.}%                        Punctuation after heading
+{ }%                        Space after heading
+{\thmname{}%                Additional specifications for theorem head
+\thmnumber{}%
+\thmnote{\bfseries #3}}%
+
+\newtheoremstyle%
+{Theorem}%
+{}%
+{}%
+{\itshape}%
+{}%
+{}%
+{.}%
+{ }%
+{\thmname{\bfseries #1}%
+\thmnumber{\;\bfseries #2}%
+\thmnote{\;(\bfseries #3)}}%
+
+%Theorem Environments
+\theoremstyle{Theorem}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{cor}{Corollary}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem*{nonumthm}{Theorem}
+\newtheorem*{nonumprop}{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem*{answer}{Answer}
+\newtheorem*{solution}{Solution}
+\newtheorem*{nonumdfn}{Definition}
+\newtheorem*{nonumex}{Example}
+\newtheorem{ex}{Example}[section]
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}[section]
+\newtheorem*{note}{Note}
+\newtheorem*{notation}{Notation}
+\theoremstyle{custom}
+\newtheorem*{cust}{Definition}
+\fancypagestyle{firststyle}
+{
+
+   \fancyhead[R]{\textbf{Review Worksheet: Optimization/ReR, Precalc Rev, Squeeze, Implicit, THE Applic}}
+   \fancyfoot[R]{ Thomas Luckner } %{\footnotesize Page \thepage\ of \pageref{LastPage}}
+}
+
+
+
+
+
+
+\begin{document}
+\thispagestyle{firststyle}
+\pagestyle{plain}
+
+Thoughts:\\\\
+First of all, I really appreciate you all giving me topics to put on here! My calc 2 section was not as willing... Let's start with a big one!\\
+Optimization/Related Rates: I wanted to do these together for the reason that you have not seen them side-by-side yet and you may mix them up on your exam. The key here is once you see a word problem, look for the words, Max/maximize or min/minimize. These words indicate optimization.\\
+Now I want to start with optimization. The only issue you should have with this section is comprehending the information. I want you all to be able to do the math once you have the picture in your head. The math is the first derivative test once you have a function you are trying to maximize/minimize with respect to 1 variable. A second equation may be necessary to replace 1 variable in the maximize/minimize function. This part is just practicing finding max and mins. The big thing is information. The best way to comprehend a problem is draw a picture! Your instructor will be doing problems that you can easily draw a picture to or may even provide the picture. Once you have the picture with the numbers on it, find an equation that equals your maximizing/minimizing variable. This can have 1 or more variables. if there is more than 1, you need to find another equation to replace the all but 1 variable! Then do the first derivative test (take derivative and set equal to 0). Do not forget to answer the question that is asked after you find the point where a max or min occurs! \\
+Related rates is slightly different. I firmly believe the way I explained it on the worksheet devoted to it is about as understandable as I can get, but I will try again here! With related rates you are given information about a picture and then about the picture "moving" or the rates of the already given information. You may need 1 or 2 equations, but the trick is hidden in one of the non-rate information pieces. The question will read something like this, "when $x$ is at $a$ the rate of $y$ is $b$. Find (blank)." The $a$ here is the tricky part. It only goes in the function you are taking the derivative of AFTER you take the derivative! This since it is directly correlated to a rate! Once you understand this and the context of the problem, these should not be crazy hard!\\
+Precalc: This includes, halflife, compound interest, etc. I really only want to tackle the few listed. When it comes to half life, we are always talking the "PERT" formula. That is, $P=P_0e^{rt}$. Half life refers to the amount of time it takes for the population to be half. This requires $r<0$ (Good true or false question). Thus, it is asking for $P=(1/2)P_0$. Let's make that substitution: $(1/2)P_0=P_0e^{rt} \Rightarrow 1/2=e^{rt}$. Now there is a number of questions that can be asked here. Sometimes you are given the half life, in terms of a time, $t$, and are asked to find some other population at a time $t$. This means you need to use half life to find $r$! This is the one people struggle with. Other times you are given $r$ and need to find the half life using the formula above! Either way, you are finding $r$ or $t$ and doing something with it.
+\newpage
+\noindent Compound interest: This is formulaic: $P=P_0\left(1+\dfrac{r}{m}\right)^{mt}$ where $r$ is rate, $m$ is number of times compounded in a year, $t$ is time, $P_0$ is the intitial or principal.  HOWEVER, you could also have continuous compound interest! This is "PERT" again just like half life. The questions people struggle with here are typically given a point find the amount in the account at a different time. This is when you need to find $r$ first then go back and plug in $t$ to find the amount in the account. The other type is when they give you the information for the equation or you find $r$ as said above, but you need to find $t$ given the amount in the account. Here you will need to solve for $t$ via natural log! \\
+Squeeze Theorem: This is a theorem that is for limits. It is hardly used, so keep in your back pocket as a last resort. usually it includes a trig function since they are bounded above and below. You use these bounds to get a lower bounded limit and an upper bounded limit. If you take the limits of these bounds and they are equal, then your original limit is also that value! \\
+Implicit Differentiation: This is a section I like to stress practice! However, I will try to give you some insight to how it is presented. The first case is the function is given to you with $x$'s and $y$'s riddled everywhere and asks you to find $dy/dx$, the slope of the tangent line at ($x$, $y$), or the equation of the tangent line at $x$ (or could be given a point). The key is really just finding the derivative. The key in taking the derivative with $y$'s everywhere is to remember that where there is a $y$ there will be a $dy/dx$ somewhere in the derivative! For example, $(xy=1)'\Rightarrow y+x(dy/dx)=0 \Rightarrow -y/x=dy/dx$. Noticee that a $dy/dx$ occurred when I did the derivative of the product $xy$ since $y$ is there! This is a nice little cheat. The other case of implicit differentiation is for finding derivatives you cannot find otherwise. For example, $y=\arctan(x) \Rightarrow \tan(y)=x \Rightarrow \sec^2(y)\cdot (dy/dx)=1 \Rightarrow dy/dx=1/\sec^2(y)=\cos^2(y)$.\\
+THE Application: When I say THE I mean the biggest application used in calc 1. This is referring to (1) position/height, (2) veolcity, and (3) acceleration. There application lies in the following properties: Let position/height be $s(t)$, velocity $v(t)$, and acceleration $a(t)$ such that $s'(t)=v(t)$ and $s''(t)=v'(t)=a(t)$. This relationship is what makes this important. You will be asked questions regarding max and mins and zeros and other things, but understanding this relationship is the all important thing. This relationship also translates over to integration as $\int a(t)=v(t)+C$ and $\int\left(\int a(t)\right) =\int v(t) +C=s(t)+Cx+D$. Notice the constants. In these problems you will be given points for both velocity and position when needed to find the constants.  Otherwise, the context of the problem should not be too deep to understand. 
+\newpage
+\noindent Problems:
+\begin{enumerate}[1.]
+\item A poster has an area of 180 $m^2$ with 1-inch margina at the bottom and sides and a 2-inch margin at the top. What dimensions will give the largest printed area?
+\item A box with an open top is constructed from a square piece of cardboard with width 3ft. The box is constructed by cutting out a square from each of the four corners of the square and beinding the remaining pieces up. Find the maximum volume that the box can have.
+\item Two cars start moving from the same point. One travels south at 60 mi/hr and the other travels west at 25 mi/hr. At what rate is the distance between the cars increasing 2 hours later?
+\item A baseball diamond is a square with side 90ft. A batter hits the ball and runs toward first with a speed of 24 ft/s. At what rate is his distance from second base decreasing when he is halfway to first base>
+\item A wimming pool is 20 ft wide, 40ft long, 3 ft deep at the shallow end and 9ft deep at the deepest point. The pool is shaped as follows: the shallow end is 6ft long, then it slopes down to the deepest point taking 16 ft to do so, then it is its deepest for 12 ft, and lastly it slopes back up for 6ft until it reaches a depth of 3 ft again at the end of the pool. If the pool is being filled at a rate of .8 ft$^3$/min, how fast is the water level rising when the depth at the deepest is 5 ft?
+\item $\ds\lim_{x\rightarrow0}\sqrt{x^3+x^2}\sin\left(\dfrac{\pi}{x}\right)$
+\item $\ds\lim_{x\rightarrow -3}\dfrac{x^2-9}{2x^2+7x+3}$
+\item The half-life of radium-226 is 1590 years. A sample has mass 100mg. Find the mass after 1000 years correct to the nearest milligram. Then determine when the mass is reduced to 30 mg.
+\newpage
+\item A sample of tritium-3 decayed to 94.5% of its original amount after a year. Find the half-life then find how llong it would take the sample to decay to 20% of its original amount.
+\item Let \$1000 be entered into an account at 8% interest. Find the value of the account after 3 years when the interest is compounded (1) annually, (2) quarterly, (3) monthly, and (4) continuously.
+\item Find $dy/dx$.
+\begin{enumerate}[a.]
+\item $e^{x/y}=x-y$
+\item $\cos(xy)=1+\sin(y)$
+\item $x\sin(y)+y\sin(x)=1$
+\end{enumerate}
+\item Find the equation of the tangent line to $x^2+2xy-y^2+x=2$ when $x=1$.
+\item Find the equation of the tangent line to $\sin(x+y)=2x-2y$ at $(\pi,\pi)$.
+\item Ash is walking from Pallet Town to Viridian City with an acceleration given by $a(t)=3t^2-5t+2$ in yard per minute squared where $t$ is in minutes. If it takes Ash 20 minutes to get to Viridian City and Ash is not moving prior to his trip, find the following:
+	\begin{enumerate}
+	\item Estimation of $\displaystyle \int_0^{20} v(t) \, dt$ using Left-hand Sums with $n=5$ subdivisions (\textbf{include units}).
+
+	\item Estimation of $\displaystyle \int_0^{20} v(t) \, dt$ using Right-hand Sums with $n=5$ subdivisions (\textbf{include units}).
+
+	\item Find a more accurate estimation using the two answers above (\textbf{include units}). 
+
+	\item Find a formula the distance when Ash is still in Pallet Town at time 0.
+
+	\item Find the exact distance Ash travelled to get to Viridian City (\textbf{include units}). Hint: Find the distance function and reread the information at the beginning of the problem.
+
+	\end{enumerate}
+\end{enumerate}
+\end{document}
+
+
+
+
+
+
+

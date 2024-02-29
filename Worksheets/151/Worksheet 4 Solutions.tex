@@ -1,0 +1,462 @@
+\documentclass[10pt]{article}
+
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{array}
+\usepackage[all]{xy}
+\usepackage{fancyhdr}
+\usepackage{euscript}
+\usepackage{graphics}
+\usepackage{cancel}
+\usepackage{fancybox}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{pgf}
+\usepackage{pgfplots}
+\usepackage[all]{xy}
+\usepackage{graphicx}
+\pgfplotsset{compat=1.14}
+
+\usepackage{pstricks}
+\usepackage{pst-plot}
+
+\usepackage{setspace}
+\onehalfspacing
+
+\setlength{\oddsidemargin}{.5in}
+\setlength{\evensidemargin}{.5in}
+\setlength{\textwidth}{6.in}
+\setlength{\topmargin}{0in}
+\setlength{\headsep}{.20in}
+\setlength{\textheight}{8.5in}
+
+
+\pdfpagewidth 8.5in
+ \pdfpageheight 11in
+
+
+%General
+\newcommand{\WW}{\mathbb {W}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\RR}{\mathbb {R}}
+\newcommand{\II}{\mathbb {I}}
+\newcommand{\QQ}{\mathbb {Q}}
+\newcommand{\CC}{\mathbf C}
+\newcommand{\NN}{\mathbb {N}}
+\newcommand{\Zn}[1]{\mathbf{Z}/#1\mathbf{Z}}
+\newcommand{\Znx}[1]{(\mathbf{Z}/#1\mathbf{Z})^\times}
+\newcommand{\X}{\times} 
+\newcommand{\set}[2]{\left\{#1 : #2\right\}}          
+\newcommand{\sett}[1]{\left\{#1\right\}}                
+\newcommand{\nonempty}{\neq\varnothing}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\abs}[1]{\left| {#1} \right|}
+\newcommand{\qedbox}{\rule{2mm}{2mm}}
+\renewcommand{\qedsymbol}{\qedbox}											
+\newcommand{\aand}{\qquad\hbox{and}\qquad}
+\newcommand{\e}{\varepsilon}
+\newcommand{\tto}{\rightrightarrows}
+\newcommand{\gs}{\geqslant}
+\newcommand{\ls}{\leqslant}
+\renewcommand{\tilde}{\widetilde}
+\renewcommand{\hat}{\widehat}
+\newcommand{\norm}[1]{\left\| #1 \right\|}
+\newcommand{\md}[3]{#1\equiv#2\;(\mathrm{mod}\;#3)}     
+\newcommand{\gen}[1]{\left\langle #1 \right\rangle}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\zero}{\boldsymbol{0}}
+
+\newcommand{\be}[1]{\textbf{\emph{#1}}}
+\newcommand{\hhat}[1]{\hat{\! \hat{#1}}}
+
+\newcommand{\fto}[1]{\xrightarrow{\hspace{4pt} #1 \hspace{4pt}}}
+\newcommand{\flto}[1]{\xrightarrow{\quad #1 \quad}}
+
+
+
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\esssup}{\operatorname{ess\:sup}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\card}{\operatorname{card}}
+
+\newcommand{\dmu}{\:\mathrm{d}\mu}
+\newcommand{\dm}{\:\mathrm{d}m}
+\newcommand{\dx}{\:\mathrm{d}x}
+\newcommand{\dt}{\:\mathrm{d}t}
+\newcommand{\dz}{\:\mathrm{d}z}
+\newcommand{\dtheta}{\:\mathrm{d}\theta}
+\newcommand{\dw}{\:\mathrm{d}w}
+
+%Algebra
+\newcommand{\Sym}{\operatorname {Sym}}
+\newcommand{\Stab}{\operatorname {Stab}}
+\newcommand{\M}{\operatorname{M}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\PGL}{\operatorname{PGL}}
+\newcommand{\SL}{\operatorname{SL}}
+\newcommand{\PSL}{\operatorname{PSL}}
+\newcommand{\Heis}{\operatorname{Heis}}
+\newcommand{\Aff}{\operatorname{Aff}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\image}{\operatorname{im}}
+\newcommand{\Syl}[2]{\operatorname{\emph{Syl}}_{#1}\left(#2\right)}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Tor}{\operatorname{Tor}}
+\newcommand{\Gal}{\operatorname{Gal}}
+\newcommand{\ch}{\operatorname{ch}}
+\newcommand{\rad}{\operatorname{rad}}
+\newcommand{\iso}{\cong}
+\newcommand{\normal}{\unlhd}
+\newcommand{\semi}{\rtimes}
+\newcommand{\Nm}{\operatorname {N}}
+\newcommand{\Tr}{\operatorname {Tr}}
+\newcommand{\disc}{\operatorname {disc}}
+
+
+
+
+
+
+
+
+%Euler Script Characters
+\newcommand{\esa}{\EuScript{A}}
+\newcommand{\esb}{\EuScript{B}}
+\newcommand{\esc}{\EuScript{C}}
+\newcommand{\esd}{\EuScript{D}}
+\newcommand{\ese}{\EuScript{E}}
+\newcommand{\esf}{\EuScript{F}}
+\newcommand{\esg}{\EuScript{G}}
+\newcommand{\esh}{\EuScript{H}}
+\newcommand{\esi}{\EuScript{I}}
+\newcommand{\esj}{\EuScript{J}}
+\newcommand{\esk}{\EuScript{K}}
+\newcommand{\esl}{\EuScript{L}}
+\newcommand{\esm}{\EuScript{M}}
+\newcommand{\esn}{\EuScript{N}}
+\newcommand{\eso}{\EuScript{O}}
+\newcommand{\esp}{\EuScript{P}}
+\newcommand{\esq}{\EuScript{Q}}
+\newcommand{\esr}{\EuScript{R}}
+\newcommand{\ess}{\EuScript{S}}
+\newcommand{\est}{\EuScript{T}}
+\newcommand{\esu}{\EuScript{U}}
+\newcommand{\esv}{\EuScript{V}}
+\newcommand{\esw}{\EuScript{W}}
+\newcommand{\esx}{\EuScript{X}}
+\newcommand{\esy}{\EuScript{Y}}
+\newcommand{\esz}{\EuScript{Z}}
+
+%Calligraphic Characters
+\newcommand{\cala}{\mathcal{A}}
+\newcommand{\calb}{\mathcal{B}}
+\newcommand{\calc}{\mathcal{C}}
+\newcommand{\cald}{\mathcal{D}}
+\newcommand{\cale}{\mathcal{E}}
+\newcommand{\calf}{\mathcal{F}}
+\newcommand{\calg}{\mathcal{G}}
+\newcommand{\calh}{\mathcal{H}}
+\newcommand{\cali}{\mathcal{I}}
+\newcommand{\calj}{\mathcal{J}}
+\newcommand{\calk}{\mathcal{K}}
+\newcommand{\call}{\mathcal{L}}
+\newcommand{\calm}{\mathcal{M}}
+\newcommand{\caln}{\mathcal{N}}
+\newcommand{\calo}{\mathcal{O}}
+\newcommand{\calp}{\mathcal{P}}
+\newcommand{\calq}{\mathcal{Q}}
+\newcommand{\calr}{\mathcal{R}}
+\newcommand{\cals}{\mathcal{S}}
+\newcommand{\calt}{\mathcal{T}}
+\newcommand{\calu}{\mathcal{U}}
+\newcommand{\calv}{\mathcal{V}}
+\newcommand{\calw}{\mathcal{W}}
+\newcommand{\calx}{\mathcal{X}}
+\newcommand{\caly}{\mathcal{Y}}
+\newcommand{\calz}{\mathcal{Z}}
+
+%Gothic Characters
+\newcommand{\fraka}{\mathfrak{a}}
+\newcommand{\frakb}{\mathfrak{b}}
+\newcommand{\frakc}{\mathfrak{c}}
+\newcommand{\frakd}{\mathfrak{d}}
+\newcommand{\frake}{\mathfrak{e}}
+\newcommand{\frakf}{\mathfrak{f}}
+\newcommand{\frakg}{\mathfrak{g}}
+\newcommand{\frakh}{\mathfrak{h}}
+\newcommand{\fraki}{\mathfrak{i}}
+\newcommand{\frakj}{\mathfrak{j}}
+\newcommand{\frakk}{\mathfrak{k}}
+\newcommand{\frakl}{\mathfrak{l}}
+\newcommand{\frakm}{\mathfrak{m}}
+\newcommand{\frakn}{\mathfrak{n}}
+\newcommand{\frako}{\mathfrak{o}}
+\newcommand{\frakp}{\mathfrak{p}}
+\newcommand{\frakq}{\mathfrak{q}}
+\newcommand{\frakr}{\mathfrak{r}}
+\newcommand{\fraks}{\mathfrak{s}}
+\newcommand{\frakt}{\mathfrak{t}}
+\newcommand{\fraku}{\mathfrak{u}}
+\newcommand{\frakv}{\mathfrak{v}}
+\newcommand{\frakw}{\mathfrak{w}}
+\newcommand{\frakx}{\mathfrak{x}}
+\newcommand{\fraky}{\mathfrak{y}}
+\newcommand{\frakz}{\mathfrak{z}}
+
+\newcommand{\frakA}{\mathfrak{A}}
+\newcommand{\frakB}{\mathfrak{B}}
+\newcommand{\frakC}{\mathfrak{C}}
+\newcommand{\frakD}{\mathfrak{D}}
+\newcommand{\frakE}{\mathfrak{E}}
+\newcommand{\frakF}{\mathfrak{F}}
+\newcommand{\frakG}{\mathfrak{G}}
+\newcommand{\frakH}{\mathfrak{H}}
+\newcommand{\frakI}{\mathfrak{I}}
+\newcommand{\frakJ}{\mathfrak{J}}
+\newcommand{\frakK}{\mathfrak{K}}
+\newcommand{\frakL}{\mathfrak{L}}
+\newcommand{\frakM}{\mathfrak{M}}
+\newcommand{\frakN}{\mathfrak{N}}
+\newcommand{\frakO}{\mathfrak{O}}
+\newcommand{\frakP}{\mathfrak{P}}
+\newcommand{\frakQ}{\mathfrak{Q}}
+\newcommand{\frakR}{\mathfrak{R}}
+\newcommand{\frakS}{\mathfrak{S}}
+\newcommand{\frakT}{\mathfrak{T}}
+\newcommand{\frakU}{\mathfrak{U}}
+\newcommand{\frakV}{\mathfrak{V}}
+\newcommand{\frakW}{\mathfrak{W}}
+\newcommand{\frakX}{\mathfrak{X}}
+\newcommand{\frakY}{\mathfrak{Y}}
+\newcommand{\frakZ}{\mathfrak{Z}}
+
+%Lowercase Bold Letters
+\newcommand{\bfa}{\mathbf{a}}
+\newcommand{\bfb}{\mathbf{b}}
+\newcommand{\bfc}{\mathbf{c}}
+\newcommand{\bfd}{\mathbf{d}}
+\newcommand{\bfe}{\mathbf{e}}
+\newcommand{\bff}{\mathbf{f}}
+\newcommand{\bfg}{\mathbf{g}}
+\newcommand{\bfh}{\mathbf{h}}
+\newcommand{\bfi}{\mathbf{i}}
+\newcommand{\bfj}{\mathbf{j}}
+\newcommand{\bfk}{\mathbf{k}}
+\newcommand{\bfl}{\mathbf{l}}
+\newcommand{\bfm}{\mathbf{m}}
+\newcommand{\bfn}{\mathbf{n}}
+\newcommand{\bfo}{\mathbf{o}}
+\newcommand{\bfp}{\mathbf{p}}
+\newcommand{\bfq}{\mathbf{q}}
+\newcommand{\bfr}{\mathbf{r}}
+\newcommand{\bfs}{\mathbf{s}}
+\newcommand{\bft}{\mathbf{t}}
+\newcommand{\bfu}{\mathbf{u}}
+\newcommand{\bfv}{\mathbf{v}}
+\newcommand{\bfw}{\mathbf{w}}
+\newcommand{\bfx}{\mathbf{x}}
+\newcommand{\bfy}{\mathbf{y}}
+\newcommand{\bfz}{\mathbf{z}}
+
+
+
+
+%Customized Theorem Environments
+\newtheoremstyle%
+{custom}%
+{}%                         Space above
+{}%													Space below
+{}%													Body font
+{}%                         Indent amount
+{}%                         Theorem head font
+{.}%                        Punctuation after heading
+{ }%                        Space after heading
+{\thmname{}%                Additional specifications for theorem head
+\thmnumber{}%
+\thmnote{\bfseries #3}}%
+
+\newtheoremstyle%
+{Theorem}%
+{}%
+{}%
+{\itshape}%
+{}%
+{}%
+{.}%
+{ }%
+{\thmname{\bfseries #1}%
+\thmnumber{\;\bfseries #2}%
+\thmnote{\;(\bfseries #3)}}%
+
+%Theorem Environments
+\theoremstyle{Theorem}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{cor}{Corollary}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem*{nonumthm}{Theorem}
+\newtheorem*{nonumprop}{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem*{answer}{Answer}
+\newtheorem*{solution}{Solution}
+\newtheorem*{nonumdfn}{Definition}
+\newtheorem*{nonumex}{Example}
+\newtheorem{ex}{Example}[section]
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}[section]
+\newtheorem*{note}{Note}
+\newtheorem*{notation}{Notation}
+\theoremstyle{custom}
+\newtheorem*{cust}{Definition}
+\fancypagestyle{firststyle}
+{
+   \fancyhead[L]{\textbf{Name:}}
+   \fancyhead[R]{\textbf{Worksheet 4: Derivative Rules}}
+   \fancyfoot[R]{ Thomas Luckner } %{\footnotesize Page \thepage\ of \pageref{LastPage}}
+}
+
+
+
+
+
+
+\begin{document}
+\thispagestyle{firststyle}
+\pagestyle{plain}
+
+Thoughts:\\\\
+I have very little to say on this section. These rules are very procedural in nature. The only thing I could provide to you would be a proof of the rules. I do not think the proofs will really be valuable to you since only one is basic enough to follow. The rest are higher level mathematics. If you do want to see them however, the website for Paul's Online Notes is amazing and does very nice proofs of them or ask me and we can work through it.  The only thing I do want to say here is that your precalculus skills are coming back! The most common issue in this section is how to apply power rule. It seems strange since the rule is so simple, but let me give an example.
+\[
+f(x)=\dfrac{3}{\sqrt[3]{x}}
+\]
+To find the derivative of this is actually very simple! This is a power rule in disguise. $f(x)=3(x)^{(-1/3)}$. Do keep this in mind! Make your life easy and search for power rule first.  Otherwise, some notes include:
+\begin{enumerate}[1.]
+\item Quotient rule can be avoided always! Rewrite a quotient as a product: $\dfrac{a}{b}=a\left(\dfrac{1}{b}\right)=ab^{-1}$.
+\item $(e^x)'=e^x$.
+\item $(\ln(x))'=\dfrac{1}{x}$.
+\item $(\sin(x))'=\cos(x)$.
+\item $(\cos(x))'=-\sin(x)$.
+\item All other trig derivative follow from the above 2 by other derivative rules!
+\item They only get harder! Do not make these harder than they have to be!
+\end{enumerate}
+\newpage
+\noindent Problems: For all the functions below, find the derivative. All other letters besides $x$ are to be considered constants.
+\begin{enumerate}[1.]
+\item $f(x)=x^2(1-2x)$
+\begin{solution}
+\[
+f'(x)=(x^2)'(1-2x)+x^2(1-2x)'=2x(1-2x)+x^2(-2)=2x-6x^2
+\]
+\end{solution}
+\item $f(x)=\sqrt{x}-x$
+\begin{solution}
+\[
+f(x)=x^{1/2}-x
+\]
+\[
+f'(x)=(1/2)x^{-1/2}-1=\dfrac{1}{2\sqrt{x}}-1
+\]
+\end{solution}
+\item $f(x)=\dfrac{x^2+4x+3}{\sqrt{x}}$
+\begin{solution}
+Probably best to use quotient rule here!
+\[
+f'(x)=\dfrac{(x^2+4x+3)'\sqrt{x}-(x^2+4x+3)(\sqrt{x})'}{(\sqrt{x})^2}=\dfrac{(2x+4)\sqrt{x}-(x^2+4x+3)(1/2)x^{-1/2}}{x}
+\]
+This can be simplified but as is is ok for now.
+\end{solution}
+\item $f(x)=x^{2.4}+e^{2.4}$
+\begin{solution}
+Note the second term is a constant.
+\[
+f'(x)=2.4x^{1.4}
+\]
+\end{solution}
+\item $f(x)=(x-\sqrt{x})(x+\sqrt{x})$
+\begin{solution}
+Can use product rule, but notice that this is the formula for factoring the difference of 2 squares.
+\[
+f(x)=x^2-x
+\]
+Thus,
+\[
+f'(x)=2x-1.
+\]
+\end{solution}
+\item $f(x)=\dfrac{x^3}{1+x^2}$
+\begin{solution}
+\[
+f'(x)=\dfrac{(x^3)'(1+x^2)-x^3(1+x^2)'}{(1+x^2)^2}=\dfrac{3x^2(1+x^2)-x^3(2x)}{(1+x^2)^2}
+\]
+\end{solution}
+\item $f(x)=\ln(2)$
+\begin{solution}
+Notice this is a constant! Thus, the derivative is 0.
+\end{solution}
+\item $f(x)=cnocwbex$
+\begin{solution}
+Since everything else is a constant and $x$ has power 1, $f'(x)=cnocwbe$.
+\end{solution}
+\item $f(x)=x^4e^x$ (Find the second derivative as well)
+\begin{solution}
+\[
+f'(x)=(x^4)'e^x+x^4(e^x)'=4x^3e^x+x^4e^x=e^x (4x^3+x^4)
+\]
+\[
+f''(x)=(e^x)'(4x^3+x^4)+e^x(4x^3+x^4)'=e^x(4x^3+x^4)+e^x(12x^2+4x^3)
+\]
+Notice how a little simplifying went a long way to making the second derivative easier to find.
+\end{solution}
+\item $f(x)=\dfrac{\sec(x)}{1+\sec(x)}$
+\begin{solution}
+\[
+f'(x)=\dfrac{(\sec(x))'(1+\sec(x))-\sec(x)(1+\sec(x))'}{(1+\sec(x))^2}=\dfrac{\sec(x)\tan(x)(1+\sec(x))-\sec(x)(\sec(x)\tan(x))}{(1+\sec(x))^2}
+\]
+\[
+=\dfrac{\sec(x)\tan(x)}{(1+\sec(x))^2}
+\]
+\end{solution}
+\item $f(x)=\sin(x)\cos(x)$
+\begin{solution}
+\[
+f'(x)=(\sin(x))'\cos(x)+\sin(x)(\cos(x))'=\cos^2(x)+\sin(x)(-\sin(x))=\cos^2(x)-\sin^2(x)
+\]
+\end{solution}
+\item $f(x)=\dfrac{x\sin(x)}{1+x}$
+\begin{solution}
+\begin{align*}
+f'(x)&=\dfrac{(x\sin(x))'(1+x)-x\sin(x)(1+x)'}{(1+x)^2}=\dfrac{((x)'\sin(x)+x(\sin(x))')(1+x)-x\sin(x)}{(1+x)^2}\\[2pt]
+&=\dfrac{(\sin(x)+x\cos(x))(1+x)-x\sin(x)}{(1+x)^2}\\[2pt]
+&=\dfrac{\sin(x)+x\cos(x)+x^2\cos(x)}{(1+x)^2}
+\end{align*}
+\end{solution}
+\newpage
+\item Prove the below by using the derivatives of $\sin(x)$ and $\cos(x)$ as well as other derivative rules.
+\begin{enumerate}[a.]
+\item $(\sec(x))'=\sec(x)\tan(x)$
+\begin{solution}
+\[
+(\sec(x))'=\left(\dfrac{1}{\cos(x)}\right)'=\dfrac{(1)'\cos(x)-1(\cos(x))'}{\cos^2(x)}=\dfrac{\sin(x)}{\cos^2(x)}=\tan(x)\sec(x)
+\]
+\end{solution}
+\item$(\cot(x))'=-\csc^2(x)$
+\begin{solution}
+\begin{align*}
+(\cot(x))'&=\left(\dfrac{\cos(x)}{\sin(x)}\right)'=\dfrac{(\cos(x))'\sin(x)-\cos(x)(\sin(x))'}{\sin^2(x)}=\dfrac{(-\sin(x))\sin(x)-\cos^2(x)}{\sin^2(x)}\\[2pt]
+&=\dfrac{(-1)(\sin^2(x)+\cos^2(x))}{\sin^2(x)}=\dfrac{-1}{\sin^2(x)}=-\csc^2(x)
+\end{align*}
+\end{solution}
+\end{enumerate}
+\end{enumerate}
+\end{document}
+
+
+
+
+
+
+

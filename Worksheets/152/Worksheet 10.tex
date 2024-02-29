@@ -1,0 +1,423 @@
+\documentclass[10pt]{article}
+
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{array}
+\usepackage[all]{xy}
+\usepackage{fancyhdr}
+\usepackage{euscript}
+\usepackage{graphics}
+\usepackage{cancel}
+\usepackage{fancybox}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{pgf}
+\usepackage{pgfplots}
+\usepackage[all]{xy}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\pgfplotsset{compat=1.14}
+
+\usepackage{pstricks}
+\usepackage{pst-plot}
+
+\usepackage{setspace}
+\onehalfspacing
+
+\setlength{\oddsidemargin}{.5in}
+\setlength{\evensidemargin}{.5in}
+\setlength{\textwidth}{6.in}
+\setlength{\topmargin}{0in}
+\setlength{\headsep}{.20in}
+\setlength{\textheight}{8.5in}
+
+
+\pdfpagewidth 8.5in
+ \pdfpageheight 11in
+
+
+%General
+\newcommand{\WW}{\mathbb {W}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\RR}{\mathbb {R}}
+\newcommand{\II}{\mathbb {I}}
+\newcommand{\QQ}{\mathbb {Q}}
+\newcommand{\CC}{\mathbf C}
+\newcommand{\NN}{\mathbb {N}}
+\newcommand{\Zn}[1]{\mathbf{Z}/#1\mathbf{Z}}
+\newcommand{\Znx}[1]{(\mathbf{Z}/#1\mathbf{Z})^\times}
+\newcommand{\X}{\times} 
+\newcommand{\set}[2]{\left\{#1 : #2\right\}}          
+\newcommand{\sett}[1]{\left\{#1\right\}}                
+\newcommand{\nonempty}{\neq\varnothing}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\abs}[1]{\left| {#1} \right|}
+\newcommand{\qedbox}{\rule{2mm}{2mm}}
+\renewcommand{\qedsymbol}{\qedbox}											
+\newcommand{\aand}{\qquad\hbox{and}\qquad}
+\newcommand{\e}{\varepsilon}
+\newcommand{\tto}{\rightrightarrows}
+\newcommand{\gs}{\geqslant}
+\newcommand{\ls}{\leqslant}
+\renewcommand{\tilde}{\widetilde}
+\renewcommand{\hat}{\widehat}
+\newcommand{\norm}[1]{\left\| #1 \right\|}
+\newcommand{\md}[3]{#1\equiv#2\;(\mathrm{mod}\;#3)}     
+\newcommand{\gen}[1]{\left\langle #1 \right\rangle}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\zero}{\boldsymbol{0}}
+
+\newcommand{\be}[1]{\textbf{\emph{#1}}}
+\newcommand{\hhat}[1]{\hat{\! \hat{#1}}}
+
+\newcommand{\fto}[1]{\xrightarrow{\hspace{4pt} #1 \hspace{4pt}}}
+\newcommand{\flto}[1]{\xrightarrow{\quad #1 \quad}}
+
+
+
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\esssup}{\operatorname{ess\:sup}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\card}{\operatorname{card}}
+
+\newcommand{\dmu}{\:\mathrm{d}\mu}
+\newcommand{\dm}{\:\mathrm{d}m}
+\newcommand{\dx}{\:\mathrm{d}x}
+\newcommand{\dt}{\:\mathrm{d}t}
+\newcommand{\dz}{\:\mathrm{d}z}
+\newcommand{\dtheta}{\:\mathrm{d}\theta}
+\newcommand{\dw}{\:\mathrm{d}w}
+
+%Algebra
+\newcommand{\Sym}{\operatorname {Sym}}
+\newcommand{\Stab}{\operatorname {Stab}}
+\newcommand{\M}{\operatorname{M}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\PGL}{\operatorname{PGL}}
+\newcommand{\SL}{\operatorname{SL}}
+\newcommand{\PSL}{\operatorname{PSL}}
+\newcommand{\Heis}{\operatorname{Heis}}
+\newcommand{\Aff}{\operatorname{Aff}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\image}{\operatorname{im}}
+\newcommand{\Syl}[2]{\operatorname{\emph{Syl}}_{#1}\left(#2\right)}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Tor}{\operatorname{Tor}}
+\newcommand{\Gal}{\operatorname{Gal}}
+\newcommand{\ch}{\operatorname{ch}}
+\newcommand{\rad}{\operatorname{rad}}
+\newcommand{\iso}{\cong}
+\newcommand{\normal}{\unlhd}
+\newcommand{\semi}{\rtimes}
+\newcommand{\Nm}{\operatorname {N}}
+\newcommand{\Tr}{\operatorname {Tr}}
+\newcommand{\disc}{\operatorname {disc}}
+
+
+
+
+
+
+
+
+%Euler Script Characters
+\newcommand{\esa}{\EuScript{A}}
+\newcommand{\esb}{\EuScript{B}}
+\newcommand{\esc}{\EuScript{C}}
+\newcommand{\esd}{\EuScript{D}}
+\newcommand{\ese}{\EuScript{E}}
+\newcommand{\esf}{\EuScript{F}}
+\newcommand{\esg}{\EuScript{G}}
+\newcommand{\esh}{\EuScript{H}}
+\newcommand{\esi}{\EuScript{I}}
+\newcommand{\esj}{\EuScript{J}}
+\newcommand{\esk}{\EuScript{K}}
+\newcommand{\esl}{\EuScript{L}}
+\newcommand{\esm}{\EuScript{M}}
+\newcommand{\esn}{\EuScript{N}}
+\newcommand{\eso}{\EuScript{O}}
+\newcommand{\esp}{\EuScript{P}}
+\newcommand{\esq}{\EuScript{Q}}
+\newcommand{\esr}{\EuScript{R}}
+\newcommand{\ess}{\EuScript{S}}
+\newcommand{\est}{\EuScript{T}}
+\newcommand{\esu}{\EuScript{U}}
+\newcommand{\esv}{\EuScript{V}}
+\newcommand{\esw}{\EuScript{W}}
+\newcommand{\esx}{\EuScript{X}}
+\newcommand{\esy}{\EuScript{Y}}
+\newcommand{\esz}{\EuScript{Z}}
+
+%Calligraphic Characters
+\newcommand{\cala}{\mathcal{A}}
+\newcommand{\calb}{\mathcal{B}}
+\newcommand{\calc}{\mathcal{C}}
+\newcommand{\cald}{\mathcal{D}}
+\newcommand{\cale}{\mathcal{E}}
+\newcommand{\calf}{\mathcal{F}}
+\newcommand{\calg}{\mathcal{G}}
+\newcommand{\calh}{\mathcal{H}}
+\newcommand{\cali}{\mathcal{I}}
+\newcommand{\calj}{\mathcal{J}}
+\newcommand{\calk}{\mathcal{K}}
+\newcommand{\call}{\mathcal{L}}
+\newcommand{\calm}{\mathcal{M}}
+\newcommand{\caln}{\mathcal{N}}
+\newcommand{\calo}{\mathcal{O}}
+\newcommand{\calp}{\mathcal{P}}
+\newcommand{\calq}{\mathcal{Q}}
+\newcommand{\calr}{\mathcal{R}}
+\newcommand{\cals}{\mathcal{S}}
+\newcommand{\calt}{\mathcal{T}}
+\newcommand{\calu}{\mathcal{U}}
+\newcommand{\calv}{\mathcal{V}}
+\newcommand{\calw}{\mathcal{W}}
+\newcommand{\calx}{\mathcal{X}}
+\newcommand{\caly}{\mathcal{Y}}
+\newcommand{\calz}{\mathcal{Z}}
+
+%Gothic Characters
+\newcommand{\fraka}{\mathfrak{a}}
+\newcommand{\frakb}{\mathfrak{b}}
+\newcommand{\frakc}{\mathfrak{c}}
+\newcommand{\frakd}{\mathfrak{d}}
+\newcommand{\frake}{\mathfrak{e}}
+\newcommand{\frakf}{\mathfrak{f}}
+\newcommand{\frakg}{\mathfrak{g}}
+\newcommand{\frakh}{\mathfrak{h}}
+\newcommand{\fraki}{\mathfrak{i}}
+\newcommand{\frakj}{\mathfrak{j}}
+\newcommand{\frakk}{\mathfrak{k}}
+\newcommand{\frakl}{\mathfrak{l}}
+\newcommand{\frakm}{\mathfrak{m}}
+\newcommand{\frakn}{\mathfrak{n}}
+\newcommand{\frako}{\mathfrak{o}}
+\newcommand{\frakp}{\mathfrak{p}}
+\newcommand{\frakq}{\mathfrak{q}}
+\newcommand{\frakr}{\mathfrak{r}}
+\newcommand{\fraks}{\mathfrak{s}}
+\newcommand{\frakt}{\mathfrak{t}}
+\newcommand{\fraku}{\mathfrak{u}}
+\newcommand{\frakv}{\mathfrak{v}}
+\newcommand{\frakw}{\mathfrak{w}}
+\newcommand{\frakx}{\mathfrak{x}}
+\newcommand{\fraky}{\mathfrak{y}}
+\newcommand{\frakz}{\mathfrak{z}}
+
+\newcommand{\frakA}{\mathfrak{A}}
+\newcommand{\frakB}{\mathfrak{B}}
+\newcommand{\frakC}{\mathfrak{C}}
+\newcommand{\frakD}{\mathfrak{D}}
+\newcommand{\frakE}{\mathfrak{E}}
+\newcommand{\frakF}{\mathfrak{F}}
+\newcommand{\frakG}{\mathfrak{G}}
+\newcommand{\frakH}{\mathfrak{H}}
+\newcommand{\frakI}{\mathfrak{I}}
+\newcommand{\frakJ}{\mathfrak{J}}
+\newcommand{\frakK}{\mathfrak{K}}
+\newcommand{\frakL}{\mathfrak{L}}
+\newcommand{\frakM}{\mathfrak{M}}
+\newcommand{\frakN}{\mathfrak{N}}
+\newcommand{\frakO}{\mathfrak{O}}
+\newcommand{\frakP}{\mathfrak{P}}
+\newcommand{\frakQ}{\mathfrak{Q}}
+\newcommand{\frakR}{\mathfrak{R}}
+\newcommand{\frakS}{\mathfrak{S}}
+\newcommand{\frakT}{\mathfrak{T}}
+\newcommand{\frakU}{\mathfrak{U}}
+\newcommand{\frakV}{\mathfrak{V}}
+\newcommand{\frakW}{\mathfrak{W}}
+\newcommand{\frakX}{\mathfrak{X}}
+\newcommand{\frakY}{\mathfrak{Y}}
+\newcommand{\frakZ}{\mathfrak{Z}}
+
+%Lowercase Bold Letters
+\newcommand{\bfa}{\mathbf{a}}
+\newcommand{\bfb}{\mathbf{b}}
+\newcommand{\bfc}{\mathbf{c}}
+\newcommand{\bfd}{\mathbf{d}}
+\newcommand{\bfe}{\mathbf{e}}
+\newcommand{\bff}{\mathbf{f}}
+\newcommand{\bfg}{\mathbf{g}}
+\newcommand{\bfh}{\mathbf{h}}
+\newcommand{\bfi}{\mathbf{i}}
+\newcommand{\bfj}{\mathbf{j}}
+\newcommand{\bfk}{\mathbf{k}}
+\newcommand{\bfl}{\mathbf{l}}
+\newcommand{\bfm}{\mathbf{m}}
+\newcommand{\bfn}{\mathbf{n}}
+\newcommand{\bfo}{\mathbf{o}}
+\newcommand{\bfp}{\mathbf{p}}
+\newcommand{\bfq}{\mathbf{q}}
+\newcommand{\bfr}{\mathbf{r}}
+\newcommand{\bfs}{\mathbf{s}}
+\newcommand{\bft}{\mathbf{t}}
+\newcommand{\bfu}{\mathbf{u}}
+\newcommand{\bfv}{\mathbf{v}}
+\newcommand{\bfw}{\mathbf{w}}
+\newcommand{\bfx}{\mathbf{x}}
+\newcommand{\bfy}{\mathbf{y}}
+\newcommand{\bfz}{\mathbf{z}}
+
+
+
+
+%Customized Theorem Environments
+\newtheoremstyle%
+{custom}%
+{}%                         Space above
+{}%													Space below
+{}%													Body font
+{}%                         Indent amount
+{}%                         Theorem head font
+{.}%                        Punctuation after heading
+{ }%                        Space after heading
+{\thmname{}%                Additional specifications for theorem head
+\thmnumber{}%
+\thmnote{\bfseries #3}}%
+
+\newtheoremstyle%
+{Theorem}%
+{}%
+{}%
+{\itshape}%
+{}%
+{}%
+{.}%
+{ }%
+{\thmname{\bfseries #1}%
+\thmnumber{\;\bfseries #2}%
+\thmnote{\;(\bfseries #3)}}%
+
+%Theorem Environments
+\theoremstyle{Theorem}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{cor}{Corollary}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem*{nonumthm}{Theorem}
+\newtheorem*{nonumprop}{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem*{answer}{Answer}
+\newtheorem*{solution}{Solution}
+\newtheorem*{nonumdfn}{Definition}
+\newtheorem*{nonumex}{Example}
+\newtheorem{ex}{Example}[section]
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}[section]
+\newtheorem*{note}{Note}
+\newtheorem*{notation}{Notation}
+\theoremstyle{custom}
+\newtheorem*{cust}{Definition}
+\fancypagestyle{firststyle}
+{
+  % \fancyhead[L]{\textbf{Name:}}
+   \fancyhead[R]{\textbf{Worksheet 10: Taylor and Mclaurin Series}}
+   \fancyfoot[R]{ Thomas Luckner } %{\footnotesize Page \thepage\ of \pageref{LastPage}}
+}
+
+
+
+\begin{document}
+\thispagestyle{firststyle}
+\pagestyle{plain}
+
+
+\noindent Thoughts: \\
+On the previous worksheet we found out what a power series is or, in other words, a function in sum notation. I did not specifically go over this, but you can write any function of the form 
+\[
+f(x)=\dfrac{a}{1-r(x)}
+\] 
+as a power series using the geometric series formula (here $r(x)$ is what we refered to as the rate for geometric series, but now includes some $x$'s). The problem is this is a very small amount of functions that exist. So, really we have done very little to write functions as sums. BUT WAIT! That is where Taylor series comes in! I think the best way to get this point across is with some cool derivation! The other case is to just give the formula which is not going to give you must intuition. Let's start with what we want:
+\[
+f(x)=\sum_{n=0}^{\infty}c_n(x-a)^n=c_0+c_1(x-a)+c_2(x-a)^2+\cdots.
+\]
+Or in words, a function, $f(x)$, written as a power series. Let's try taking some derivatives and see if we can make some magic happen! First we know, based on the power series, that
+\[
+f(a)=c_0.
+\]
+This is not that crazy. Now let's say we take the derivative. I do not want to actually take the derivative of the power series here, but feel free to confirm my words here. First, the $c_0$ is constant and, thus, is 0 after taking the derivative. Now the second term will be $c_1$! The third term will be $2c_2(x-a)$ and so on. The big thing here is the $c_1$! This tells us
+\[
+f'(a)=c_1.
+\]
+Now the second derivative has a little catch. If you repeat the above process, you get 
+\[
+f''(a)=2c_2 \Rightarrow c_2=\dfrac{f''(a)}{2}.
+\]
+This 2 catches us a little off guard, but tells us we should go one derivative further to finish our pattern. At the point of second derivative, we should have a term $3(2)c_3(x-a)$. This will be our constant term in the third derivative! Thus,
+\[
+c_3=\dfrac{f^{(3)}(a)}{3(2)}.
+\]
+Ah yes! A trend has emerged! If you do not see it, please go to the fourth derivative.
+I don't know about you, but I am seeing the following:
+\[
+c_n=\dfrac{f^{(n)}(a)}{n!}.
+\]
+Let's make this substitution in our power series and give it a mighty name!
+\begin{definition}[Taylor Series]
+\[
+f(x)=\sum_{n=0}^{\infty}\dfrac{f^{(n)}(a)}{n!}(x-a)^n.
+\]
+(Mclaurin Series is when $a=0$... I think Mclaurin came first which is why he gets referred as well, but Taylor series covers his work up.)
+\end{definition}
+There is a big question mark we have not addressed here and that is convergence! This is a power series and we need to know when this thing converges, so how do we do that? root or ratio test to find the radius and interval of convergence. This is important since we cannot express a function as a Taylor Series if we use anything outside this interval!\\
+Now we know about convergence and Taylor Series, so let's see this thing in action!\\
+The easy thing to do is choose a polynomial example since it is already in a form of a Taylor series! It just happens to be finite. Thus, let's do a crowd favorite: $f(x)=\sin(x)$ for $a=0$ (I know you guys hate trig, I just know you'll see this example and probably need to memorize it).
+NOTE: A lot of book will say "about $x=0$". This is still your $a$! DO NOT LET THIS CONFUSE YOU! The best process for finding a Taylor Series is as follows:
+\begin{enumerate}[1.]
+\item Plug in $a$ into $f(x)$. This is your first term! ($\sin(0)=0$). 
+\item Take the derivative and plug in $a$.  Now this times $(x-a)$ is your second term! ($\cos(0)=1$, $f(x)=0+x+ \cdots$).
+\item Take the derivative again and plug in $a$! Now your third term is this over $2!$ times $(x-a)^2$. ($-\sin(0)=0$, $f(x)=0+x+\dfrac{0}{2!}x^2+\cdots$).
+\item Keep going! ($f(x)=0+x+0x^2-\dfrac{1}{3!}x^3+0x^4+\cdots$)
+\item Find a pattern for the terms not including $(x-a)^n$. $\left(f(x)=\sum_{n=0}^{\infty}\dfrac{(-1)^{n}x^{2n+1}}{(2n+1)!}x^{2n+1}\right)$
+\end{enumerate}
+Done! Some people prefer to find the derivatives first, plug in $a$, then find a pattern there which is perfectly fine. Find what suits you!\\ 
+I mentioned convergence before. This is something you will talk about and the simple answer is to use convergence of power series to find where it is convergence. However, if i remember correctly, your books have a formula for the remainder. This will appear very similar to that of the remainder formulas you've seen. Since I find this stuff not very useful since we know the exact, I will give the formulas and a worded way to use them.
+\newpage
+We can write our Taylor Series as follows:
+\[
+f(x)=f(a)+f'(a)+\cdots +\dfrac{f^{(n)}(a)}{n!}(x-a)^n+R_n(x)
+\]
+where
+\[
+R_n(x)=\dfrac{f^{(n+1)}(c)}{(n+1)!}(x-a)^{n+1}
+\] 
+with $c$ being something between $a$ and $x$. We know that if $R_n(x) \rightarrow 0$ then the Taylor Series stops for some $n$ or, in familiar words, converges! Thus, where we have convergence, we have estimation.
+\begin{theorem}[Taylor Series Estimation Theorem]
+If there exists $M>0$ such that $|f^{(n+1)}(c)|<M$ for all $c$ between $x$ and $a$, then 
+\[
+|R_n(x)|\leq M\dfrac{|x-a|^{n+1}}{(n+1)!}.
+\]
+\end{theorem}
+The use of this theorem is not too complicated. It goes as follows:
+\begin{enumerate}[1.]
+\item Find $R_n(x)$ (hard part is finding $M$). Usually only possible with derivatives that become 0, are cyclic, or decreasing toward 0 ($\sin(x)$, $e^x$ or $\ln(x)$).
+\item Take the limit of the upperbound as $n$ approaches infinity. If 0, then converge. if a number other than 0, then inconclusive. If infinity, still inconclusive.
+\end{enumerate}
+Lastly, following this section, you will be expected to find the Taylor Series for series that look like common ones. For example, $\sin(x^2)$ or $\sin^2(x)+\cos^2(x)$. The first case sis just replacing $x$ in your Taylor Series for $\sin(x)$ with $x^2$. Done! Now for the second, I chose this one since an identity tells you it is 1! This is tricky! You really have to think a little more about this since the square on each term is not fun. This is not one you can prove fully, but may be an exercise for you all to see the use of Taylor Series. This is all I have to say about this stuff! After this, it is on to parametric equations and polar coordinates/equations!
+\newpage
+\noindent Problems: Find the Taylor Series for the following functions and the radius/interval of convergence. (These may build on each other)
+\begin{enumerate}[1.]
+\item $f(x)=\cos(x), a=0$
+\item $f(x)=\ln(x), a=2$
+\item $f(x)=\dfrac{1}{x}, a=-3$
+\item $f(x)=e^x, a=0$
+\item $f(x)=\ln(x+1), a=0$
+\item $f(x)=e^x+e^{2x}$
+\item $f(x)=x^2\ln(1+x^3)$
+\item $f(x)=x\cos\left(\dfrac{1}{2}x^2\right)$
+\item $f(x)=\sin^2(x)$ (HInt: Use an identity)
+\item Challenge: $f(x)=\dfrac{x^2}{\sqrt{2+x}}$ Hint: Binomial Series: $(1+x)^k=\ds \sum_{n=0}^{\infty} \binom{k}{n}x^n$\\ where $\ds \binom{k}{n}=\dfrac{k!}{(k-n)!n!}$.
+\end{enumerate}
+\end{document}
+
+
+
+
+
+
+

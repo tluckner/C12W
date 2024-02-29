@@ -1,0 +1,450 @@
+\documentclass[10pt]{article}
+
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{array}
+\usepackage[all]{xy}
+\usepackage{fancyhdr}
+\usepackage{euscript}
+\usepackage{graphics}
+\usepackage{cancel}
+\usepackage{fancybox}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{pgf}
+\usepackage{pgfplots}
+\usepackage[all]{xy}
+\usepackage{graphicx}
+\pgfplotsset{compat=1.14}
+
+\usepackage{pstricks}
+\usepackage{pst-plot}
+
+\usepackage{setspace}
+\onehalfspacing
+
+\setlength{\oddsidemargin}{.5in}
+\setlength{\evensidemargin}{.5in}
+\setlength{\textwidth}{6.in}
+\setlength{\topmargin}{0in}
+\setlength{\headsep}{.20in}
+\setlength{\textheight}{8.5in}
+
+
+\pdfpagewidth 8.5in
+ \pdfpageheight 11in
+
+
+%General
+\newcommand{\WW}{\mathbb {W}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\RR}{\mathbb {R}}
+\newcommand{\II}{\mathbb {I}}
+\newcommand{\QQ}{\mathbb {Q}}
+\newcommand{\CC}{\mathbf C}
+\newcommand{\NN}{\mathbb {N}}
+\newcommand{\Zn}[1]{\mathbf{Z}/#1\mathbf{Z}}
+\newcommand{\Znx}[1]{(\mathbf{Z}/#1\mathbf{Z})^\times}
+\newcommand{\X}{\times} 
+\newcommand{\set}[2]{\left\{#1 : #2\right\}}          
+\newcommand{\sett}[1]{\left\{#1\right\}}                
+\newcommand{\nonempty}{\neq\varnothing}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\abs}[1]{\left| {#1} \right|}
+\newcommand{\qedbox}{\rule{2mm}{2mm}}
+\renewcommand{\qedsymbol}{\qedbox}											
+\newcommand{\aand}{\qquad\hbox{and}\qquad}
+\newcommand{\e}{\varepsilon}
+\newcommand{\tto}{\rightrightarrows}
+\newcommand{\gs}{\geqslant}
+\newcommand{\ls}{\leqslant}
+\renewcommand{\tilde}{\widetilde}
+\renewcommand{\hat}{\widehat}
+\newcommand{\norm}[1]{\left\| #1 \right\|}
+\newcommand{\md}[3]{#1\equiv#2\;(\mathrm{mod}\;#3)}     
+\newcommand{\gen}[1]{\left\langle #1 \right\rangle}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\zero}{\boldsymbol{0}}
+
+\newcommand{\be}[1]{\textbf{\emph{#1}}}
+\newcommand{\hhat}[1]{\hat{\! \hat{#1}}}
+
+\newcommand{\fto}[1]{\xrightarrow{\hspace{4pt} #1 \hspace{4pt}}}
+\newcommand{\flto}[1]{\xrightarrow{\quad #1 \quad}}
+
+
+
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\esssup}{\operatorname{ess\:sup}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\card}{\operatorname{card}}
+
+\newcommand{\dmu}{\:\mathrm{d}\mu}
+\newcommand{\dm}{\:\mathrm{d}m}
+\newcommand{\dx}{\:\mathrm{d}x}
+\newcommand{\dt}{\:\mathrm{d}t}
+\newcommand{\dz}{\:\mathrm{d}z}
+\newcommand{\dtheta}{\:\mathrm{d}\theta}
+\newcommand{\dw}{\:\mathrm{d}w}
+
+%Algebra
+\newcommand{\Sym}{\operatorname {Sym}}
+\newcommand{\Stab}{\operatorname {Stab}}
+\newcommand{\M}{\operatorname{M}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\PGL}{\operatorname{PGL}}
+\newcommand{\SL}{\operatorname{SL}}
+\newcommand{\PSL}{\operatorname{PSL}}
+\newcommand{\Heis}{\operatorname{Heis}}
+\newcommand{\Aff}{\operatorname{Aff}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\image}{\operatorname{im}}
+\newcommand{\Syl}[2]{\operatorname{\emph{Syl}}_{#1}\left(#2\right)}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Tor}{\operatorname{Tor}}
+\newcommand{\Gal}{\operatorname{Gal}}
+\newcommand{\ch}{\operatorname{ch}}
+\newcommand{\rad}{\operatorname{rad}}
+\newcommand{\iso}{\cong}
+\newcommand{\normal}{\unlhd}
+\newcommand{\semi}{\rtimes}
+\newcommand{\Nm}{\operatorname {N}}
+\newcommand{\Tr}{\operatorname {Tr}}
+\newcommand{\disc}{\operatorname {disc}}
+
+
+
+
+
+
+
+
+%Euler Script Characters
+\newcommand{\esa}{\EuScript{A}}
+\newcommand{\esb}{\EuScript{B}}
+\newcommand{\esc}{\EuScript{C}}
+\newcommand{\esd}{\EuScript{D}}
+\newcommand{\ese}{\EuScript{E}}
+\newcommand{\esf}{\EuScript{F}}
+\newcommand{\esg}{\EuScript{G}}
+\newcommand{\esh}{\EuScript{H}}
+\newcommand{\esi}{\EuScript{I}}
+\newcommand{\esj}{\EuScript{J}}
+\newcommand{\esk}{\EuScript{K}}
+\newcommand{\esl}{\EuScript{L}}
+\newcommand{\esm}{\EuScript{M}}
+\newcommand{\esn}{\EuScript{N}}
+\newcommand{\eso}{\EuScript{O}}
+\newcommand{\esp}{\EuScript{P}}
+\newcommand{\esq}{\EuScript{Q}}
+\newcommand{\esr}{\EuScript{R}}
+\newcommand{\ess}{\EuScript{S}}
+\newcommand{\est}{\EuScript{T}}
+\newcommand{\esu}{\EuScript{U}}
+\newcommand{\esv}{\EuScript{V}}
+\newcommand{\esw}{\EuScript{W}}
+\newcommand{\esx}{\EuScript{X}}
+\newcommand{\esy}{\EuScript{Y}}
+\newcommand{\esz}{\EuScript{Z}}
+
+%Calligraphic Characters
+\newcommand{\cala}{\mathcal{A}}
+\newcommand{\calb}{\mathcal{B}}
+\newcommand{\calc}{\mathcal{C}}
+\newcommand{\cald}{\mathcal{D}}
+\newcommand{\cale}{\mathcal{E}}
+\newcommand{\calf}{\mathcal{F}}
+\newcommand{\calg}{\mathcal{G}}
+\newcommand{\calh}{\mathcal{H}}
+\newcommand{\cali}{\mathcal{I}}
+\newcommand{\calj}{\mathcal{J}}
+\newcommand{\calk}{\mathcal{K}}
+\newcommand{\call}{\mathcal{L}}
+\newcommand{\calm}{\mathcal{M}}
+\newcommand{\caln}{\mathcal{N}}
+\newcommand{\calo}{\mathcal{O}}
+\newcommand{\calp}{\mathcal{P}}
+\newcommand{\calq}{\mathcal{Q}}
+\newcommand{\calr}{\mathcal{R}}
+\newcommand{\cals}{\mathcal{S}}
+\newcommand{\calt}{\mathcal{T}}
+\newcommand{\calu}{\mathcal{U}}
+\newcommand{\calv}{\mathcal{V}}
+\newcommand{\calw}{\mathcal{W}}
+\newcommand{\calx}{\mathcal{X}}
+\newcommand{\caly}{\mathcal{Y}}
+\newcommand{\calz}{\mathcal{Z}}
+
+%Gothic Characters
+\newcommand{\fraka}{\mathfrak{a}}
+\newcommand{\frakb}{\mathfrak{b}}
+\newcommand{\frakc}{\mathfrak{c}}
+\newcommand{\frakd}{\mathfrak{d}}
+\newcommand{\frake}{\mathfrak{e}}
+\newcommand{\frakf}{\mathfrak{f}}
+\newcommand{\frakg}{\mathfrak{g}}
+\newcommand{\frakh}{\mathfrak{h}}
+\newcommand{\fraki}{\mathfrak{i}}
+\newcommand{\frakj}{\mathfrak{j}}
+\newcommand{\frakk}{\mathfrak{k}}
+\newcommand{\frakl}{\mathfrak{l}}
+\newcommand{\frakm}{\mathfrak{m}}
+\newcommand{\frakn}{\mathfrak{n}}
+\newcommand{\frako}{\mathfrak{o}}
+\newcommand{\frakp}{\mathfrak{p}}
+\newcommand{\frakq}{\mathfrak{q}}
+\newcommand{\frakr}{\mathfrak{r}}
+\newcommand{\fraks}{\mathfrak{s}}
+\newcommand{\frakt}{\mathfrak{t}}
+\newcommand{\fraku}{\mathfrak{u}}
+\newcommand{\frakv}{\mathfrak{v}}
+\newcommand{\frakw}{\mathfrak{w}}
+\newcommand{\frakx}{\mathfrak{x}}
+\newcommand{\fraky}{\mathfrak{y}}
+\newcommand{\frakz}{\mathfrak{z}}
+
+\newcommand{\frakA}{\mathfrak{A}}
+\newcommand{\frakB}{\mathfrak{B}}
+\newcommand{\frakC}{\mathfrak{C}}
+\newcommand{\frakD}{\mathfrak{D}}
+\newcommand{\frakE}{\mathfrak{E}}
+\newcommand{\frakF}{\mathfrak{F}}
+\newcommand{\frakG}{\mathfrak{G}}
+\newcommand{\frakH}{\mathfrak{H}}
+\newcommand{\frakI}{\mathfrak{I}}
+\newcommand{\frakJ}{\mathfrak{J}}
+\newcommand{\frakK}{\mathfrak{K}}
+\newcommand{\frakL}{\mathfrak{L}}
+\newcommand{\frakM}{\mathfrak{M}}
+\newcommand{\frakN}{\mathfrak{N}}
+\newcommand{\frakO}{\mathfrak{O}}
+\newcommand{\frakP}{\mathfrak{P}}
+\newcommand{\frakQ}{\mathfrak{Q}}
+\newcommand{\frakR}{\mathfrak{R}}
+\newcommand{\frakS}{\mathfrak{S}}
+\newcommand{\frakT}{\mathfrak{T}}
+\newcommand{\frakU}{\mathfrak{U}}
+\newcommand{\frakV}{\mathfrak{V}}
+\newcommand{\frakW}{\mathfrak{W}}
+\newcommand{\frakX}{\mathfrak{X}}
+\newcommand{\frakY}{\mathfrak{Y}}
+\newcommand{\frakZ}{\mathfrak{Z}}
+
+%Lowercase Bold Letters
+\newcommand{\bfa}{\mathbf{a}}
+\newcommand{\bfb}{\mathbf{b}}
+\newcommand{\bfc}{\mathbf{c}}
+\newcommand{\bfd}{\mathbf{d}}
+\newcommand{\bfe}{\mathbf{e}}
+\newcommand{\bff}{\mathbf{f}}
+\newcommand{\bfg}{\mathbf{g}}
+\newcommand{\bfh}{\mathbf{h}}
+\newcommand{\bfi}{\mathbf{i}}
+\newcommand{\bfj}{\mathbf{j}}
+\newcommand{\bfk}{\mathbf{k}}
+\newcommand{\bfl}{\mathbf{l}}
+\newcommand{\bfm}{\mathbf{m}}
+\newcommand{\bfn}{\mathbf{n}}
+\newcommand{\bfo}{\mathbf{o}}
+\newcommand{\bfp}{\mathbf{p}}
+\newcommand{\bfq}{\mathbf{q}}
+\newcommand{\bfr}{\mathbf{r}}
+\newcommand{\bfs}{\mathbf{s}}
+\newcommand{\bft}{\mathbf{t}}
+\newcommand{\bfu}{\mathbf{u}}
+\newcommand{\bfv}{\mathbf{v}}
+\newcommand{\bfw}{\mathbf{w}}
+\newcommand{\bfx}{\mathbf{x}}
+\newcommand{\bfy}{\mathbf{y}}
+\newcommand{\bfz}{\mathbf{z}}
+
+
+
+
+%Customized Theorem Environments
+\newtheoremstyle%
+{custom}%
+{}%                         Space above
+{}%													Space below
+{}%													Body font
+{}%                         Indent amount
+{}%                         Theorem head font
+{.}%                        Punctuation after heading
+{ }%                        Space after heading
+{\thmname{}%                Additional specifications for theorem head
+\thmnumber{}%
+\thmnote{\bfseries #3}}%
+
+\newtheoremstyle%
+{Theorem}%
+{}%
+{}%
+{\itshape}%
+{}%
+{}%
+{.}%
+{ }%
+{\thmname{\bfseries #1}%
+\thmnumber{\;\bfseries #2}%
+\thmnote{\;(\bfseries #3)}}%
+
+%Theorem Environments
+\theoremstyle{Theorem}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{cor}{Corollary}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem*{nonumthm}{Theorem}
+\newtheorem*{nonumprop}{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem*{answer}{Answer}
+\newtheorem*{solution}{Solution}
+\newtheorem*{nonumdfn}{Definition}
+\newtheorem*{nonumex}{Example}
+\newtheorem{ex}{Example}[section]
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}[section]
+\newtheorem*{note}{Note}
+\newtheorem*{notation}{Notation}
+\theoremstyle{custom}
+\newtheorem*{cust}{Definition}
+\fancypagestyle{firststyle}
+{
+   \fancyhead[L]{\textbf{Name:}}
+   \fancyhead[R]{\textbf{Worksheet 7: Related Rates}}
+   \fancyfoot[R]{ Thomas Luckner } %{\footnotesize Page \thepage\ of \pageref{LastPage}}
+}
+
+
+
+
+
+
+\begin{document}
+\thispagestyle{firststyle}
+\pagestyle{plain}
+
+Thoughts:\\\\
+This is a toughy. Students do tend to struggle on this section because it falls under the dreaded category of "word problems". Have no fear though! It can be made simpler. Related rates refers to having two unknowns on information and using the relationship between the two to find a specific unknown. For example, one of the most common cases is with area and perimeter. Typically the set-up is some information and then asking for an unknown (typically a derivative of a variable in one of the equations). Thus, you need to use derivatives to find the others! Here is a basic example I found in my book:\\\\
+A 10ft ladder rests against a vertical wall. If the bottom of the ladder slides away from the wall at a rate of 1 ft/s, how fast is the top of the ladder sliding down the wall when the bottom of the ladder is 6 ft from the wall?\\\\
+
+\begin{center}
+\begin{tikzpicture}
+
+      \draw[thick,-, blue] (5,4) -- (0,0) node[right] {};
+      \draw[thick,-] (5,5) -- (5,0) node[above] {};
+        \draw[thick,-] (6,0) -- (-1,0) node[right] {};
+        \draw[blue] (2.5,2) node[label={A}] {};
+         \draw[] (3,-.65) node[, label={B}] {};
+          \draw[] (5.65,2) node[label={C}] {};
+    \end{tikzpicture}
+    \end{center}
+Here the ladder is blue and the label for length is A. The wall is C and the floor is B. Note we will use dA to represent the speed of change for these lengths. Now let's make sens  of our information. 
+\begin{align*}
+A&=10\\[2pt]
+B*&=6\\[2pt]
+dB&=1\\[2pt]
+C&=?\\[2pt]
+dC&=??\\[2pt]
+\end{align*}
+The star is to indicate we only have the information for when we take the derivative. The single question mark indicates an unknown, but not the unknown we want. The double question mark is the unknown we want. Now we have a right triangle. This should remind us of a nice formula relating all the sides. Pythagorean Theorem! Let's use it. 
+\[
+A^2=C^2+C^2 \Rightarrow 100=B^2+C^2
+\]
+Notice I did not use B right away since it is only for for my derivative based on the context of the problem. 
+\[
+0=2B\cdot \dfrac{dB}{dt}+2C \cdot \dfrac{dC}{dt}
+\]
+Now we plug in our information.
+\[
+0=2(6)(1)+2C\dfrac{dC}{dt}
+\]
+I do not have $C$ yet! How do i get C? I use the Pythagorean Theorem! 
+\[
+100=6^2+C^2 \Rightarrow C=8.
+\]
+Now we finish the problem.
+\[
+0=12+2(8)\dfrac{dC}{dt}\Rightarrow C=\dfrac{-3}{4}
+\]
+Thus. the ladder is sliding down at a rate of $\dfrac{3}{4}$ ft/s! \textbf{DO NOT FORGET UNITS}.\\
+The big questions you should be asking are how did he know when to use the information for B and how did he know how to find C? Let me answer these in order.
+\begin{enumerate}[1.]
+\item The question reads "how fast is the top of the ladder sliding down the wall \textbf{when} the bottom of the ladder is 6 ft from the wall?" This when is the key! The question is asking for the speed the ladder slides down the wall, so I will use the information folllowing it \textbf{when} I take take the derivative! A common way to avoid this thought is to wait to use this piece of information until the last minute or until you cannot continue the problem without it.
+\item Finding C comes in when you need this unknown to find the desired unknown. This is the reason it is called related rates! Now we go and find another equation (or the same one on this case) that will give us this value to finish the problem!
+\end{enumerate}
+These problems take practice, but a strategy can be made of how to approach them! Use the above thought process to see if you can make a strategy for yourself doing the problems below. The biggest suggestion I can make is \textbf{DRAW A PICTURE}!
+\newpage
+Problems:
+\begin{enumerate}[1.]
+\item A cylindrical tank with radius 5 m is being filled with water at a rate of 3 $m^3$/min. How fast is the height increasing? (Volume of a cyclinder$=\pi r^2h$)
+\begin{solution}
+We have the following: $V=25\pi h$. Now we can take the derivative with respect to time $t$.
+\[
+\dfrac{dV}{dt}=25\pi \dfrac{dh}{dt}\Rightarrow \dfrac{dh}{dt}=\dfrac{3}{25\pi}\text{ m/s}.
+\]
+\end{solution}
+\item At noon ship A is 100 km west of ship B. Ship A is sailing south at 35 km/h and ship B is sailing north at 25 km/h. How fast is the distance between the ships changing at 4:00 PM?
+\begin{solution}
+DRAW THE PICTURE. The equation you get should give you
+\[
+x^2=100^2+(d_A+d_B)^2
+\]
+where $x$ is the distance from A to B at any given time after 12 and $d_A$ and $d_B$ are the distances from the original locations at 12 respectively. This gives
+\[
+2x\dfrac{dx}{dt}=2(d_A+d_B)\left(\dfrac{dd_A}{dt}+\dfrac{dd_B}{dt}\right)
+\]
+\[
+\Rightarrow \dfrac{dx}{dt}=\dfrac{(d_A+d_B)\left(35+25\right)}{x}.
+\]
+$d_A=140$ and $d_B=100$ since the speed is given per hour and the time is 4 hours after 12. What is left to find is $x$. The Pythagorean Theorem with the above distances gives $x=260$. Thus,
+\[
+ \dfrac{dx}{dt}=\dfrac{(240)(60)}{260}=\dfrac{720}{13}\text{ km/hr}.
+ \]
+\end{solution}
+\item Gravel is being dumped from a conveyor belt at a rate of 30 ft$^3$/min, and its coarseness is such that it forms a pile in the shape of a cone whose diameter is equal to its height always. How fast is the height of the pile increasing when the pile is 10 ft high? ($V=(1/3) \pi r^2 h$)
+\begin{solution}
+DRAW THE PICTURE. Notice we can get the equation $2r=h$ from the information. Thus,
+\[
+V=(1/3)\pi \dfrac{h^3}{4}
+\]
+\[
+\Rightarrow \dfrac{dV}{dt}=(1/3)\pi \left(\dfrac{3h^2}{4}\right) \dfrac{dh}{dt}\Rightarrow 30=\dfrac{\pi (10)^2}{4}\dfrac{dh}{dt}\Rightarrow \dfrac{dh}{dt}=\dfrac{12}{10\pi}\text{ ft}.
+\]
+\end{solution}
+\item A baseball diamond is square with side 90 ft. A batter hits the ball and runs toward first base with a speed of 24 ft/s.
+\begin{enumerate}[a.]
+\item At what rate is his distance from second base decreasing when he is halfway to first base?
+\item At what rate is his distance from third base increasing at the same moment?
+\end{enumerate}
+\begin{solution}
+DRAW THE PICTURE. It is tempting to use an area formula here but the Pythagorean Theorem is the way to go.
+\[
+b^2=90^2+x^2
+\]
+where $b$ is the distance to second and $x$ is the distance to first. Thus,
+\[
+2b\dfrac{db}{dt}=2x\dfrac{dx}{dt}.
+\]
+We have everything we need to find $\dfrac{db}{dt}$ but $b$. 
+\[
+b^2=90^2+45^2=45^2(2^2+1) \Rightarrow b=45\sqrt{5}.
+\]
+Finally,
+\[
+\dfrac{db}{dt}=\dfrac{x}{b}\cdot \dfrac{dx}{dt}=\dfrac{24}{\sqrt{5}}\text{ ft/s}.
+\]
+\end{solution}
+\end{enumerate}
+\end{document}
+
+
+
+
+
+
+

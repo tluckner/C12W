@@ -1,0 +1,381 @@
+\documentclass[10pt]{article}
+
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{array}
+\usepackage[all]{xy}
+\usepackage{fancyhdr}
+\usepackage{euscript}
+\usepackage{graphics}
+\usepackage{cancel}
+\usepackage{fancybox}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{pgf}
+\usepackage{pgfplots}
+\usepackage[all]{xy}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\pgfplotsset{compat=1.14}
+
+\usepackage{pstricks}
+\usepackage{pst-plot}
+
+\usepackage{setspace}
+\onehalfspacing
+
+\setlength{\oddsidemargin}{.5in}
+\setlength{\evensidemargin}{.5in}
+\setlength{\textwidth}{6.in}
+\setlength{\topmargin}{0in}
+\setlength{\headsep}{.20in}
+\setlength{\textheight}{8.5in}
+
+
+\pdfpagewidth 8.5in
+ \pdfpageheight 11in
+
+
+%General
+\newcommand{\WW}{\mathbb {W}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\RR}{\mathbb {R}}
+\newcommand{\II}{\mathbb {I}}
+\newcommand{\QQ}{\mathbb {Q}}
+\newcommand{\CC}{\mathbf C}
+\newcommand{\NN}{\mathbb {N}}
+\newcommand{\Zn}[1]{\mathbf{Z}/#1\mathbf{Z}}
+\newcommand{\Znx}[1]{(\mathbf{Z}/#1\mathbf{Z})^\times}
+\newcommand{\X}{\times} 
+\newcommand{\set}[2]{\left\{#1 : #2\right\}}          
+\newcommand{\sett}[1]{\left\{#1\right\}}                
+\newcommand{\nonempty}{\neq\varnothing}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\abs}[1]{\left| {#1} \right|}
+\newcommand{\qedbox}{\rule{2mm}{2mm}}
+\renewcommand{\qedsymbol}{\qedbox}											
+\newcommand{\aand}{\qquad\hbox{and}\qquad}
+\newcommand{\e}{\varepsilon}
+\newcommand{\tto}{\rightrightarrows}
+\newcommand{\gs}{\geqslant}
+\newcommand{\ls}{\leqslant}
+\renewcommand{\tilde}{\widetilde}
+\renewcommand{\hat}{\widehat}
+\newcommand{\norm}[1]{\left\| #1 \right\|}
+\newcommand{\md}[3]{#1\equiv#2\;(\mathrm{mod}\;#3)}     
+\newcommand{\gen}[1]{\left\langle #1 \right\rangle}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\zero}{\boldsymbol{0}}
+
+\newcommand{\be}[1]{\textbf{\emph{#1}}}
+\newcommand{\hhat}[1]{\hat{\! \hat{#1}}}
+
+\newcommand{\fto}[1]{\xrightarrow{\hspace{4pt} #1 \hspace{4pt}}}
+\newcommand{\flto}[1]{\xrightarrow{\quad #1 \quad}}
+
+
+
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\esssup}{\operatorname{ess\:sup}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\card}{\operatorname{card}}
+
+\newcommand{\dmu}{\:\mathrm{d}\mu}
+\newcommand{\dm}{\:\mathrm{d}m}
+\newcommand{\dx}{\:\mathrm{d}x}
+\newcommand{\dt}{\:\mathrm{d}t}
+\newcommand{\dz}{\:\mathrm{d}z}
+\newcommand{\dtheta}{\:\mathrm{d}\theta}
+\newcommand{\dw}{\:\mathrm{d}w}
+
+%Algebra
+\newcommand{\Sym}{\operatorname {Sym}}
+\newcommand{\Stab}{\operatorname {Stab}}
+\newcommand{\M}{\operatorname{M}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\PGL}{\operatorname{PGL}}
+\newcommand{\SL}{\operatorname{SL}}
+\newcommand{\PSL}{\operatorname{PSL}}
+\newcommand{\Heis}{\operatorname{Heis}}
+\newcommand{\Aff}{\operatorname{Aff}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\image}{\operatorname{im}}
+\newcommand{\Syl}[2]{\operatorname{\emph{Syl}}_{#1}\left(#2\right)}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Tor}{\operatorname{Tor}}
+\newcommand{\Gal}{\operatorname{Gal}}
+\newcommand{\ch}{\operatorname{ch}}
+\newcommand{\rad}{\operatorname{rad}}
+\newcommand{\iso}{\cong}
+\newcommand{\normal}{\unlhd}
+\newcommand{\semi}{\rtimes}
+\newcommand{\Nm}{\operatorname {N}}
+\newcommand{\Tr}{\operatorname {Tr}}
+\newcommand{\disc}{\operatorname {disc}}
+
+
+
+
+
+
+
+
+%Euler Script Characters
+\newcommand{\esa}{\EuScript{A}}
+\newcommand{\esb}{\EuScript{B}}
+\newcommand{\esc}{\EuScript{C}}
+\newcommand{\esd}{\EuScript{D}}
+\newcommand{\ese}{\EuScript{E}}
+\newcommand{\esf}{\EuScript{F}}
+\newcommand{\esg}{\EuScript{G}}
+\newcommand{\esh}{\EuScript{H}}
+\newcommand{\esi}{\EuScript{I}}
+\newcommand{\esj}{\EuScript{J}}
+\newcommand{\esk}{\EuScript{K}}
+\newcommand{\esl}{\EuScript{L}}
+\newcommand{\esm}{\EuScript{M}}
+\newcommand{\esn}{\EuScript{N}}
+\newcommand{\eso}{\EuScript{O}}
+\newcommand{\esp}{\EuScript{P}}
+\newcommand{\esq}{\EuScript{Q}}
+\newcommand{\esr}{\EuScript{R}}
+\newcommand{\ess}{\EuScript{S}}
+\newcommand{\est}{\EuScript{T}}
+\newcommand{\esu}{\EuScript{U}}
+\newcommand{\esv}{\EuScript{V}}
+\newcommand{\esw}{\EuScript{W}}
+\newcommand{\esx}{\EuScript{X}}
+\newcommand{\esy}{\EuScript{Y}}
+\newcommand{\esz}{\EuScript{Z}}
+
+%Calligraphic Characters
+\newcommand{\cala}{\mathcal{A}}
+\newcommand{\calb}{\mathcal{B}}
+\newcommand{\calc}{\mathcal{C}}
+\newcommand{\cald}{\mathcal{D}}
+\newcommand{\cale}{\mathcal{E}}
+\newcommand{\calf}{\mathcal{F}}
+\newcommand{\calg}{\mathcal{G}}
+\newcommand{\calh}{\mathcal{H}}
+\newcommand{\cali}{\mathcal{I}}
+\newcommand{\calj}{\mathcal{J}}
+\newcommand{\calk}{\mathcal{K}}
+\newcommand{\call}{\mathcal{L}}
+\newcommand{\calm}{\mathcal{M}}
+\newcommand{\caln}{\mathcal{N}}
+\newcommand{\calo}{\mathcal{O}}
+\newcommand{\calp}{\mathcal{P}}
+\newcommand{\calq}{\mathcal{Q}}
+\newcommand{\calr}{\mathcal{R}}
+\newcommand{\cals}{\mathcal{S}}
+\newcommand{\calt}{\mathcal{T}}
+\newcommand{\calu}{\mathcal{U}}
+\newcommand{\calv}{\mathcal{V}}
+\newcommand{\calw}{\mathcal{W}}
+\newcommand{\calx}{\mathcal{X}}
+\newcommand{\caly}{\mathcal{Y}}
+\newcommand{\calz}{\mathcal{Z}}
+
+%Gothic Characters
+\newcommand{\fraka}{\mathfrak{a}}
+\newcommand{\frakb}{\mathfrak{b}}
+\newcommand{\frakc}{\mathfrak{c}}
+\newcommand{\frakd}{\mathfrak{d}}
+\newcommand{\frake}{\mathfrak{e}}
+\newcommand{\frakf}{\mathfrak{f}}
+\newcommand{\frakg}{\mathfrak{g}}
+\newcommand{\frakh}{\mathfrak{h}}
+\newcommand{\fraki}{\mathfrak{i}}
+\newcommand{\frakj}{\mathfrak{j}}
+\newcommand{\frakk}{\mathfrak{k}}
+\newcommand{\frakl}{\mathfrak{l}}
+\newcommand{\frakm}{\mathfrak{m}}
+\newcommand{\frakn}{\mathfrak{n}}
+\newcommand{\frako}{\mathfrak{o}}
+\newcommand{\frakp}{\mathfrak{p}}
+\newcommand{\frakq}{\mathfrak{q}}
+\newcommand{\frakr}{\mathfrak{r}}
+\newcommand{\fraks}{\mathfrak{s}}
+\newcommand{\frakt}{\mathfrak{t}}
+\newcommand{\fraku}{\mathfrak{u}}
+\newcommand{\frakv}{\mathfrak{v}}
+\newcommand{\frakw}{\mathfrak{w}}
+\newcommand{\frakx}{\mathfrak{x}}
+\newcommand{\fraky}{\mathfrak{y}}
+\newcommand{\frakz}{\mathfrak{z}}
+
+\newcommand{\frakA}{\mathfrak{A}}
+\newcommand{\frakB}{\mathfrak{B}}
+\newcommand{\frakC}{\mathfrak{C}}
+\newcommand{\frakD}{\mathfrak{D}}
+\newcommand{\frakE}{\mathfrak{E}}
+\newcommand{\frakF}{\mathfrak{F}}
+\newcommand{\frakG}{\mathfrak{G}}
+\newcommand{\frakH}{\mathfrak{H}}
+\newcommand{\frakI}{\mathfrak{I}}
+\newcommand{\frakJ}{\mathfrak{J}}
+\newcommand{\frakK}{\mathfrak{K}}
+\newcommand{\frakL}{\mathfrak{L}}
+\newcommand{\frakM}{\mathfrak{M}}
+\newcommand{\frakN}{\mathfrak{N}}
+\newcommand{\frakO}{\mathfrak{O}}
+\newcommand{\frakP}{\mathfrak{P}}
+\newcommand{\frakQ}{\mathfrak{Q}}
+\newcommand{\frakR}{\mathfrak{R}}
+\newcommand{\frakS}{\mathfrak{S}}
+\newcommand{\frakT}{\mathfrak{T}}
+\newcommand{\frakU}{\mathfrak{U}}
+\newcommand{\frakV}{\mathfrak{V}}
+\newcommand{\frakW}{\mathfrak{W}}
+\newcommand{\frakX}{\mathfrak{X}}
+\newcommand{\frakY}{\mathfrak{Y}}
+\newcommand{\frakZ}{\mathfrak{Z}}
+
+%Lowercase Bold Letters
+\newcommand{\bfa}{\mathbf{a}}
+\newcommand{\bfb}{\mathbf{b}}
+\newcommand{\bfc}{\mathbf{c}}
+\newcommand{\bfd}{\mathbf{d}}
+\newcommand{\bfe}{\mathbf{e}}
+\newcommand{\bff}{\mathbf{f}}
+\newcommand{\bfg}{\mathbf{g}}
+\newcommand{\bfh}{\mathbf{h}}
+\newcommand{\bfi}{\mathbf{i}}
+\newcommand{\bfj}{\mathbf{j}}
+\newcommand{\bfk}{\mathbf{k}}
+\newcommand{\bfl}{\mathbf{l}}
+\newcommand{\bfm}{\mathbf{m}}
+\newcommand{\bfn}{\mathbf{n}}
+\newcommand{\bfo}{\mathbf{o}}
+\newcommand{\bfp}{\mathbf{p}}
+\newcommand{\bfq}{\mathbf{q}}
+\newcommand{\bfr}{\mathbf{r}}
+\newcommand{\bfs}{\mathbf{s}}
+\newcommand{\bft}{\mathbf{t}}
+\newcommand{\bfu}{\mathbf{u}}
+\newcommand{\bfv}{\mathbf{v}}
+\newcommand{\bfw}{\mathbf{w}}
+\newcommand{\bfx}{\mathbf{x}}
+\newcommand{\bfy}{\mathbf{y}}
+\newcommand{\bfz}{\mathbf{z}}
+
+
+
+
+%Customized Theorem Environments
+\newtheoremstyle%
+{custom}%
+{}%                         Space above
+{}%													Space below
+{}%													Body font
+{}%                         Indent amount
+{}%                         Theorem head font
+{.}%                        Punctuation after heading
+{ }%                        Space after heading
+{\thmname{}%                Additional specifications for theorem head
+\thmnumber{}%
+\thmnote{\bfseries #3}}%
+
+\newtheoremstyle%
+{Theorem}%
+{}%
+{}%
+{\itshape}%
+{}%
+{}%
+{.}%
+{ }%
+{\thmname{\bfseries #1}%
+\thmnumber{\;\bfseries #2}%
+\thmnote{\;(\bfseries #3)}}%
+
+%Theorem Environments
+\theoremstyle{Theorem}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{cor}{Corollary}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem*{nonumthm}{Theorem}
+\newtheorem*{nonumprop}{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem*{answer}{Answer}
+\newtheorem*{solution}{Solution}
+\newtheorem*{nonumdfn}{Definition}
+\newtheorem*{nonumex}{Example}
+\newtheorem{ex}{Example}[section]
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}[section]
+\newtheorem*{note}{Note}
+\newtheorem*{notation}{Notation}
+\theoremstyle{custom}
+\newtheorem*{cust}{Definition}
+\fancypagestyle{firststyle}
+{
+  % \fancyhead[L]{\textbf{Name:}}
+   \fancyhead[R]{\textbf{Review Worksheet: Integration (Generally), Power Series, Polar (Area)}}
+   \fancyfoot[R]{ Thomas Luckner } %{\footnotesize Page \thepage\ of \pageref{LastPage}}
+}
+
+
+
+\begin{document}
+\thispagestyle{firststyle}
+\pagestyle{plain}
+
+
+\noindent Thoughts: \\
+Integration: I thought the best thing to do with integration is to layout every technique and say when they CAN apply. Keep in mind, some of these techniques are used together in problems! 
+\begin{enumerate}[1.]
+\item U-substitution: This should be the first thing you try after basic integration techniques! First off, this only works if there is a product. WARNING! Products can be in disguise! For example, $\dfrac{\ln)(x)}{x}=\left(\dfrac{1}{x}\right)\ln(x)$ which is a $u$-sub problem for integration.  Now the question is how do you use it? In less non-mathy words, you are looking for something embedded in your function that when you take the derivative you get the other part of the product or some scalar variation. If it helps, when I took calculus, my instructor called the scalar a fudge factor! A classic example is $4x(x^2+1)^3$ integrated. There is a nice embedded function, $x^2+1$, that has derivative $2x$ which varies by the constant 2 from the second term of the product!
+\item By parts: This is the other product case. Once again, a product could be in disguise! This is the case I would go to if u-sub is a no go. The application is formulaec so i will not go over how to do it, but the big thing here is to not be discouraged if you do not get a nice integral the first time! You can always do it again! There is a tricky question that can be asked with this style of integral and that is a product where when you do by parts some number of times, you get the original integral back with some scalar variation. This is a good thing! Just solve for the integral!
+\item Partial Fraction: You have 2 cases here. You either have a fraction with polynomials as both the numerator and denominator or you have the sum or difference of some number of fractions with polynomial numerator and denominator. In the second case, the goal is to have a form like the first case. You can see the form is very specific, so identifying its use is not hard. Just remember to check for u-sub first!!  The first step that many people forget is to do long division if the numerator has a larger degree than the denominator. Then you have the form $P(x)+\dfrac{N(x)}{D(x)}$ left and you do partial fraction on the fraction part! To actually use partial fraction you can use 2 techniques: Solve for each coefficient of $x$ and equate or plug in an $x$ that cancels all unnkowns but 1 out. There are positives to each, but I recommend you look at my worksheet on this to see each in action! You tend to see things like $\arctan(x)$ emerge here!
+\item Trig substitution: This one is applicable if you see and form of two squares sums or differences! In my opinion, it is less important to memorize the formulas and instead just use the rules we know for trig functions with squares (ex: $\sin^2(x)+\cos^2(x)=1$). Once you know these, you solve for the 1 and make the needed substitution. DO NOT FORGET to multiply in the derivative and then use the triangle to substitute back in at the end! These two things are common mistakes. This method is tedious which is what makes students look to memorize instead of understand where it comes from. This is the downfall on exams since students forget the formulas and then are unable to attempt the integral!
+\item Improper Integrals: These can sometimes be in disguise. However, the first case includes infinity or negative infinity on the bounds. In that case just set up a limit go on your merry way with integrating until you can use the limit. The harder of the cases is when the function is undefined at a point of the interval. This is the disguise. Say the point is $a$. Then you break the integral across $a$ and take a limit from the left or right to $a$ depending on which limit puts you inside the bounds of the integral! Then you go on your merry way with integrating and limit at the end. If you have 2 infinities, you break up around a nice point (usually 0) and integrate both intervals. That's it!
+\end{enumerate}
+I have decided to not include Trapezoidal Rule and Simpson's Rule, but these are things people commonly forget. So, please do give these a look!\\
+Power Series: I'm going to keep this one short and sweet (at least compared to the above). If you see an $x$, you have a power series! What can be asked of a power series? Only 2 things: radius of convergence and interval of convergence. The radius of convergence is $R$ such that $|x-a|<R$. The key here is no scalar on $x$! $R$ can also be both 0 and infinity. $R$ is infinity if the power series is always convergent! $R$ is 0 if the series converges for only 1 $x$! To find the radius of convergence you will use either ratio test or root test. Once you take the limit, set the piece you have left to be less than 1 (this is when the series is convergent for these rules). Then solve for $|x-a|$. The interval of convergence is not a stretch from this. Once, you find the radius of convergence or the form $|x-a|<R$, you really have found the following interval: $-R<x-a<R$ where if $x$ satisfies this, the power series is ABSOLUTELY CONVERGENT! What is left is the places where this is conditionally convergent. That is only possible at the points where the ratio and root test are inconclusive. In other words, the end points of the above interval, $-R$ and $R$! Plug these in for $x$ in your power series and use some of your convergence tests to determine whether or not the power series converges CONDITIONALLY for that $x$. The interval of convergence will be the absolute interval with or without the end points depending on whether these converge or not! \\
+Polar: A lot of this section is formulaic, so to include the formulas in a review sounds wasteful. Instead I want to focus on the not so formulaic (or I guess less formulaic) part of polar equations; Area! Area in this context can refer to a few things. Mostly we will refer to a region bounded by some curve and other curves or an axis. The key here is to remember the area formula: $A=\ds \int_a^b (1/2)f^2(\theta) d\theta$. A lot of confusion comes from $a$ and $b$. These are upper and lower bounds for $\theta$! \\
+An example question is area of the region inside $r=3\sin(\theta)$ and outside $r=1+\sin(\theta)$. We first need those bounds for $\theta$. This is going to be where these functions intersect since we want to area between them! 
+\[
+3\sin\theta=1+\sin\theta\Rightarrow 2 \sin\theta=1\Rightarrow \sin\theta =\dfrac{1}{2}\Rightarrow \theta=\dfrac{\pi}{6}, \dfrac{5\pi}{6}
+\]
+Now we have our bounds. Keep in mind we want to area between the two! Thus, we take the area of the inside one and subtract the outside one. The inside is $r=1+\sin\theta$ and outside is $r=3\sin\theta$. Thus,
+\[
+A=(1/2)\int_{\pi/6}^{5\pi/6} (3\sin\theta)^2d \theta - (1/2)\int_{\pi/6}^{5\pi/6}(1+\sin\theta)^2d\theta.
+\]
+Now we integrate as we know! Good trig substitution practice.
+\newpage
+\noindent Problems: 
+\begin{enumerate}[1.]
+\item $\ds \int \cos x \ln(\sin x)\dx$
+\item $\ds \int \dfrac{\ln^2(x)}{x^3}\dx$
+\item $\ds \int t\sec^2(2t)dt$
+\item $\ds\int \sin^5(x)\dx$
+\item $\ds \int \sin^2(x)\cos^2(x)\dx$
+\item $\ds\int \dfrac{dx}{\sqrt{x^2+16}}$
+\item $\ds \int \dfrac{\sqrt{x^2-9}}{x^3}\dx$
+\item $\ds \int \dfrac{x^5+x-1}{x^3+1}\dx$
+\item $\ds \int \dfrac{\sec^2x}{\tan^2x+3\tan x +2}\dx$\\\\
+Find the radius of convergence and Interval of convergence for the below sums. Determine for what $x$ the series is absolutely convergent and conditionally convergent.
+\item $\ds \sum_{n=1}^{\infty}\dfrac{(-1)^nx^n}{\sqrt[3]{n}}$
+\item $\ds \sum_{n=1}^{\infty}\dfrac{(x-2)^n}{n^n}$
+\item $\ds\sum_{n=0}^{\infty}\dfrac{x^{2n+1}}{(2n+1)!}$
+\item $\ds \sum_{n=0}^{\infty}\dfrac{(x-2)^n}{n^2+1}$\\\\
+Find the areas referred to.
+\item $r=\tan\theta $, $\pi/6\leq \theta\leq \pi/3$
+\item Region inside $r^2=8\cos(2\theta)$, outside $r=2$
+\item Region inside $r=3+2\cos\theta$ and $r=3+2\sin\theta$
+\item Region enclosed by one loop of $r=2\cos\theta -\sec\theta$ (Hint: Graph it to find bounds!)
+\end{enumerate}
+\end{document}
+
+
+
+
+
+
+

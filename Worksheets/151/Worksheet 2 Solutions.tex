@@ -1,0 +1,467 @@
+\documentclass[10pt]{article}
+
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{array}
+\usepackage[all]{xy}
+\usepackage{fancyhdr}
+\usepackage{euscript}
+\usepackage{graphics}
+\usepackage{cancel}
+\usepackage{fancybox}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{pgf}
+\usepackage{pgfplots}
+\usepackage[all]{xy}
+\usepackage{graphicx}
+\pgfplotsset{compat=1.14}
+
+\usepackage{pstricks}
+\usepackage{pst-plot}
+
+\usepackage{setspace}
+\onehalfspacing
+
+\setlength{\oddsidemargin}{.5in}
+\setlength{\evensidemargin}{.5in}
+\setlength{\textwidth}{6.in}
+\setlength{\topmargin}{0in}
+\setlength{\headsep}{.20in}
+\setlength{\textheight}{8.5in}
+
+
+\pdfpagewidth 8.5in
+ \pdfpageheight 11in
+
+
+%General
+\newcommand{\WW}{\mathbb {W}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\RR}{\mathbb {R}}
+\newcommand{\II}{\mathbb {I}}
+\newcommand{\QQ}{\mathbb {Q}}
+\newcommand{\CC}{\mathbf C}
+\newcommand{\NN}{\mathbb {N}}
+\newcommand{\Zn}[1]{\mathbf{Z}/#1\mathbf{Z}}
+\newcommand{\Znx}[1]{(\mathbf{Z}/#1\mathbf{Z})^\times}
+\newcommand{\X}{\times} 
+\newcommand{\set}[2]{\left\{#1 : #2\right\}}          
+\newcommand{\sett}[1]{\left\{#1\right\}}                
+\newcommand{\nonempty}{\neq\varnothing}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\abs}[1]{\left| {#1} \right|}
+\newcommand{\qedbox}{\rule{2mm}{2mm}}
+\renewcommand{\qedsymbol}{\qedbox}											
+\newcommand{\aand}{\qquad\hbox{and}\qquad}
+\newcommand{\e}{\varepsilon}
+\newcommand{\tto}{\rightrightarrows}
+\newcommand{\gs}{\geqslant}
+\newcommand{\ls}{\leqslant}
+\renewcommand{\tilde}{\widetilde}
+\renewcommand{\hat}{\widehat}
+\newcommand{\norm}[1]{\left\| #1 \right\|}
+\newcommand{\md}[3]{#1\equiv#2\;(\mathrm{mod}\;#3)}     
+\newcommand{\gen}[1]{\left\langle #1 \right\rangle}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\zero}{\boldsymbol{0}}
+
+\newcommand{\be}[1]{\textbf{\emph{#1}}}
+\newcommand{\hhat}[1]{\hat{\! \hat{#1}}}
+
+\newcommand{\fto}[1]{\xrightarrow{\hspace{4pt} #1 \hspace{4pt}}}
+\newcommand{\flto}[1]{\xrightarrow{\quad #1 \quad}}
+
+
+
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\esssup}{\operatorname{ess\:sup}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\card}{\operatorname{card}}
+
+\newcommand{\dmu}{\:\mathrm{d}\mu}
+\newcommand{\dm}{\:\mathrm{d}m}
+\newcommand{\dx}{\:\mathrm{d}x}
+\newcommand{\dt}{\:\mathrm{d}t}
+\newcommand{\dz}{\:\mathrm{d}z}
+\newcommand{\dtheta}{\:\mathrm{d}\theta}
+\newcommand{\dw}{\:\mathrm{d}w}
+
+%Algebra
+\newcommand{\Sym}{\operatorname {Sym}}
+\newcommand{\Stab}{\operatorname {Stab}}
+\newcommand{\M}{\operatorname{M}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\PGL}{\operatorname{PGL}}
+\newcommand{\SL}{\operatorname{SL}}
+\newcommand{\PSL}{\operatorname{PSL}}
+\newcommand{\Heis}{\operatorname{Heis}}
+\newcommand{\Aff}{\operatorname{Aff}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\image}{\operatorname{im}}
+\newcommand{\Syl}[2]{\operatorname{\emph{Syl}}_{#1}\left(#2\right)}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Tor}{\operatorname{Tor}}
+\newcommand{\Gal}{\operatorname{Gal}}
+\newcommand{\ch}{\operatorname{ch}}
+\newcommand{\rad}{\operatorname{rad}}
+\newcommand{\iso}{\cong}
+\newcommand{\normal}{\unlhd}
+\newcommand{\semi}{\rtimes}
+\newcommand{\Nm}{\operatorname {N}}
+\newcommand{\Tr}{\operatorname {Tr}}
+\newcommand{\disc}{\operatorname {disc}}
+
+
+
+
+
+
+
+
+%Euler Script Characters
+\newcommand{\esa}{\EuScript{A}}
+\newcommand{\esb}{\EuScript{B}}
+\newcommand{\esc}{\EuScript{C}}
+\newcommand{\esd}{\EuScript{D}}
+\newcommand{\ese}{\EuScript{E}}
+\newcommand{\esf}{\EuScript{F}}
+\newcommand{\esg}{\EuScript{G}}
+\newcommand{\esh}{\EuScript{H}}
+\newcommand{\esi}{\EuScript{I}}
+\newcommand{\esj}{\EuScript{J}}
+\newcommand{\esk}{\EuScript{K}}
+\newcommand{\esl}{\EuScript{L}}
+\newcommand{\esm}{\EuScript{M}}
+\newcommand{\esn}{\EuScript{N}}
+\newcommand{\eso}{\EuScript{O}}
+\newcommand{\esp}{\EuScript{P}}
+\newcommand{\esq}{\EuScript{Q}}
+\newcommand{\esr}{\EuScript{R}}
+\newcommand{\ess}{\EuScript{S}}
+\newcommand{\est}{\EuScript{T}}
+\newcommand{\esu}{\EuScript{U}}
+\newcommand{\esv}{\EuScript{V}}
+\newcommand{\esw}{\EuScript{W}}
+\newcommand{\esx}{\EuScript{X}}
+\newcommand{\esy}{\EuScript{Y}}
+\newcommand{\esz}{\EuScript{Z}}
+
+%Calligraphic Characters
+\newcommand{\cala}{\mathcal{A}}
+\newcommand{\calb}{\mathcal{B}}
+\newcommand{\calc}{\mathcal{C}}
+\newcommand{\cald}{\mathcal{D}}
+\newcommand{\cale}{\mathcal{E}}
+\newcommand{\calf}{\mathcal{F}}
+\newcommand{\calg}{\mathcal{G}}
+\newcommand{\calh}{\mathcal{H}}
+\newcommand{\cali}{\mathcal{I}}
+\newcommand{\calj}{\mathcal{J}}
+\newcommand{\calk}{\mathcal{K}}
+\newcommand{\call}{\mathcal{L}}
+\newcommand{\calm}{\mathcal{M}}
+\newcommand{\caln}{\mathcal{N}}
+\newcommand{\calo}{\mathcal{O}}
+\newcommand{\calp}{\mathcal{P}}
+\newcommand{\calq}{\mathcal{Q}}
+\newcommand{\calr}{\mathcal{R}}
+\newcommand{\cals}{\mathcal{S}}
+\newcommand{\calt}{\mathcal{T}}
+\newcommand{\calu}{\mathcal{U}}
+\newcommand{\calv}{\mathcal{V}}
+\newcommand{\calw}{\mathcal{W}}
+\newcommand{\calx}{\mathcal{X}}
+\newcommand{\caly}{\mathcal{Y}}
+\newcommand{\calz}{\mathcal{Z}}
+
+%Gothic Characters
+\newcommand{\fraka}{\mathfrak{a}}
+\newcommand{\frakb}{\mathfrak{b}}
+\newcommand{\frakc}{\mathfrak{c}}
+\newcommand{\frakd}{\mathfrak{d}}
+\newcommand{\frake}{\mathfrak{e}}
+\newcommand{\frakf}{\mathfrak{f}}
+\newcommand{\frakg}{\mathfrak{g}}
+\newcommand{\frakh}{\mathfrak{h}}
+\newcommand{\fraki}{\mathfrak{i}}
+\newcommand{\frakj}{\mathfrak{j}}
+\newcommand{\frakk}{\mathfrak{k}}
+\newcommand{\frakl}{\mathfrak{l}}
+\newcommand{\frakm}{\mathfrak{m}}
+\newcommand{\frakn}{\mathfrak{n}}
+\newcommand{\frako}{\mathfrak{o}}
+\newcommand{\frakp}{\mathfrak{p}}
+\newcommand{\frakq}{\mathfrak{q}}
+\newcommand{\frakr}{\mathfrak{r}}
+\newcommand{\fraks}{\mathfrak{s}}
+\newcommand{\frakt}{\mathfrak{t}}
+\newcommand{\fraku}{\mathfrak{u}}
+\newcommand{\frakv}{\mathfrak{v}}
+\newcommand{\frakw}{\mathfrak{w}}
+\newcommand{\frakx}{\mathfrak{x}}
+\newcommand{\fraky}{\mathfrak{y}}
+\newcommand{\frakz}{\mathfrak{z}}
+
+\newcommand{\frakA}{\mathfrak{A}}
+\newcommand{\frakB}{\mathfrak{B}}
+\newcommand{\frakC}{\mathfrak{C}}
+\newcommand{\frakD}{\mathfrak{D}}
+\newcommand{\frakE}{\mathfrak{E}}
+\newcommand{\frakF}{\mathfrak{F}}
+\newcommand{\frakG}{\mathfrak{G}}
+\newcommand{\frakH}{\mathfrak{H}}
+\newcommand{\frakI}{\mathfrak{I}}
+\newcommand{\frakJ}{\mathfrak{J}}
+\newcommand{\frakK}{\mathfrak{K}}
+\newcommand{\frakL}{\mathfrak{L}}
+\newcommand{\frakM}{\mathfrak{M}}
+\newcommand{\frakN}{\mathfrak{N}}
+\newcommand{\frakO}{\mathfrak{O}}
+\newcommand{\frakP}{\mathfrak{P}}
+\newcommand{\frakQ}{\mathfrak{Q}}
+\newcommand{\frakR}{\mathfrak{R}}
+\newcommand{\frakS}{\mathfrak{S}}
+\newcommand{\frakT}{\mathfrak{T}}
+\newcommand{\frakU}{\mathfrak{U}}
+\newcommand{\frakV}{\mathfrak{V}}
+\newcommand{\frakW}{\mathfrak{W}}
+\newcommand{\frakX}{\mathfrak{X}}
+\newcommand{\frakY}{\mathfrak{Y}}
+\newcommand{\frakZ}{\mathfrak{Z}}
+
+%Lowercase Bold Letters
+\newcommand{\bfa}{\mathbf{a}}
+\newcommand{\bfb}{\mathbf{b}}
+\newcommand{\bfc}{\mathbf{c}}
+\newcommand{\bfd}{\mathbf{d}}
+\newcommand{\bfe}{\mathbf{e}}
+\newcommand{\bff}{\mathbf{f}}
+\newcommand{\bfg}{\mathbf{g}}
+\newcommand{\bfh}{\mathbf{h}}
+\newcommand{\bfi}{\mathbf{i}}
+\newcommand{\bfj}{\mathbf{j}}
+\newcommand{\bfk}{\mathbf{k}}
+\newcommand{\bfl}{\mathbf{l}}
+\newcommand{\bfm}{\mathbf{m}}
+\newcommand{\bfn}{\mathbf{n}}
+\newcommand{\bfo}{\mathbf{o}}
+\newcommand{\bfp}{\mathbf{p}}
+\newcommand{\bfq}{\mathbf{q}}
+\newcommand{\bfr}{\mathbf{r}}
+\newcommand{\bfs}{\mathbf{s}}
+\newcommand{\bft}{\mathbf{t}}
+\newcommand{\bfu}{\mathbf{u}}
+\newcommand{\bfv}{\mathbf{v}}
+\newcommand{\bfw}{\mathbf{w}}
+\newcommand{\bfx}{\mathbf{x}}
+\newcommand{\bfy}{\mathbf{y}}
+\newcommand{\bfz}{\mathbf{z}}
+
+
+
+
+%Customized Theorem Environments
+\newtheoremstyle%
+{custom}%
+{}%                         Space above
+{}%													Space below
+{}%													Body font
+{}%                         Indent amount
+{}%                         Theorem head font
+{.}%                        Punctuation after heading
+{ }%                        Space after heading
+{\thmname{}%                Additional specifications for theorem head
+\thmnumber{}%
+\thmnote{\bfseries #3}}%
+
+\newtheoremstyle%
+{Theorem}%
+{}%
+{}%
+{\itshape}%
+{}%
+{}%
+{.}%
+{ }%
+{\thmname{\bfseries #1}%
+\thmnumber{\;\bfseries #2}%
+\thmnote{\;(\bfseries #3)}}%
+
+%Theorem Environments
+\theoremstyle{Theorem}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{cor}{Corollary}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem*{nonumthm}{Theorem}
+\newtheorem*{nonumprop}{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem*{answer}{Answer}
+\newtheorem*{solution}{Solution}
+\newtheorem*{nonumdfn}{Definition}
+\newtheorem*{nonumex}{Example}
+\newtheorem{ex}{Example}[section]
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}[section]
+\newtheorem*{note}{Note}
+\newtheorem*{notation}{Notation}
+\theoremstyle{custom}
+\newtheorem*{cust}{Definition}
+\fancypagestyle{firststyle}
+{
+   \fancyhead[L]{\textbf{Name:}}
+   \fancyhead[R]{\textbf{Worksheet 2: Epsilon Delta limits, Continnuity, Limits at Infinity}}
+   \fancyfoot[R]{ Thomas Luckner } %{\footnotesize Page \thepage\ of \pageref{LastPage}}
+}
+
+
+
+
+
+
+\begin{document}
+\thispagestyle{firststyle}
+\pagestyle{plain}
+
+Thoughts:\\\\
+Epsilon Delta- This is a particularly hard topic for me to explain thoroughly. The best way is via a picture.\\
+\begin{center}
+\includegraphics[width=4cm]{edlimit.png}
+\end{center}
+What the epsilon delta definition of a limit approaching $x_0$ is saying in terms of this picture is simply $L$ is our limit if for a chosen epsilon, delta exists where my interval on the $x$-axis gives values of $x$ where $f(x)$ is within epsilon of $L$. This probably still makes your head hurt/spin and it probably won't stop. However, let'd make more sense of this with some examples. Let's show this is true by this definition.
+$$\ds\lim_{x\rightarrow 3}4x-5=7$$
+Let's just plop this into our definition.
+$$|x-3|<\delta, \hspace{1cm} |(4x-5)-7|<\epsilon.$$
+Simplify and find our left inequality!
+$$|(4x-5)-7|=|4x-12|=4|x-3|<\epsilon \Rightarrow |x-3|<\dfrac{\epsilon}{4}.$$
+If we take $\delta=\dfrac{\epsilon}{4}$ we have proved this!\\
+Let's try another.
+$$\ds\lim_{x\rightarrow 3}x^2=9$$
+Once again plop in.
+$$|x-3|<\delta, \hspace{1cm} |x^2-9|<\epsilon.$$
+Let's do some simplifying.
+$$|x^2-9|=|(x-3)(x+3)|<\epsilon.$$
+Thus, we need to bound the $x+3$! Then we are home free!
+Since we are looking at $x$ as we approach 3, in particular, $x$ close to 3; let's use a distance of 1 from 3! Therefore, $|x+3|<7$ for $2\leq x\leq 4$. Delta with be smaller than this so we are ok! Over this interval, we also have $|x-3|<1$. Let's see what happens when we use this.
+$$|(x-3)(x+3)|<7|x-3|<\epsilon\Rightarrow |x-3|<\dfrac{\epsilon}{7}.$$
+\textbf{OR} we can just use $|x-3|<1$. Thus, $\delta$ should be the smaller of the 2 of these. Namely, $\delta=\min\lbrace 1, \dfrac{\epsilon}{7}\rbrace$.\\
+THIS IS HARD! Please practice!\\\\
+Continuity- We discussed this lightly in class, but we know a function is continuous at $a$ if the limit is the same as $f(a)$. This brings up the idea of discontinuity. When we seek continuity we are really looking for an $x$ such that we do not have this condition! Examples include holes, piecewise functions, 'jumps', and asymptotes. A nice property of continuous functions is that you can move the limit inward for a cont. function. What does this mean? Let's look at the function $x^2$. This function is continuous for all $x$. Thus, any limit of this can be represented as the following: $\lim x^2=(\lim x)^2$. This is possible as long as the function is continuous at the limit point! Try looking at general sets of functions and seeing if they are continuous. For example: polynomials, rational functions, complex functions, trig functions, inverse trig functions, etc. This brings us to the big theorem here; The Intermediate Value Theorem!\\ If $f$ is continuous on $[a,b]$ and $N$ between $f(a)$ and $f(b)$ not equal, then there is a $c$ in $(a,b)$ such that $f(c)=N$. \\
+We should always ask, so what? An example can tell you why this is valuable.\\
+Show the following has a root.
+$$4x^3-6x^2+3x-2$$
+Something, say $c$, is a root if $f(c)=0$. The Intermediate Value Theorem is a picking something bigger and something smaller than 0 means I have a $c$ for which this is true since this polynomial is continuous! To save time and computation, $f(1)=-1$ and $f(2)=12$. Thus, somewhere between 1 and 2 there is a $c$ for which $f(c)=0$! Done! Notice we did not find the root, but we know it exists.\\\\
+Inifinte limits- I talked about these briefly as an exercise in class. I mentioned that the big technique is to divide by the highest power of $x$ in your function for rational functions. There are more techniques such as multiplying by the conjugate and the dividing by largest power with respect to a root. You do need to be careful!\\
+I mentioned lightly in class that dividing by the highest power has a discrepency in math. In this class it seems you will need to divide by the highest power in the \textbf{denominator only}. The idea is the following: 
+$$\ds \lim_{x\rightarrow \infty}\dfrac{x^2}{x}=\ds \lim_{x\rightarrow \infty} x=\infty$$
+BUT if we do divide by $x^2$ everywhere we get a 0 denominator which is undefined!\\
+Lastly, if $\ds\lim_{x\rightarrow\pm\infty} f(x)=L$ then $y=L$ is a horizontal asymptote. i.e. draw a line here and the graph of the function approaches this line in but does not touch it in the direction of infinity or negative infinity accordingly. 
+\newpage
+\begin{enumerate}[1.]
+\item Prove the following via epsilon delta:
+\begin{enumerate}[a.]
+\item $\ds\lim_{x\rightarrow1}\dfrac{2+4x}{3}=2$
+\begin{solution}
+Goal is to derive $|x-1|$ from $\bigg |\dfrac{2+4x}{3}-2\bigg|$. The first issue is the fraction. Since $1/3$ is positive we have
+\[\
+bigg |\dfrac{2+4x}{3}-2\bigg|=(1/3)|2+4x-6|=(1/3)|4x-4|=(4/3)|x-1|<\epsilon \Rightarrow |x-1|<\dfrac{3\epsilon }{4}.
+\]
+If we take $\delta$ to be the far right of this inequality, we are done.
+\end{solution}
+\item $\ds\lim_{x\rightarrow-2}x^2-1=3$
+\begin{solution}
+Goal is to derive $|x+2|$ rrom $|x^2-1-3|$. Factor!
+\[
+|x^2-1-3|=|x^2-4|=|(x-2)(x+2)|.
+\]
+We need to bound $|x-2|$. Let's use a distance of 1 from $-2$. $|x-2|< 5$ for $-3< x< -1$. On this interval, $|x+2|<1$. Thus we have 
+\[|(x-2)(x+2)|<5|x+2|<\epsilon \Rightarrow |x+2|<\dfrac{\epsilon}{5}
+\]
+OR $|x+2|<1$. Thus, pick $\delta=\min\{1,\dfrac{\epsilon}{7}\}$.
+\end{solution}
+\item $\ds\lim_{x\rightarrow2}x^3=8$ (cubic factorization)
+\begin{solution}
+Goal is to derive $|x-2|$ from $|x^3-8|$. Factor!
+\[
+|x^3-8|=|(x-2)(x^2+2x +4)|.
+\]
+We proceed as above! Choose an interval of 1 from 2. Thus, $|x^2+2x+4|<19$ for $1<x<3$. On this interval we also have $|x-2|<1$.  Now we see what happens.
+\[
+|(x-2)(x^2+2x+4)|<19|x-2|<\epsilon \Rightarrow |x-2|<\dfrac{\epsilon}{19}
+\]
+OR $|x-2|<1$. Thus choose $\delta=\min \{1,\dfrac{\epsilon}{19} \}$.
+\end{solution}
+\end{enumerate}
+\item Determine if the function is continuous. If it is not, give all the discontinuous points.
+\begin{enumerate}[a.]
+\item $\begin{cases} 
+      x+1 & x\leq 1 \\
+      \dfrac{1}{x} & 1< x< 3 \\
+      \sqrt{x-3} & x\geq 3 
+   \end{cases}$
+\begin{solution}
+We notice that at $x=1$ we have a change in equation. This could be a discontinuity. From the left, $(1)+1=2$. From the right, $(1/1)=1$. Thus, $x=1$ is a point of discontinuity. We notice a similar pattern at $x=3$. From the left, $(1/3)=1/3$. From the right, $\sqrt{(3)-3}=0$. These are not equal, thus, $x=3$ is a point of discontinuity. Now we check each equation to determine if it is defined on the domain given. This is true. We have only the 2 discontinuous points.
+\end{solution}
+   \item $\begin{cases} 
+      x+2 & x< 0 \\
+     e^x & 0\leq x\leq 1 \\
+      2-x & x>1 
+   \end{cases}$
+\begin{solution}
+We do as above and check transition points. From the left of $x=0$ we have $(0)+2=2$. From the right, $e^0=1$. Thus $x=0$ is a point of discontinuity. Similarly, from the left of $x=1$, $e^1=e$. From the right, $2-(1)=1$. Thus $x=1$ is a point of discontinuity.  We now check the functions to make sure they are defined. They are so we have our only points of discontinuity.
+\end{solution}
+\end{enumerate}
+\item Prove the folllowing have a root on the interval given by IVT.
+\begin{enumerate}[a.]
+\item $\sqrt[3]{x}=1-x$, (0,1)
+\begin{solution}
+First let's bring everything to one side and express it as a function of $y$: $y=1-x-\sqrt[3]{x}$. If we plug in 0 we get $1-0-\sqrt[3]{0}=1$. If we plug in 1 we get $1-1-\sqrt[3]{1}=-1$. Since we have two places on this interval for which one is positive and one is negative, IVT implies there is an $x\in (0,1)$ that when plugged in we get 0. Thus, there is a root.
+\end{solution}
+\item $\sin(x)=x^2-x$, (1,2)
+\begin{solution}
+First let's bring everything to one side and express it as a function of $y$: $y=x^2-x-\sin(x)$. If we plug in 1 we get $1-1-\sin(1)=-\sin(1)$. If we plug in 2 we get $4-2-\sin(2)=2-\sin(2)$. We know $-1\leq \sin(x)\leq 1$. Thus, our second piece is positive! Since $0<1<\pi$, we know $\sin(1)>0$. Thus, our first piece is negative. Since we have two places on this interval for which one is positive and one is negative, IVT implies there is an $x\in (1,2)$ that when plugged in we get 0. Thus, there is a root.
+\end{solution}
+\end{enumerate}
+\item Find the limits or show they do not exist ( $\pm \infty=DNE$).
+\begin{enumerate}[a.]
+\item $\ds\lim_{x\rightarrow\infty}\dfrac{(2x^2+1)^2}{(x-1)^2(x^2+x)}$
+\begin{solution}
+Notice the highest power we achieve in the denominator is $x^4$. Same with the numerator. Thus, by our dividing by the highest power of the denominator trick, we get all other parts going to 0 except for the coefficients of these highest terms. The coefficient in the top will be 4 becasue fo the square. The bottom will have coefficient 1. Thus our limit is 4.
+\end{solution}
+\item $\ds\lim_{x\rightarrow\infty} \dfrac{\sqrt{9x^6-x}}{x^3+1}$
+\begin{solution}
+Similar argument to the above but with a root. The root will reduce the highest power in the numerator from 6 to 3. Thus, both the numerator and denominator have the same highest power. If we take our limit after dividing by $x^3$ on top and bottom, everything else goes away and we are left with the coefficients of these terms. the square root makes 3 the coefficient on top and 1 is still the same on the bottom. Thus, our limit is 3.
+\end{solution}
+\item $\ds\lim_{x\rightarrow -\infty} x+\sqrt{x^2+2x}$
+\begin{solution}
+This one is tricky. It is not obvious how to approach this unless you take the hint of the root. That means conjugate. Let's try that (ignore the limit sign for now.
+\[
+x+\sqrt{x^2+2x}=\dfrac{x^2-x^2-2x}{x-\sqrt{x^2+2x}}.
+\]
+Now we can make a little more sense of this. Let's now use our dividing by highest power in denominator trick.
+\[
+\dfrac{x^2-x^2-2x}{x-\sqrt{x^2+2x}}=
+\dfrac{-2x}{x-\sqrt{x^2+2x}}=
+\dfrac{-2}{1-\sqrt{1+(2/x)}}.
+\]
+This cleaned up our numerator for us, but let us consider what is going on in the denominator. If we take $x$ going toward negative infinity, the $(2/x)$ is going toward 0 with negative numbers. This means $1+(2/x)$ is going toward 1 but always slightly less than 1. Lastly, this means $1-\sqrt{1+(2/x)}$ is going toward 0 but on the positive side. Since my deonominator is going toward 0 but with a positive inflection and my numerator is negative, this limit is going toward $-\infty$ or DNE.
+\end{solution}
+\end{enumerate}
+\item Sketch the graph given the following: $\ds\lim_{x\rightarrow 2}f(x)=\infty$, $\ds\lim_{x\rightarrow-2^+}f(x)=\infty$, $\ds\lim_{x\rightarrow-2^-}f(x)=-\infty$, $\ds\lim_{x\rightarrow-\infty}f(x)=0$, $\ds\lim_{x\rightarrow\infty}f(x)=0$, and $f(0)=0$.
+\begin{solution}
+I cannot explicitly draw on here, so i will say what each piece does. The first detail gives us a curve that when we get closer to 2 on the $x$-axis from either side, we get larger and larger. Similarly, the second piece of information says the same about $-2$ from the right. It says to go down infinitely from the left. The fourth bit of information says if you go off infinitely negative, you go toward 0, or the $x$-axis. Similarly in the positive infinite direction. The last bit of info gives you the point (0,0) is on the curve.
+\end{solution}
+\end{enumerate}
+\end{document}
+
+
+
+
+
+
+

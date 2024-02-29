@@ -1,0 +1,419 @@
+\documentclass[10pt]{article}
+
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{array}
+\usepackage[all]{xy}
+\usepackage{fancyhdr}
+\usepackage{euscript}
+\usepackage{graphics}
+\usepackage{cancel}
+\usepackage{fancybox}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{pgf}
+\usepackage{pgfplots}
+\usepackage[all]{xy}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\pgfplotsset{compat=1.14}
+
+\usepackage{pstricks}
+\usepackage{pst-plot}
+
+\usepackage{setspace}
+\onehalfspacing
+
+\setlength{\oddsidemargin}{.5in}
+\setlength{\evensidemargin}{.5in}
+\setlength{\textwidth}{6.in}
+\setlength{\topmargin}{0in}
+\setlength{\headsep}{.20in}
+\setlength{\textheight}{8.5in}
+
+
+\pdfpagewidth 8.5in
+ \pdfpageheight 11in
+
+
+%General
+\newcommand{\WW}{\mathbb {W}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\RR}{\mathbb {R}}
+\newcommand{\II}{\mathbb {I}}
+\newcommand{\QQ}{\mathbb {Q}}
+\newcommand{\CC}{\mathbf C}
+\newcommand{\NN}{\mathbb {N}}
+\newcommand{\Zn}[1]{\mathbf{Z}/#1\mathbf{Z}}
+\newcommand{\Znx}[1]{(\mathbf{Z}/#1\mathbf{Z})^\times}
+\newcommand{\X}{\times} 
+\newcommand{\set}[2]{\left\{#1 : #2\right\}}          
+\newcommand{\sett}[1]{\left\{#1\right\}}                
+\newcommand{\nonempty}{\neq\varnothing}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\abs}[1]{\left| {#1} \right|}
+\newcommand{\qedbox}{\rule{2mm}{2mm}}
+\renewcommand{\qedsymbol}{\qedbox}											
+\newcommand{\aand}{\qquad\hbox{and}\qquad}
+\newcommand{\e}{\varepsilon}
+\newcommand{\tto}{\rightrightarrows}
+\newcommand{\gs}{\geqslant}
+\newcommand{\ls}{\leqslant}
+\renewcommand{\tilde}{\widetilde}
+\renewcommand{\hat}{\widehat}
+\newcommand{\norm}[1]{\left\| #1 \right\|}
+\newcommand{\md}[3]{#1\equiv#2\;(\mathrm{mod}\;#3)}     
+\newcommand{\gen}[1]{\left\langle #1 \right\rangle}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\zero}{\boldsymbol{0}}
+
+\newcommand{\be}[1]{\textbf{\emph{#1}}}
+\newcommand{\hhat}[1]{\hat{\! \hat{#1}}}
+
+\newcommand{\fto}[1]{\xrightarrow{\hspace{4pt} #1 \hspace{4pt}}}
+\newcommand{\flto}[1]{\xrightarrow{\quad #1 \quad}}
+
+
+
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\esssup}{\operatorname{ess\:sup}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\card}{\operatorname{card}}
+
+\newcommand{\dmu}{\:\mathrm{d}\mu}
+\newcommand{\dm}{\:\mathrm{d}m}
+\newcommand{\dx}{\:\mathrm{d}x}
+\newcommand{\dt}{\:\mathrm{d}t}
+\newcommand{\dz}{\:\mathrm{d}z}
+\newcommand{\dtheta}{\:\mathrm{d}\theta}
+\newcommand{\dw}{\:\mathrm{d}w}
+
+%Algebra
+\newcommand{\Sym}{\operatorname {Sym}}
+\newcommand{\Stab}{\operatorname {Stab}}
+\newcommand{\M}{\operatorname{M}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\PGL}{\operatorname{PGL}}
+\newcommand{\SL}{\operatorname{SL}}
+\newcommand{\PSL}{\operatorname{PSL}}
+\newcommand{\Heis}{\operatorname{Heis}}
+\newcommand{\Aff}{\operatorname{Aff}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\image}{\operatorname{im}}
+\newcommand{\Syl}[2]{\operatorname{\emph{Syl}}_{#1}\left(#2\right)}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Tor}{\operatorname{Tor}}
+\newcommand{\Gal}{\operatorname{Gal}}
+\newcommand{\ch}{\operatorname{ch}}
+\newcommand{\rad}{\operatorname{rad}}
+\newcommand{\iso}{\cong}
+\newcommand{\normal}{\unlhd}
+\newcommand{\semi}{\rtimes}
+\newcommand{\Nm}{\operatorname {N}}
+\newcommand{\Tr}{\operatorname {Tr}}
+\newcommand{\disc}{\operatorname {disc}}
+
+
+
+
+
+
+
+
+%Euler Script Characters
+\newcommand{\esa}{\EuScript{A}}
+\newcommand{\esb}{\EuScript{B}}
+\newcommand{\esc}{\EuScript{C}}
+\newcommand{\esd}{\EuScript{D}}
+\newcommand{\ese}{\EuScript{E}}
+\newcommand{\esf}{\EuScript{F}}
+\newcommand{\esg}{\EuScript{G}}
+\newcommand{\esh}{\EuScript{H}}
+\newcommand{\esi}{\EuScript{I}}
+\newcommand{\esj}{\EuScript{J}}
+\newcommand{\esk}{\EuScript{K}}
+\newcommand{\esl}{\EuScript{L}}
+\newcommand{\esm}{\EuScript{M}}
+\newcommand{\esn}{\EuScript{N}}
+\newcommand{\eso}{\EuScript{O}}
+\newcommand{\esp}{\EuScript{P}}
+\newcommand{\esq}{\EuScript{Q}}
+\newcommand{\esr}{\EuScript{R}}
+\newcommand{\ess}{\EuScript{S}}
+\newcommand{\est}{\EuScript{T}}
+\newcommand{\esu}{\EuScript{U}}
+\newcommand{\esv}{\EuScript{V}}
+\newcommand{\esw}{\EuScript{W}}
+\newcommand{\esx}{\EuScript{X}}
+\newcommand{\esy}{\EuScript{Y}}
+\newcommand{\esz}{\EuScript{Z}}
+
+%Calligraphic Characters
+\newcommand{\cala}{\mathcal{A}}
+\newcommand{\calb}{\mathcal{B}}
+\newcommand{\calc}{\mathcal{C}}
+\newcommand{\cald}{\mathcal{D}}
+\newcommand{\cale}{\mathcal{E}}
+\newcommand{\calf}{\mathcal{F}}
+\newcommand{\calg}{\mathcal{G}}
+\newcommand{\calh}{\mathcal{H}}
+\newcommand{\cali}{\mathcal{I}}
+\newcommand{\calj}{\mathcal{J}}
+\newcommand{\calk}{\mathcal{K}}
+\newcommand{\call}{\mathcal{L}}
+\newcommand{\calm}{\mathcal{M}}
+\newcommand{\caln}{\mathcal{N}}
+\newcommand{\calo}{\mathcal{O}}
+\newcommand{\calp}{\mathcal{P}}
+\newcommand{\calq}{\mathcal{Q}}
+\newcommand{\calr}{\mathcal{R}}
+\newcommand{\cals}{\mathcal{S}}
+\newcommand{\calt}{\mathcal{T}}
+\newcommand{\calu}{\mathcal{U}}
+\newcommand{\calv}{\mathcal{V}}
+\newcommand{\calw}{\mathcal{W}}
+\newcommand{\calx}{\mathcal{X}}
+\newcommand{\caly}{\mathcal{Y}}
+\newcommand{\calz}{\mathcal{Z}}
+
+%Gothic Characters
+\newcommand{\fraka}{\mathfrak{a}}
+\newcommand{\frakb}{\mathfrak{b}}
+\newcommand{\frakc}{\mathfrak{c}}
+\newcommand{\frakd}{\mathfrak{d}}
+\newcommand{\frake}{\mathfrak{e}}
+\newcommand{\frakf}{\mathfrak{f}}
+\newcommand{\frakg}{\mathfrak{g}}
+\newcommand{\frakh}{\mathfrak{h}}
+\newcommand{\fraki}{\mathfrak{i}}
+\newcommand{\frakj}{\mathfrak{j}}
+\newcommand{\frakk}{\mathfrak{k}}
+\newcommand{\frakl}{\mathfrak{l}}
+\newcommand{\frakm}{\mathfrak{m}}
+\newcommand{\frakn}{\mathfrak{n}}
+\newcommand{\frako}{\mathfrak{o}}
+\newcommand{\frakp}{\mathfrak{p}}
+\newcommand{\frakq}{\mathfrak{q}}
+\newcommand{\frakr}{\mathfrak{r}}
+\newcommand{\fraks}{\mathfrak{s}}
+\newcommand{\frakt}{\mathfrak{t}}
+\newcommand{\fraku}{\mathfrak{u}}
+\newcommand{\frakv}{\mathfrak{v}}
+\newcommand{\frakw}{\mathfrak{w}}
+\newcommand{\frakx}{\mathfrak{x}}
+\newcommand{\fraky}{\mathfrak{y}}
+\newcommand{\frakz}{\mathfrak{z}}
+
+\newcommand{\frakA}{\mathfrak{A}}
+\newcommand{\frakB}{\mathfrak{B}}
+\newcommand{\frakC}{\mathfrak{C}}
+\newcommand{\frakD}{\mathfrak{D}}
+\newcommand{\frakE}{\mathfrak{E}}
+\newcommand{\frakF}{\mathfrak{F}}
+\newcommand{\frakG}{\mathfrak{G}}
+\newcommand{\frakH}{\mathfrak{H}}
+\newcommand{\frakI}{\mathfrak{I}}
+\newcommand{\frakJ}{\mathfrak{J}}
+\newcommand{\frakK}{\mathfrak{K}}
+\newcommand{\frakL}{\mathfrak{L}}
+\newcommand{\frakM}{\mathfrak{M}}
+\newcommand{\frakN}{\mathfrak{N}}
+\newcommand{\frakO}{\mathfrak{O}}
+\newcommand{\frakP}{\mathfrak{P}}
+\newcommand{\frakQ}{\mathfrak{Q}}
+\newcommand{\frakR}{\mathfrak{R}}
+\newcommand{\frakS}{\mathfrak{S}}
+\newcommand{\frakT}{\mathfrak{T}}
+\newcommand{\frakU}{\mathfrak{U}}
+\newcommand{\frakV}{\mathfrak{V}}
+\newcommand{\frakW}{\mathfrak{W}}
+\newcommand{\frakX}{\mathfrak{X}}
+\newcommand{\frakY}{\mathfrak{Y}}
+\newcommand{\frakZ}{\mathfrak{Z}}
+
+%Lowercase Bold Letters
+\newcommand{\bfa}{\mathbf{a}}
+\newcommand{\bfb}{\mathbf{b}}
+\newcommand{\bfc}{\mathbf{c}}
+\newcommand{\bfd}{\mathbf{d}}
+\newcommand{\bfe}{\mathbf{e}}
+\newcommand{\bff}{\mathbf{f}}
+\newcommand{\bfg}{\mathbf{g}}
+\newcommand{\bfh}{\mathbf{h}}
+\newcommand{\bfi}{\mathbf{i}}
+\newcommand{\bfj}{\mathbf{j}}
+\newcommand{\bfk}{\mathbf{k}}
+\newcommand{\bfl}{\mathbf{l}}
+\newcommand{\bfm}{\mathbf{m}}
+\newcommand{\bfn}{\mathbf{n}}
+\newcommand{\bfo}{\mathbf{o}}
+\newcommand{\bfp}{\mathbf{p}}
+\newcommand{\bfq}{\mathbf{q}}
+\newcommand{\bfr}{\mathbf{r}}
+\newcommand{\bfs}{\mathbf{s}}
+\newcommand{\bft}{\mathbf{t}}
+\newcommand{\bfu}{\mathbf{u}}
+\newcommand{\bfv}{\mathbf{v}}
+\newcommand{\bfw}{\mathbf{w}}
+\newcommand{\bfx}{\mathbf{x}}
+\newcommand{\bfy}{\mathbf{y}}
+\newcommand{\bfz}{\mathbf{z}}
+
+
+
+
+%Customized Theorem Environments
+\newtheoremstyle%
+{custom}%
+{}%                         Space above
+{}%													Space below
+{}%													Body font
+{}%                         Indent amount
+{}%                         Theorem head font
+{.}%                        Punctuation after heading
+{ }%                        Space after heading
+{\thmname{}%                Additional specifications for theorem head
+\thmnumber{}%
+\thmnote{\bfseries #3}}%
+
+\newtheoremstyle%
+{Theorem}%
+{}%
+{}%
+{\itshape}%
+{}%
+{}%
+{.}%
+{ }%
+{\thmname{\bfseries #1}%
+\thmnumber{\;\bfseries #2}%
+\thmnote{\;(\bfseries #3)}}%
+
+%Theorem Environments
+\theoremstyle{Theorem}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{cor}{Corollary}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem*{nonumthm}{Theorem}
+\newtheorem*{nonumprop}{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem*{answer}{Answer}
+\newtheorem*{solution}{Solution}
+\newtheorem*{nonumdfn}{Definition}
+\newtheorem*{nonumex}{Example}
+\newtheorem{ex}{Example}[section]
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}[section]
+\newtheorem*{note}{Note}
+\newtheorem*{notation}{Notation}
+\theoremstyle{custom}
+\newtheorem*{cust}{Definition}
+\fancypagestyle{firststyle}
+{
+  % \fancyhead[L]{\textbf{Name:}}
+   \fancyhead[R]{\textbf{Worksheet 13: Polar Curves and Coordinates, Areas and Lengths}}
+   \fancyfoot[R]{ Thomas Luckner } %{\footnotesize Page \thepage\ of \pageref{LastPage}}
+}
+
+
+
+\begin{document}
+\thispagestyle{firststyle}
+\pagestyle{plain}
+
+
+\noindent Thoughts: \\
+This is the last topic for you guys! I know I know this is great news. Let's finish strong.  First we have to explain a polar coordinate. Let's consider the point $\left( \dfrac{\sqrt{2}}{2},\dfrac{\sqrt{2}}{2}\right)$. This point is on the unit circle with a an angle of $\pi/4$ with respect to the $x$-axis. Thus, its polar coordinates are (I know you do not know what that means yet, but this shoulld help you take a guess) $(1, \pi/4)$.  Any guesses? The idea behind polar coordinates is the following:
+\begin{definition}[Polar Coordinate]
+The point $(x,y)$ (a Cartesian point) has the polar form $(r,\theta)$ where $r$ is the distance of the point $(x,y)$ from the origin and $\theta$ is the angle with respect to the $x$-axis. 
+\end{definition}
+Let's do a general example: $(x,y)$.  The best way to illustrate the conversion to polar coordinates is by a picture.
+\begin{center}
+  \begin{tikzpicture}
+
+      \draw[thick,->] (0,0) -- (5,0) node[right] {};
+      \draw[thick,->] (0,0) -- (0,5) node[above] {};
+       \draw[thick, blue, -] (0,0) -- (3,3) node[left] {};
+       \draw[thick, blue, -] (0,0) -- (3,0) node[left] {};
+       \draw[thick, blue, -] (3,0) -- (3,3) node[left] {};
+       \draw (3,3) node[above] {$(x,y)$};
+       \draw (1.5, 1.5) node[above left] {$r$};
+       \draw (1.5,0) node[below] {$x$};
+       \draw (3, 1.5) node[right] {$y$};
+       \draw (.5, 0) node [above] {$\theta$};
+    \end{tikzpicture}
+\end{center}
+This image should work wonders! How do we find $r$? That's right! Pythagorean Theorem! Thus, $r^2=x^2+y^2$ is quite useful. How do we find $\theta$? Soh Cah Toa! Any of them! For description sake I will write all of them: $\sin\theta=\dfrac{y}{r}$, $\cos\theta=\dfrac{x}{r}$, and $\tan\theta = \dfrac{y}{x}$. In the case of going from Cartesian to polar, you will see all of these work as long as you find $r$ first (tangent you do not need $r$). Going the other direction (polar to Cartesian) is a different story! Knowing $r$ and $\theta$ to find $x$ and $y$ we can do some manipulation and the useful equations are: $x=r\cos\theta$ and $y=r\sin\theta$. That's all you need to know to convert between polar and Cartesian coordinates!\\
+With new coordinates comes new equations. Let's see the general form: $r=f(\theta)$ or $f(r,\theta)=0$. An example!
+\begin{ex}
+$r=2\cos(\theta)$. Try sketching this curve! I will show how to convert to Cartesian equations! 
+\[
+r=2\left(\dfrac{x}{r}\right) \Rightarrow r^2=2x \Rightarrow x^2+y^2=2x \Rightarrow (x-1)^2+y^2=1
+\]
+The last part is by completing the square. Hopefully you see that this is the equation of a circle centered at (1,0) with radius 1.  Another similar example is the equation $r=1+\sin\theta$ which is the equation of a cardioid.
+\end{ex}
+Now let's do some calculus! 
+\[
+\dfrac{dy}{dx}=\dfrac{\dfrac{dy}{d\theta}}{\dfrac{dx}{d\theta}}=\dfrac{\dfrac{d(r\sin\theta)}{d\theta}}{\dfrac{d(r\cos\theta)}{d\theta}}=\dfrac{\sin\theta \cdot\dfrac{dr}{d\theta}+\cos\theta \cdot r }{\cos\theta \cdot \dfrac{dr}{d\theta}-\sin\theta \cdot r}
+\]
+These are all the different ways you can find $\dfrac{dy}{dx}$ with polar equations! Thus, now applications like tangent lines are accessible.\\
+We can also use integration to tell us things. First, we can determine the area of a sector of the function when we have polar equations. What is the sector of a polar equation you ask? Well, the sector is the area of the region made my drawing a straight line from each point $(a,f(a))$ and $(b,f(b))$ where $a$ and $b$ are the end points to the origin. Then use the function $r=f(\theta)$ to be the last side of the solid. This shape has the following formula for area:
+\[
+A=\int_a^b (1/2)(f(\theta))^2 d\theta=\int_a^b(1/2)r^2d\theta.
+\]
+Now we have the idea of arc length again. I do not want to go into why the formula is the way it is. I will instead leave it up to you to ask me if you want to know where it comes from.  Here is the formula. 
+\[
+L=\int_a^b \sqrt{r^2+\left(\dfrac{dr}{d\theta}\right)^2}d\theta
+\]
+These last two concepts are more plug and chug than anything else. That concludes everything for the class! 
+\newpage
+\noindent Problems:
+\begin{enumerate}[1.]
+\item Convert the following from Cartesian to Polar for $r>0$ and $0\leq \theta <2\pi$.
+\begin{enumerate}[a.]
+\item $(-1,\sqrt{3})$
+\item $(3\sqrt{3}, 3)$
+\item $(1,-2)$
+\end{enumerate}
+\item Convert from Polar to Cartesian.
+\begin{enumerate}[a.]
+\item $(1,\pi)$
+\item $(-2, 3\pi/4)$
+\item $(2, 7\pi/6)$
+\end{enumerate}
+\item Convert the Cartesian equation to polar.
+\begin{enumerate}[a.]
+\item $y=2$
+\item $xy=4$
+\item $x^2+y^2=2x$
+\end{enumerate}
+\item Convert the polar equations to Cartesian.
+\begin{enumerate}[a.]
+\item $r=4\sin(3\theta)$
+\item $r^2=9\sin(2\theta)$
+\item $r=1-2\sin\theta$
+\item $r=3+4\cos\theta$
+\end{enumerate}
+\item Find the slope of the tangent lines for the following polar equations.
+\begin{enumerate}[a.]
+\item $r=1/\theta$
+\item $r=1+2\cos\theta$
+\item $r=e^{\theta}$
+\end{enumerate}
+\item Find the area inside $r=\sqrt{3}\cos\theta$ and inside $r=\sin\theta$.
+\item Find the length of $r=2(1+\cos\theta$
+\item Find the area enclosed by the curve $r=1+5\sin\theta$.
+\end{enumerate}
+\end{document}
+
+
+
+
+
+
+

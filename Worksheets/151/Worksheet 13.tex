@@ -1,0 +1,453 @@
+\documentclass[10pt]{article}
+
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{array}
+\usepackage[all]{xy}
+\usepackage{fancyhdr}
+\usepackage{euscript}
+\usepackage{graphics}
+\usepackage{cancel}
+\usepackage{fancybox}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{pgf}
+\usepackage{pgfplots}
+\usepackage[all]{xy}
+\usepackage{graphicx}
+\pgfplotsset{compat=1.14}
+
+\usepackage{pstricks}
+\usepackage{pst-plot}
+
+\usepackage{setspace}
+\onehalfspacing
+
+\setlength{\oddsidemargin}{.5in}
+\setlength{\evensidemargin}{.5in}
+\setlength{\textwidth}{6.in}
+\setlength{\topmargin}{0in}
+\setlength{\headsep}{.20in}
+\setlength{\textheight}{8.5in}
+
+
+\pdfpagewidth 8.5in
+ \pdfpageheight 11in
+
+
+%General
+\newcommand{\WW}{\mathbb {W}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\RR}{\mathbb {R}}
+\newcommand{\II}{\mathbb {I}}
+\newcommand{\QQ}{\mathbb {Q}}
+\newcommand{\CC}{\mathbf C}
+\newcommand{\NN}{\mathbb {N}}
+\newcommand{\Zn}[1]{\mathbf{Z}/#1\mathbf{Z}}
+\newcommand{\Znx}[1]{(\mathbf{Z}/#1\mathbf{Z})^\times}
+\newcommand{\X}{\times} 
+\newcommand{\set}[2]{\left\{#1 : #2\right\}}          
+\newcommand{\sett}[1]{\left\{#1\right\}}                
+\newcommand{\nonempty}{\neq\varnothing}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\abs}[1]{\left| {#1} \right|}
+\newcommand{\qedbox}{\rule{2mm}{2mm}}
+\renewcommand{\qedsymbol}{\qedbox}											
+\newcommand{\aand}{\qquad\hbox{and}\qquad}
+\newcommand{\e}{\varepsilon}
+\newcommand{\tto}{\rightrightarrows}
+\newcommand{\gs}{\geqslant}
+\newcommand{\ls}{\leqslant}
+\renewcommand{\tilde}{\widetilde}
+\renewcommand{\hat}{\widehat}
+\newcommand{\norm}[1]{\left\| #1 \right\|}
+\newcommand{\md}[3]{#1\equiv#2\;(\mathrm{mod}\;#3)}     
+\newcommand{\gen}[1]{\left\langle #1 \right\rangle}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\zero}{\boldsymbol{0}}
+
+\newcommand{\be}[1]{\textbf{\emph{#1}}}
+\newcommand{\hhat}[1]{\hat{\! \hat{#1}}}
+
+\newcommand{\fto}[1]{\xrightarrow{\hspace{4pt} #1 \hspace{4pt}}}
+\newcommand{\flto}[1]{\xrightarrow{\quad #1 \quad}}
+
+
+
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\esssup}{\operatorname{ess\:sup}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\card}{\operatorname{card}}
+
+\newcommand{\dmu}{\:\mathrm{d}\mu}
+\newcommand{\dm}{\:\mathrm{d}m}
+\newcommand{\dx}{\:\mathrm{d}x}
+\newcommand{\dt}{\:\mathrm{d}t}
+\newcommand{\dz}{\:\mathrm{d}z}
+\newcommand{\dtheta}{\:\mathrm{d}\theta}
+\newcommand{\dw}{\:\mathrm{d}w}
+
+%Algebra
+\newcommand{\Sym}{\operatorname {Sym}}
+\newcommand{\Stab}{\operatorname {Stab}}
+\newcommand{\M}{\operatorname{M}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\PGL}{\operatorname{PGL}}
+\newcommand{\SL}{\operatorname{SL}}
+\newcommand{\PSL}{\operatorname{PSL}}
+\newcommand{\Heis}{\operatorname{Heis}}
+\newcommand{\Aff}{\operatorname{Aff}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\image}{\operatorname{im}}
+\newcommand{\Syl}[2]{\operatorname{\emph{Syl}}_{#1}\left(#2\right)}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Tor}{\operatorname{Tor}}
+\newcommand{\Gal}{\operatorname{Gal}}
+\newcommand{\ch}{\operatorname{ch}}
+\newcommand{\rad}{\operatorname{rad}}
+\newcommand{\iso}{\cong}
+\newcommand{\normal}{\unlhd}
+\newcommand{\semi}{\rtimes}
+\newcommand{\Nm}{\operatorname {N}}
+\newcommand{\Tr}{\operatorname {Tr}}
+\newcommand{\disc}{\operatorname {disc}}
+
+
+
+
+
+
+
+
+%Euler Script Characters
+\newcommand{\esa}{\EuScript{A}}
+\newcommand{\esb}{\EuScript{B}}
+\newcommand{\esc}{\EuScript{C}}
+\newcommand{\esd}{\EuScript{D}}
+\newcommand{\ese}{\EuScript{E}}
+\newcommand{\esf}{\EuScript{F}}
+\newcommand{\esg}{\EuScript{G}}
+\newcommand{\esh}{\EuScript{H}}
+\newcommand{\esi}{\EuScript{I}}
+\newcommand{\esj}{\EuScript{J}}
+\newcommand{\esk}{\EuScript{K}}
+\newcommand{\esl}{\EuScript{L}}
+\newcommand{\esm}{\EuScript{M}}
+\newcommand{\esn}{\EuScript{N}}
+\newcommand{\eso}{\EuScript{O}}
+\newcommand{\esp}{\EuScript{P}}
+\newcommand{\esq}{\EuScript{Q}}
+\newcommand{\esr}{\EuScript{R}}
+\newcommand{\ess}{\EuScript{S}}
+\newcommand{\est}{\EuScript{T}}
+\newcommand{\esu}{\EuScript{U}}
+\newcommand{\esv}{\EuScript{V}}
+\newcommand{\esw}{\EuScript{W}}
+\newcommand{\esx}{\EuScript{X}}
+\newcommand{\esy}{\EuScript{Y}}
+\newcommand{\esz}{\EuScript{Z}}
+
+%Calligraphic Characters
+\newcommand{\cala}{\mathcal{A}}
+\newcommand{\calb}{\mathcal{B}}
+\newcommand{\calc}{\mathcal{C}}
+\newcommand{\cald}{\mathcal{D}}
+\newcommand{\cale}{\mathcal{E}}
+\newcommand{\calf}{\mathcal{F}}
+\newcommand{\calg}{\mathcal{G}}
+\newcommand{\calh}{\mathcal{H}}
+\newcommand{\cali}{\mathcal{I}}
+\newcommand{\calj}{\mathcal{J}}
+\newcommand{\calk}{\mathcal{K}}
+\newcommand{\call}{\mathcal{L}}
+\newcommand{\calm}{\mathcal{M}}
+\newcommand{\caln}{\mathcal{N}}
+\newcommand{\calo}{\mathcal{O}}
+\newcommand{\calp}{\mathcal{P}}
+\newcommand{\calq}{\mathcal{Q}}
+\newcommand{\calr}{\mathcal{R}}
+\newcommand{\cals}{\mathcal{S}}
+\newcommand{\calt}{\mathcal{T}}
+\newcommand{\calu}{\mathcal{U}}
+\newcommand{\calv}{\mathcal{V}}
+\newcommand{\calw}{\mathcal{W}}
+\newcommand{\calx}{\mathcal{X}}
+\newcommand{\caly}{\mathcal{Y}}
+\newcommand{\calz}{\mathcal{Z}}
+
+%Gothic Characters
+\newcommand{\fraka}{\mathfrak{a}}
+\newcommand{\frakb}{\mathfrak{b}}
+\newcommand{\frakc}{\mathfrak{c}}
+\newcommand{\frakd}{\mathfrak{d}}
+\newcommand{\frake}{\mathfrak{e}}
+\newcommand{\frakf}{\mathfrak{f}}
+\newcommand{\frakg}{\mathfrak{g}}
+\newcommand{\frakh}{\mathfrak{h}}
+\newcommand{\fraki}{\mathfrak{i}}
+\newcommand{\frakj}{\mathfrak{j}}
+\newcommand{\frakk}{\mathfrak{k}}
+\newcommand{\frakl}{\mathfrak{l}}
+\newcommand{\frakm}{\mathfrak{m}}
+\newcommand{\frakn}{\mathfrak{n}}
+\newcommand{\frako}{\mathfrak{o}}
+\newcommand{\frakp}{\mathfrak{p}}
+\newcommand{\frakq}{\mathfrak{q}}
+\newcommand{\frakr}{\mathfrak{r}}
+\newcommand{\fraks}{\mathfrak{s}}
+\newcommand{\frakt}{\mathfrak{t}}
+\newcommand{\fraku}{\mathfrak{u}}
+\newcommand{\frakv}{\mathfrak{v}}
+\newcommand{\frakw}{\mathfrak{w}}
+\newcommand{\frakx}{\mathfrak{x}}
+\newcommand{\fraky}{\mathfrak{y}}
+\newcommand{\frakz}{\mathfrak{z}}
+
+\newcommand{\frakA}{\mathfrak{A}}
+\newcommand{\frakB}{\mathfrak{B}}
+\newcommand{\frakC}{\mathfrak{C}}
+\newcommand{\frakD}{\mathfrak{D}}
+\newcommand{\frakE}{\mathfrak{E}}
+\newcommand{\frakF}{\mathfrak{F}}
+\newcommand{\frakG}{\mathfrak{G}}
+\newcommand{\frakH}{\mathfrak{H}}
+\newcommand{\frakI}{\mathfrak{I}}
+\newcommand{\frakJ}{\mathfrak{J}}
+\newcommand{\frakK}{\mathfrak{K}}
+\newcommand{\frakL}{\mathfrak{L}}
+\newcommand{\frakM}{\mathfrak{M}}
+\newcommand{\frakN}{\mathfrak{N}}
+\newcommand{\frakO}{\mathfrak{O}}
+\newcommand{\frakP}{\mathfrak{P}}
+\newcommand{\frakQ}{\mathfrak{Q}}
+\newcommand{\frakR}{\mathfrak{R}}
+\newcommand{\frakS}{\mathfrak{S}}
+\newcommand{\frakT}{\mathfrak{T}}
+\newcommand{\frakU}{\mathfrak{U}}
+\newcommand{\frakV}{\mathfrak{V}}
+\newcommand{\frakW}{\mathfrak{W}}
+\newcommand{\frakX}{\mathfrak{X}}
+\newcommand{\frakY}{\mathfrak{Y}}
+\newcommand{\frakZ}{\mathfrak{Z}}
+
+%Lowercase Bold Letters
+\newcommand{\bfa}{\mathbf{a}}
+\newcommand{\bfb}{\mathbf{b}}
+\newcommand{\bfc}{\mathbf{c}}
+\newcommand{\bfd}{\mathbf{d}}
+\newcommand{\bfe}{\mathbf{e}}
+\newcommand{\bff}{\mathbf{f}}
+\newcommand{\bfg}{\mathbf{g}}
+\newcommand{\bfh}{\mathbf{h}}
+\newcommand{\bfi}{\mathbf{i}}
+\newcommand{\bfj}{\mathbf{j}}
+\newcommand{\bfk}{\mathbf{k}}
+\newcommand{\bfl}{\mathbf{l}}
+\newcommand{\bfm}{\mathbf{m}}
+\newcommand{\bfn}{\mathbf{n}}
+\newcommand{\bfo}{\mathbf{o}}
+\newcommand{\bfp}{\mathbf{p}}
+\newcommand{\bfq}{\mathbf{q}}
+\newcommand{\bfr}{\mathbf{r}}
+\newcommand{\bfs}{\mathbf{s}}
+\newcommand{\bft}{\mathbf{t}}
+\newcommand{\bfu}{\mathbf{u}}
+\newcommand{\bfv}{\mathbf{v}}
+\newcommand{\bfw}{\mathbf{w}}
+\newcommand{\bfx}{\mathbf{x}}
+\newcommand{\bfy}{\mathbf{y}}
+\newcommand{\bfz}{\mathbf{z}}
+
+
+
+
+%Customized Theorem Environments
+\newtheoremstyle%
+{custom}%
+{}%                         Space above
+{}%													Space below
+{}%													Body font
+{}%                         Indent amount
+{}%                         Theorem head font
+{.}%                        Punctuation after heading
+{ }%                        Space after heading
+{\thmname{}%                Additional specifications for theorem head
+\thmnumber{}%
+\thmnote{\bfseries #3}}%
+
+\newtheoremstyle%
+{Theorem}%
+{}%
+{}%
+{\itshape}%
+{}%
+{}%
+{.}%
+{ }%
+{\thmname{\bfseries #1}%
+\thmnumber{\;\bfseries #2}%
+\thmnote{\;(\bfseries #3)}}%
+
+%Theorem Environments
+\theoremstyle{Theorem}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{cor}{Corollary}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem*{nonumthm}{Theorem}
+\newtheorem*{nonumprop}{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem*{answer}{Answer}
+\newtheorem*{solution}{Solution}
+\newtheorem*{nonumdfn}{Definition}
+\newtheorem*{nonumex}{Example}
+\newtheorem{ex}{Example}[section]
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}[section]
+\newtheorem*{note}{Note}
+\newtheorem*{notation}{Notation}
+\theoremstyle{custom}
+\newtheorem*{cust}{Definition}
+\fancypagestyle{firststyle}
+{
+   \fancyhead[L]{\textbf{Name:}}
+   \fancyhead[R]{\textbf{Worksheet 13: Fundamental Theorem and Indefinite Integrals}}
+   \fancyfoot[R]{ Thomas Luckner } %{\footnotesize Page \thepage\ of \pageref{LastPage}}
+}
+
+
+
+
+
+
+\begin{document}
+\thispagestyle{firststyle}
+\pagestyle{plain}
+
+Thoughts:\\\\
+We defined a definite integral on the previous worksheet in words, but to calculate it is not always easy. Of course if our function is a nice geometric shape (like a triangle or a trapezoid) with relation to the $x$-axis, then finding the area is not so hard. However, once the curve is not longer made up of straight lines, the problem becomes much harder. This is where the Fundamental Theorem of Calculus comes in. These strange Riemann somes we were doing early are what make this possible. If we make those rectangles smaller and smaller with more and more rectangles, we get a more and more accurate estimate of the area under the curve! Thus, we have the following: 
+\[
+\int_a^bf(x)\dx=\lim_{n\rightarrow \infty} R_l=\lim_{n\rightarrow \infty} R_r
+\]
+where $R_l$ is the left Riemann sum, $R_r$ is the right Riemann sum, and $n$ is the number of rectangles.  Even more interesting is that this value exists on if these limits are equal! This is something they do not discuss in your calculus classes, but having an understanding of where the integral comes from is valuable in my opinion. \\
+Let's try to explain this in terms of the rectangles in another way. Say we are looking at the function $f(x)$ from $x$ to $x+h$ and we want the area under the curve over this interval, call it $g(x)=\ds \int_a^x f(t)dt$.  We can derive the following equation from this;
+\[
+g(x+h)-g(x)\approx hf(x)
+\]
+since this is the area between $x+h$ and $x$ for $f(x)$ which we can approximate with the rectangle of side length $h$ and $f(x)$ (leftside approx). Through a little manipulation, 
+\[
+\dfrac{g(x+h)-g(x)}{h}\approx f(x).
+\]
+This should look VERY familiar. Thus, like we said for the previous thought process, make this rectangle as small as possible by making $h$ tend to 0!. Therefore we have
+\[
+g'(x)=\lim_{h\rightarrow0}\dfrac{g(x+h)-g(x)}{h}\approx f(x).
+\]
+The first explanation is the proof of this phenomenon laid out here. Thus, we have the following BIG THEOREM.
+\begin{theorem}[Fundamental Theorem of Calculus Part 1]
+If $f$ is continuous on $[a,b]$, then $g$ is the function 
+\[
+g(x)=\int_a^xf(t)dt, \text{  } a\leq x\leq b
+\]
+which is continuous on $[a,b]$ and differentiable on $(a,b)$ so that $g'(x)=f(x)$.
+\end{theorem}
+This is all a fancy way of saying there exists a function $g(x)$ that represents the integral! Before we just made the integral to represent the area under the curve, but now we know there is a function that represents this! Ok, great. What do i care? This is what I imagine you guys saying. Well this is where Part 2 comes in. 
+\begin{theorem}[Fund. Theorem Part 2]
+If $f$ is continuous on $[a,b]$, then 
+\[
+\int_a^bf(x)\dx = F(b)-F(a)
+\]
+where $F$ is ANY antiderivative of $f$, $F'=f$.
+\end{theorem}
+This is a product of part 1 and the result from the Riemann sum limits! This is the result we can actually use. Notice we now have a use for the antiderivative! The best way to see its use is by example.
+\begin{ex}
+\[
+\int_1^3e^x\dx.
+\]
+One antiderivative is $e^x$! So, 
+\[
+\int_1^3e^x\dx=e^x\Bigg |^3_1=e^3-e^1.
+\]
+Let's try this with another antiderivative to prove the point, $e^x+1$.
+\[
+\int_1^3e^x\dx=e^x+1\Bigg |^3_1=e^3+1-(e^1+1)=e^3-e^1.
+\]
+\end{ex}
+That's it! Not too bad!\\
+Indefinite: Now we know the value of the antiderivative when it comes to area under the curve. So why not make a notation for a general limit without bounds. This way we can do more playing around with integration. Here is what math people came up with.
+\[
+\int f(x)\dx=F(x)+C
+\]
+where $C$ is a constant and $F'=f$.  This $C$ is very valuable since we now have $F(x)+C$ representing any and all antiderivatives of $f$! This $C$ is the most common mistake of calculus students; calc 1, calc 2 and calc 3.  Now I want to do a few examples of common antiderivative formulas and then make a table of them all for you since you will eventually be expected to know them.
+\[
+\int k \dx
+\]
+where $k$ is a constant nonzero. The question is, for what $g(x0$ is $g'(x)=k$? Well, to have a constant leftover, requires an $x$ attached! Thus,
+\[
+\int k \dx=kx+C.
+\]
+\[
+\int x^n \dx, n \neq -1.
+\]
+This one involves a little more thought. This is a polynomial so its antiderivative must come from a polynomial as well. Thus, we will use the power rule to figure this out. We seek $g$ such that $g'=x^n$. It certainly has to be a degree higher otherwise its derivative would be too small. so we have $g(x)=x^{n+1}$. The derivative of this is $(n+1)x^n$. This means we need to get rid of the $n+1$ out front. Therefore,  $g(x)=\dfrac{x^{n+1}}{n+1}$ and 
+\[
+\int x^n \dx = \dfrac{x^{n+1}}{n+1}+C, n \neq -1.
+\]
+My last example I want to do is the case when $n=-1$ or 
+\[
+\int\dfrac{1}{x}\dx.
+\]
+The question is the derivative of what gives me $\dfrac{1}{x}$. This is $\ln(x)$. However, there is a small issue. $\dfrac{1}{x}$ is defined for all $x\neq 0$ but $\ln(x)$ is defined for $x>0$. Thus, we need to make a small change! 
+\[
+\int\dfrac{1}{x}\dx=\ln|x|+C.
+\]
+Here is a table of more that I'm sure you could figure out, but you will be expected to know. Please let me know if you want me to show you why one is the way it is.
+\begin{center}
+\begin{tabular}{ | m{6em} | m{6em}|} 
+\hline
+Indefinite Integral & Solution\\
+$\int x^n$ $n\neq -1$ & $\dfrac{x^{n+1}}{n+1}+C$\\
+\hline
+$\int \dfrac{1}{x}$ & $\ln|x|+C$\\
+\hline
+$\int e^x$ & $e^x+C$\\
+\hline
+$\int \sin(x)$ & $-\cos(x)+C$\\
+\hline
+$\int \cos(x)$ & $\sin(x)+C$\\
+\hline
+$\int \sec^2(x)$ & $\tan(x)+C$\\
+\hline
+$\int \sec(x)\tan(x)$ & $\sec(x)+C$\\
+\hline
+$\int a^x \dx, a\text{ constant}$ & $\dfrac{a^x}{\ln(a)}+C$
+\end{tabular}
+\end{center}
+Notice I do not include some of the other trig functions on here, but these should be enough for you to figure out the others!\\
+The last thing I want to do is address the real-life application they always use for this which is position/height, velocity and acceleration. Before you had the following: $s'(t)$ or $h'(t) = v(t)$ and $s''(t)$ or $h''(t)=v'(t)=a(t)$.  Now we can go up the ladder with indefinite integrals as we did in the previous worksheet! That is all for this section!
+\newpage 
+\noindent Problems: 
+\begin{enumerate}[1.]
+\item $\ds \int_{-1}^2 (x^3-2x)\dx$
+\item $\ds \int_{1}^9 \dfrac{x-1}{\sqrt{x}}\dx$
+\item $\ds \int_{0}^1 (x^e+e^x)\dx$
+\item $\ds \int_{0}^{\pi/4} \sec(x)\tan(x)\dx$
+\item $\ds \int_{-1}^2 (x^3-2x)\dx$
+\item $\ds \int (x^4-(1/2)x^3+(1/4)x-2)\dx$
+\item $\ds \int (\csc(x)-2e^x)\dx$
+\item $\ds \int (x-\csc(x)\cot(x))\dx$
+\item $\ds \int \sec(x)(\sec(x)+\tan(x))\dx$
+\item $\ds \int_{2}^1 (\dfrac{x}{2}-\dfrac{2}{x})\dx$
+\end{enumerate}
+
+\end{document}
+
+
+
+
+
+
+

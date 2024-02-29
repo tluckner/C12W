@@ -1,0 +1,441 @@
+\documentclass[10pt]{article}
+
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{array}
+\usepackage[all]{xy}
+\usepackage{fancyhdr}
+\usepackage{euscript}
+\usepackage{graphics}
+\usepackage{cancel}
+\usepackage{fancybox}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{pgf}
+\usepackage{pgfplots}
+\usepackage[all]{xy}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\pgfplotsset{compat=1.14}
+
+\usepackage{pstricks}
+\usepackage{pst-plot}
+
+\usepackage{setspace}
+\onehalfspacing
+
+\setlength{\oddsidemargin}{.5in}
+\setlength{\evensidemargin}{.5in}
+\setlength{\textwidth}{6.in}
+\setlength{\topmargin}{0in}
+\setlength{\headsep}{.20in}
+\setlength{\textheight}{8.5in}
+
+
+\pdfpagewidth 8.5in
+ \pdfpageheight 11in
+
+
+%General
+\newcommand{\WW}{\mathbb {W}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\RR}{\mathbb {R}}
+\newcommand{\II}{\mathbb {I}}
+\newcommand{\QQ}{\mathbb {Q}}
+\newcommand{\CC}{\mathbf C}
+\newcommand{\NN}{\mathbb {N}}
+\newcommand{\Zn}[1]{\mathbf{Z}/#1\mathbf{Z}}
+\newcommand{\Znx}[1]{(\mathbf{Z}/#1\mathbf{Z})^\times}
+\newcommand{\X}{\times} 
+\newcommand{\set}[2]{\left\{#1 : #2\right\}}          
+\newcommand{\sett}[1]{\left\{#1\right\}}                
+\newcommand{\nonempty}{\neq\varnothing}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\abs}[1]{\left| {#1} \right|}
+\newcommand{\qedbox}{\rule{2mm}{2mm}}
+\renewcommand{\qedsymbol}{\qedbox}											
+\newcommand{\aand}{\qquad\hbox{and}\qquad}
+\newcommand{\e}{\varepsilon}
+\newcommand{\tto}{\rightrightarrows}
+\newcommand{\gs}{\geqslant}
+\newcommand{\ls}{\leqslant}
+\renewcommand{\tilde}{\widetilde}
+\renewcommand{\hat}{\widehat}
+\newcommand{\norm}[1]{\left\| #1 \right\|}
+\newcommand{\md}[3]{#1\equiv#2\;(\mathrm{mod}\;#3)}     
+\newcommand{\gen}[1]{\left\langle #1 \right\rangle}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\zero}{\boldsymbol{0}}
+
+\newcommand{\be}[1]{\textbf{\emph{#1}}}
+\newcommand{\hhat}[1]{\hat{\! \hat{#1}}}
+
+\newcommand{\fto}[1]{\xrightarrow{\hspace{4pt} #1 \hspace{4pt}}}
+\newcommand{\flto}[1]{\xrightarrow{\quad #1 \quad}}
+
+
+
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\esssup}{\operatorname{ess\:sup}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\card}{\operatorname{card}}
+
+\newcommand{\dmu}{\:\mathrm{d}\mu}
+\newcommand{\dm}{\:\mathrm{d}m}
+\newcommand{\dx}{\:\mathrm{d}x}
+\newcommand{\dt}{\:\mathrm{d}t}
+\newcommand{\dz}{\:\mathrm{d}z}
+\newcommand{\dtheta}{\:\mathrm{d}\theta}
+\newcommand{\dw}{\:\mathrm{d}w}
+
+%Algebra
+\newcommand{\Sym}{\operatorname {Sym}}
+\newcommand{\Stab}{\operatorname {Stab}}
+\newcommand{\M}{\operatorname{M}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\PGL}{\operatorname{PGL}}
+\newcommand{\SL}{\operatorname{SL}}
+\newcommand{\PSL}{\operatorname{PSL}}
+\newcommand{\Heis}{\operatorname{Heis}}
+\newcommand{\Aff}{\operatorname{Aff}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\image}{\operatorname{im}}
+\newcommand{\Syl}[2]{\operatorname{\emph{Syl}}_{#1}\left(#2\right)}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Tor}{\operatorname{Tor}}
+\newcommand{\Gal}{\operatorname{Gal}}
+\newcommand{\ch}{\operatorname{ch}}
+\newcommand{\rad}{\operatorname{rad}}
+\newcommand{\iso}{\cong}
+\newcommand{\normal}{\unlhd}
+\newcommand{\semi}{\rtimes}
+\newcommand{\Nm}{\operatorname {N}}
+\newcommand{\Tr}{\operatorname {Tr}}
+\newcommand{\disc}{\operatorname {disc}}
+
+
+
+
+
+
+
+
+%Euler Script Characters
+\newcommand{\esa}{\EuScript{A}}
+\newcommand{\esb}{\EuScript{B}}
+\newcommand{\esc}{\EuScript{C}}
+\newcommand{\esd}{\EuScript{D}}
+\newcommand{\ese}{\EuScript{E}}
+\newcommand{\esf}{\EuScript{F}}
+\newcommand{\esg}{\EuScript{G}}
+\newcommand{\esh}{\EuScript{H}}
+\newcommand{\esi}{\EuScript{I}}
+\newcommand{\esj}{\EuScript{J}}
+\newcommand{\esk}{\EuScript{K}}
+\newcommand{\esl}{\EuScript{L}}
+\newcommand{\esm}{\EuScript{M}}
+\newcommand{\esn}{\EuScript{N}}
+\newcommand{\eso}{\EuScript{O}}
+\newcommand{\esp}{\EuScript{P}}
+\newcommand{\esq}{\EuScript{Q}}
+\newcommand{\esr}{\EuScript{R}}
+\newcommand{\ess}{\EuScript{S}}
+\newcommand{\est}{\EuScript{T}}
+\newcommand{\esu}{\EuScript{U}}
+\newcommand{\esv}{\EuScript{V}}
+\newcommand{\esw}{\EuScript{W}}
+\newcommand{\esx}{\EuScript{X}}
+\newcommand{\esy}{\EuScript{Y}}
+\newcommand{\esz}{\EuScript{Z}}
+
+%Calligraphic Characters
+\newcommand{\cala}{\mathcal{A}}
+\newcommand{\calb}{\mathcal{B}}
+\newcommand{\calc}{\mathcal{C}}
+\newcommand{\cald}{\mathcal{D}}
+\newcommand{\cale}{\mathcal{E}}
+\newcommand{\calf}{\mathcal{F}}
+\newcommand{\calg}{\mathcal{G}}
+\newcommand{\calh}{\mathcal{H}}
+\newcommand{\cali}{\mathcal{I}}
+\newcommand{\calj}{\mathcal{J}}
+\newcommand{\calk}{\mathcal{K}}
+\newcommand{\call}{\mathcal{L}}
+\newcommand{\calm}{\mathcal{M}}
+\newcommand{\caln}{\mathcal{N}}
+\newcommand{\calo}{\mathcal{O}}
+\newcommand{\calp}{\mathcal{P}}
+\newcommand{\calq}{\mathcal{Q}}
+\newcommand{\calr}{\mathcal{R}}
+\newcommand{\cals}{\mathcal{S}}
+\newcommand{\calt}{\mathcal{T}}
+\newcommand{\calu}{\mathcal{U}}
+\newcommand{\calv}{\mathcal{V}}
+\newcommand{\calw}{\mathcal{W}}
+\newcommand{\calx}{\mathcal{X}}
+\newcommand{\caly}{\mathcal{Y}}
+\newcommand{\calz}{\mathcal{Z}}
+
+%Gothic Characters
+\newcommand{\fraka}{\mathfrak{a}}
+\newcommand{\frakb}{\mathfrak{b}}
+\newcommand{\frakc}{\mathfrak{c}}
+\newcommand{\frakd}{\mathfrak{d}}
+\newcommand{\frake}{\mathfrak{e}}
+\newcommand{\frakf}{\mathfrak{f}}
+\newcommand{\frakg}{\mathfrak{g}}
+\newcommand{\frakh}{\mathfrak{h}}
+\newcommand{\fraki}{\mathfrak{i}}
+\newcommand{\frakj}{\mathfrak{j}}
+\newcommand{\frakk}{\mathfrak{k}}
+\newcommand{\frakl}{\mathfrak{l}}
+\newcommand{\frakm}{\mathfrak{m}}
+\newcommand{\frakn}{\mathfrak{n}}
+\newcommand{\frako}{\mathfrak{o}}
+\newcommand{\frakp}{\mathfrak{p}}
+\newcommand{\frakq}{\mathfrak{q}}
+\newcommand{\frakr}{\mathfrak{r}}
+\newcommand{\fraks}{\mathfrak{s}}
+\newcommand{\frakt}{\mathfrak{t}}
+\newcommand{\fraku}{\mathfrak{u}}
+\newcommand{\frakv}{\mathfrak{v}}
+\newcommand{\frakw}{\mathfrak{w}}
+\newcommand{\frakx}{\mathfrak{x}}
+\newcommand{\fraky}{\mathfrak{y}}
+\newcommand{\frakz}{\mathfrak{z}}
+
+\newcommand{\frakA}{\mathfrak{A}}
+\newcommand{\frakB}{\mathfrak{B}}
+\newcommand{\frakC}{\mathfrak{C}}
+\newcommand{\frakD}{\mathfrak{D}}
+\newcommand{\frakE}{\mathfrak{E}}
+\newcommand{\frakF}{\mathfrak{F}}
+\newcommand{\frakG}{\mathfrak{G}}
+\newcommand{\frakH}{\mathfrak{H}}
+\newcommand{\frakI}{\mathfrak{I}}
+\newcommand{\frakJ}{\mathfrak{J}}
+\newcommand{\frakK}{\mathfrak{K}}
+\newcommand{\frakL}{\mathfrak{L}}
+\newcommand{\frakM}{\mathfrak{M}}
+\newcommand{\frakN}{\mathfrak{N}}
+\newcommand{\frakO}{\mathfrak{O}}
+\newcommand{\frakP}{\mathfrak{P}}
+\newcommand{\frakQ}{\mathfrak{Q}}
+\newcommand{\frakR}{\mathfrak{R}}
+\newcommand{\frakS}{\mathfrak{S}}
+\newcommand{\frakT}{\mathfrak{T}}
+\newcommand{\frakU}{\mathfrak{U}}
+\newcommand{\frakV}{\mathfrak{V}}
+\newcommand{\frakW}{\mathfrak{W}}
+\newcommand{\frakX}{\mathfrak{X}}
+\newcommand{\frakY}{\mathfrak{Y}}
+\newcommand{\frakZ}{\mathfrak{Z}}
+
+%Lowercase Bold Letters
+\newcommand{\bfa}{\mathbf{a}}
+\newcommand{\bfb}{\mathbf{b}}
+\newcommand{\bfc}{\mathbf{c}}
+\newcommand{\bfd}{\mathbf{d}}
+\newcommand{\bfe}{\mathbf{e}}
+\newcommand{\bff}{\mathbf{f}}
+\newcommand{\bfg}{\mathbf{g}}
+\newcommand{\bfh}{\mathbf{h}}
+\newcommand{\bfi}{\mathbf{i}}
+\newcommand{\bfj}{\mathbf{j}}
+\newcommand{\bfk}{\mathbf{k}}
+\newcommand{\bfl}{\mathbf{l}}
+\newcommand{\bfm}{\mathbf{m}}
+\newcommand{\bfn}{\mathbf{n}}
+\newcommand{\bfo}{\mathbf{o}}
+\newcommand{\bfp}{\mathbf{p}}
+\newcommand{\bfq}{\mathbf{q}}
+\newcommand{\bfr}{\mathbf{r}}
+\newcommand{\bfs}{\mathbf{s}}
+\newcommand{\bft}{\mathbf{t}}
+\newcommand{\bfu}{\mathbf{u}}
+\newcommand{\bfv}{\mathbf{v}}
+\newcommand{\bfw}{\mathbf{w}}
+\newcommand{\bfx}{\mathbf{x}}
+\newcommand{\bfy}{\mathbf{y}}
+\newcommand{\bfz}{\mathbf{z}}
+
+
+
+
+%Customized Theorem Environments
+\newtheoremstyle%
+{custom}%
+{}%                         Space above
+{}%													Space below
+{}%													Body font
+{}%                         Indent amount
+{}%                         Theorem head font
+{.}%                        Punctuation after heading
+{ }%                        Space after heading
+{\thmname{}%                Additional specifications for theorem head
+\thmnumber{}%
+\thmnote{\bfseries #3}}%
+
+\newtheoremstyle%
+{Theorem}%
+{}%
+{}%
+{\itshape}%
+{}%
+{}%
+{.}%
+{ }%
+{\thmname{\bfseries #1}%
+\thmnumber{\;\bfseries #2}%
+\thmnote{\;(\bfseries #3)}}%
+
+%Theorem Environments
+\theoremstyle{Theorem}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{cor}{Corollary}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem*{nonumthm}{Theorem}
+\newtheorem*{nonumprop}{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem*{answer}{Answer}
+\newtheorem*{solution}{Solution}
+\newtheorem*{nonumdfn}{Definition}
+\newtheorem*{nonumex}{Example}
+\newtheorem{ex}{Example}[section]
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}[section]
+\newtheorem*{note}{Note}
+\newtheorem*{notation}{Notation}
+\theoremstyle{custom}
+\newtheorem*{cust}{Definition}
+\fancypagestyle{firststyle}
+{
+  % \fancyhead[L]{\textbf{Name:}}
+   \fancyhead[R]{\textbf{Worksheet 12: Parameterized Differentiation and Integration}}
+   \fancyfoot[R]{ Thomas Luckner } %{\footnotesize Page \thepage\ of \pageref{LastPage}}
+}
+
+
+
+\begin{document}
+\thispagestyle{firststyle}
+\pagestyle{plain}
+
+
+\noindent Thoughts: \\
+If I were you and I heard the title of this section, I'd be pissed. My thoughts would be "we just finished differentiation and integration and we have to do it again with some other equation?" This thought is both right and wrong! The process is way simpler than it sounds. Say we have the following parametric equations:
+\[
+x=f(t) \text{ and } y=g(t).
+\]
+By chain rule (or by simplifying fractions) we know that 
+\[
+\dfrac{dy}{dt}=\dfrac{dy}{dx}\cdot \dfrac{dx}{dt}.
+\]
+Thus, if we want the derivative of $y$ with respect to $x$ like we do for Cartesian equations we have
+\begin{equation}
+\dfrac{dy}{dx}=\dfrac{\dfrac{dy}{dt}}{\dfrac{dx}{dt}}
+\end{equation}
+where $\dfrac{dx}{dt}\neq 0$ for fairly obvious reasons.  Now let's try to make sense of the second derivative. We notate the second derivative as $\dfrac{d^2y}{dx^2}$ but most of you do not know why. Knowing this will give us insight of the second derivative using parametric equations. So, let's see why this is the case.\\
+When we say derivative we are referring to $\dfrac{dy}{dx}$ most of the time where this means derivative of $y$ with respect to $x$. Now the second derivative is the derivative of $\dfrac{dy}{dx}$ with respect to $x$. Thus, the form really is 
+\[
+\dfrac{d\dfrac{dy}{dx}}{dx}=\dfrac{\dfrac{d^2y}{dx}}{dx}=\dfrac{d^2y}{dx^2}
+\]
+where it is really $(dx)^2$ in the denominator! This information is good to know for our parametric derivative formula since now we know the second derivative just means plug in $\dfrac{dy}{dx}$ for $y$! Let's do this in our equation to get
+\begin{equation}
+\dfrac{d^2y}{dx^2}=\dfrac{d\dfrac{dy}{dx}}{dx}=\dfrac{\dfrac{d\dfrac{dy}{dx}}{dt}}{\dfrac{dx}{dt}}=\dfrac{\dfrac{d}{dt}\left( \dfrac{dy}{dx}\right)}{\dfrac{dx}{dt}}
+\end{equation}
+What is important to note is that this makes sense since there is in fact a $t$ in the derivative due to the parametric equation formula! This is not wrong! Now we have the formulas, but you are probably thinking how on earth do I apply this. One example should do the trick here.
+\begin{ex}
+Let $x=t^2+1$ and $y=t^2+t$. Yes you could find out how to write a Cartesian equation here and then take the derivative, but let's say that is not so easy. Well our first formula tells us to find $\dfrac{dy}{dt}$ and $\dfrac{dx}{dt}$. 
+\[
+\dfrac{dy}{dt}=2t+1
+\]
+\[
+\dfrac{dx}{dt}=2t
+\]
+Now we plug into our formula and we have
+\[
+\dfrac{dy}{dx}=\dfrac{2t+1}{2t}
+\]
+Now how do we find the second derivative with respect to $x$? Formula! The only thing we don't have is $\dfrac{d}{dt}\left(\dfrac{dy}{dx}\right)$. 
+\[
+\dfrac{d}{dt}\left(\dfrac{dy}{dx}\right)= \dfrac{2(2t)-2(2t+1)}{(2t)^2}=\dfrac{-2}{4t^2}=\dfrac{-1}{2t^2}.
+\]
+Thus,
+\[
+\dfrac{d^2y}{dx^2}=\dfrac{\dfrac{-1}{2t^2}}{2t}=\dfrac{-1}{4t^3}.
+\]
+\end{ex}
+Hopefully this gives a good grasp of parametric derivatives. Now with this info we can find tangent lines to a point (now there could be more than 1 and you may need to find the $t$ the point is associated to). Let's move on to integration.\\\\
+Parametric Integration- This follows a similar taste. Let's give it some background first. So, we know the following:
+\[
+Area_F=\int_a^b F(x)\dx.
+\]
+Say $x=f(t)$ and $y=g(t)$ as we did before where these form the curve $y=F(x)$. If we want the integral with respect to $t$, we need to make more than just a basic substitution as you can see below:
+\[
+Area_F=\int_a^b F(x)\dx=\int_{a_0}^{b_0}g(t)\dx
+\]
+where $a_0$ and $b_0$ are the respective bound with respect to $t$. Just like any substitution, we need to get rid of $dx$ and replace it with $dt$ somehow. Well we know and equation for $x$ in terms of $t$! Thus, 
+\[
+\dfrac{dx}{dt}=f'(t) \Rightarrow dx=f'(t)\cdot dt.
+\]
+Therefore, 
+\begin{equation}
+Area_F=\int_a^b F(x)\dx=\int_{a_0}^{b_0}g(t)\dx=\int_{a_0}^{b_0}g(t)f'(t)dt.
+\end{equation}
+Because this is formulaic in nature, let's do an example and it should stick.
+\begin{ex}
+$x=1+3t^2$, $y=4+2t^3$, $0\leq t \leq 1$. Given this info we need to find the derivative of $x$ with respec to $t$. 
+\[
+\dfrac{dx}{dt}=6t. 
+\]
+Thus,
+\[
+\int_0^1f(x)\dx=\int_1^4 (4+2t^3)(6t)dt=\int_1^4 24t+12t^4dt=12t^2+\dfrac{12t^5}{5}\Bigg|^4_1=12(4)^2+\dfrac{12(4)^5}{5}-12(1)^2-\dfrac{12(1)^5}{5}.
+\]
+\end{ex}
+This should be sufficient to get the idea of parametric integration in your brains. Now we will do a little more applications. I do not know which of your instructors will do this, but i have seen it so I will include a small section on arc length here.\\
+Arc Length- For those of you who do not know arc length, arc length is the actually length of the curve and we measure it as follows: 
+\[
+L=\int_a^b\sqrt{1+\left(\dfrac{dy}{dx}\right)^2}\dx
+\]
+where $a\leq x\leq b$ is the domain we want the length of. This is a common formula and a good application of integration. Now to extend this to parametric equations, we drop in our derivative formula!
+\begin{equation}
+L=\int_{a_0}^{b_0}\sqrt{\left(\dfrac{dx}{dt}\right)^2+\left(\dfrac{dy}{dt}\right)^2}dt
+\end{equation}
+As you can see this is not too technical once you apply this formula! The last application you may see a tiny bit of is surface area. This is not crazy either. Here is the formula.
+\begin{equation}
+S=\int_{a_0}^{b_0}2\pi y\sqrt{\left(\dfrac{dx}{dt}\right)^2+\left(\dfrac{dy}{dt}\right)^2}dt
+\end{equation}
+Once again just formulaic in nature!
+\newpage
+\noindent Problems: Find the first derivative, second derivative, and the tangent line at the point.
+\begin{enumerate}[1.]
+\item $x=1+4t-t^2$, $y=2-t^3$, $t=1$
+\item $x=6\sin(t)$, $y=t^2+t$, (0,0)
+\item $x=1+\ln(t)$, $y=t^2+2$, (1,3)
+\item $x=1+\sqrt{t}$, $y=e^{t^2}$, $(2,e)$
+\item Find the length for the following equations (may need a calculator)
+\item $x=t+e^{-t}$, $y=t-e^{-t}$, $0\leq t\leq 2$
+\item $x=t\sin(t)$, $y=t\cos(t)$, $0\leq t\leq 1$
+\item $x=1+3t^2$, $y=4+2t^3$, $0\leq t\leq 1$
+\item $x=t+\sqrt{t}$, $y=t-\sqrt{t}$, $0\leq t\leq 1$
+\item Find the surface area of the functions rotated about the $x$-axis.
+\item $x=t^3$, $y=t^2$, $0\leq t\leq 1$
+\item $x=3t-t^3$, $y=3t^2$, $0\leq t\leq 1$
+\end{enumerate}
+
+
+\end{document}
+
+
+
+
+
+
+

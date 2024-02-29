@@ -1,0 +1,506 @@
+\documentclass[10pt]{article}
+
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{array}
+\usepackage[all]{xy}
+\usepackage{fancyhdr}
+\usepackage{euscript}
+\usepackage{graphics}
+\usepackage{cancel}
+\usepackage{fancybox}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{pgf}
+\usepackage{pgfplots}
+\usepackage[all]{xy}
+\usepackage{graphicx}
+\pgfplotsset{compat=1.14}
+
+\usepackage{pstricks}
+\usepackage{pst-plot}
+
+\usepackage{setspace}
+\onehalfspacing
+
+\setlength{\oddsidemargin}{.5in}
+\setlength{\evensidemargin}{.5in}
+\setlength{\textwidth}{6.in}
+\setlength{\topmargin}{0in}
+\setlength{\headsep}{.20in}
+\setlength{\textheight}{8.5in}
+
+
+\pdfpagewidth 8.5in
+ \pdfpageheight 11in
+
+
+%General
+\newcommand{\WW}{\mathbb {W}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\RR}{\mathbb {R}}
+\newcommand{\II}{\mathbb {I}}
+\newcommand{\QQ}{\mathbb {Q}}
+\newcommand{\CC}{\mathbf C}
+\newcommand{\NN}{\mathbb {N}}
+\newcommand{\Zn}[1]{\mathbf{Z}/#1\mathbf{Z}}
+\newcommand{\Znx}[1]{(\mathbf{Z}/#1\mathbf{Z})^\times}
+\newcommand{\X}{\times} 
+\newcommand{\set}[2]{\left\{#1 : #2\right\}}          
+\newcommand{\sett}[1]{\left\{#1\right\}}                
+\newcommand{\nonempty}{\neq\varnothing}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\abs}[1]{\left| {#1} \right|}
+\newcommand{\qedbox}{\rule{2mm}{2mm}}
+\renewcommand{\qedsymbol}{\qedbox}											
+\newcommand{\aand}{\qquad\hbox{and}\qquad}
+\newcommand{\e}{\varepsilon}
+\newcommand{\tto}{\rightrightarrows}
+\newcommand{\gs}{\geqslant}
+\newcommand{\ls}{\leqslant}
+\renewcommand{\tilde}{\widetilde}
+\renewcommand{\hat}{\widehat}
+\newcommand{\norm}[1]{\left\| #1 \right\|}
+\newcommand{\md}[3]{#1\equiv#2\;(\mathrm{mod}\;#3)}     
+\newcommand{\gen}[1]{\left\langle #1 \right\rangle}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\zero}{\boldsymbol{0}}
+
+\newcommand{\be}[1]{\textbf{\emph{#1}}}
+\newcommand{\hhat}[1]{\hat{\! \hat{#1}}}
+
+\newcommand{\fto}[1]{\xrightarrow{\hspace{4pt} #1 \hspace{4pt}}}
+\newcommand{\flto}[1]{\xrightarrow{\quad #1 \quad}}
+
+
+
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\esssup}{\operatorname{ess\:sup}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\card}{\operatorname{card}}
+
+\newcommand{\dmu}{\:\mathrm{d}\mu}
+\newcommand{\dm}{\:\mathrm{d}m}
+\newcommand{\dx}{\:\mathrm{d}x}
+\newcommand{\dt}{\:\mathrm{d}t}
+\newcommand{\dz}{\:\mathrm{d}z}
+\newcommand{\dtheta}{\:\mathrm{d}\theta}
+\newcommand{\dw}{\:\mathrm{d}w}
+
+%Algebra
+\newcommand{\Sym}{\operatorname {Sym}}
+\newcommand{\Stab}{\operatorname {Stab}}
+\newcommand{\M}{\operatorname{M}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\PGL}{\operatorname{PGL}}
+\newcommand{\SL}{\operatorname{SL}}
+\newcommand{\PSL}{\operatorname{PSL}}
+\newcommand{\Heis}{\operatorname{Heis}}
+\newcommand{\Aff}{\operatorname{Aff}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\image}{\operatorname{im}}
+\newcommand{\Syl}[2]{\operatorname{\emph{Syl}}_{#1}\left(#2\right)}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Tor}{\operatorname{Tor}}
+\newcommand{\Gal}{\operatorname{Gal}}
+\newcommand{\ch}{\operatorname{ch}}
+\newcommand{\rad}{\operatorname{rad}}
+\newcommand{\iso}{\cong}
+\newcommand{\normal}{\unlhd}
+\newcommand{\semi}{\rtimes}
+\newcommand{\Nm}{\operatorname {N}}
+\newcommand{\Tr}{\operatorname {Tr}}
+\newcommand{\disc}{\operatorname {disc}}
+
+
+
+
+
+
+
+
+%Euler Script Characters
+\newcommand{\esa}{\EuScript{A}}
+\newcommand{\esb}{\EuScript{B}}
+\newcommand{\esc}{\EuScript{C}}
+\newcommand{\esd}{\EuScript{D}}
+\newcommand{\ese}{\EuScript{E}}
+\newcommand{\esf}{\EuScript{F}}
+\newcommand{\esg}{\EuScript{G}}
+\newcommand{\esh}{\EuScript{H}}
+\newcommand{\esi}{\EuScript{I}}
+\newcommand{\esj}{\EuScript{J}}
+\newcommand{\esk}{\EuScript{K}}
+\newcommand{\esl}{\EuScript{L}}
+\newcommand{\esm}{\EuScript{M}}
+\newcommand{\esn}{\EuScript{N}}
+\newcommand{\eso}{\EuScript{O}}
+\newcommand{\esp}{\EuScript{P}}
+\newcommand{\esq}{\EuScript{Q}}
+\newcommand{\esr}{\EuScript{R}}
+\newcommand{\ess}{\EuScript{S}}
+\newcommand{\est}{\EuScript{T}}
+\newcommand{\esu}{\EuScript{U}}
+\newcommand{\esv}{\EuScript{V}}
+\newcommand{\esw}{\EuScript{W}}
+\newcommand{\esx}{\EuScript{X}}
+\newcommand{\esy}{\EuScript{Y}}
+\newcommand{\esz}{\EuScript{Z}}
+
+%Calligraphic Characters
+\newcommand{\cala}{\mathcal{A}}
+\newcommand{\calb}{\mathcal{B}}
+\newcommand{\calc}{\mathcal{C}}
+\newcommand{\cald}{\mathcal{D}}
+\newcommand{\cale}{\mathcal{E}}
+\newcommand{\calf}{\mathcal{F}}
+\newcommand{\calg}{\mathcal{G}}
+\newcommand{\calh}{\mathcal{H}}
+\newcommand{\cali}{\mathcal{I}}
+\newcommand{\calj}{\mathcal{J}}
+\newcommand{\calk}{\mathcal{K}}
+\newcommand{\call}{\mathcal{L}}
+\newcommand{\calm}{\mathcal{M}}
+\newcommand{\caln}{\mathcal{N}}
+\newcommand{\calo}{\mathcal{O}}
+\newcommand{\calp}{\mathcal{P}}
+\newcommand{\calq}{\mathcal{Q}}
+\newcommand{\calr}{\mathcal{R}}
+\newcommand{\cals}{\mathcal{S}}
+\newcommand{\calt}{\mathcal{T}}
+\newcommand{\calu}{\mathcal{U}}
+\newcommand{\calv}{\mathcal{V}}
+\newcommand{\calw}{\mathcal{W}}
+\newcommand{\calx}{\mathcal{X}}
+\newcommand{\caly}{\mathcal{Y}}
+\newcommand{\calz}{\mathcal{Z}}
+
+%Gothic Characters
+\newcommand{\fraka}{\mathfrak{a}}
+\newcommand{\frakb}{\mathfrak{b}}
+\newcommand{\frakc}{\mathfrak{c}}
+\newcommand{\frakd}{\mathfrak{d}}
+\newcommand{\frake}{\mathfrak{e}}
+\newcommand{\frakf}{\mathfrak{f}}
+\newcommand{\frakg}{\mathfrak{g}}
+\newcommand{\frakh}{\mathfrak{h}}
+\newcommand{\fraki}{\mathfrak{i}}
+\newcommand{\frakj}{\mathfrak{j}}
+\newcommand{\frakk}{\mathfrak{k}}
+\newcommand{\frakl}{\mathfrak{l}}
+\newcommand{\frakm}{\mathfrak{m}}
+\newcommand{\frakn}{\mathfrak{n}}
+\newcommand{\frako}{\mathfrak{o}}
+\newcommand{\frakp}{\mathfrak{p}}
+\newcommand{\frakq}{\mathfrak{q}}
+\newcommand{\frakr}{\mathfrak{r}}
+\newcommand{\fraks}{\mathfrak{s}}
+\newcommand{\frakt}{\mathfrak{t}}
+\newcommand{\fraku}{\mathfrak{u}}
+\newcommand{\frakv}{\mathfrak{v}}
+\newcommand{\frakw}{\mathfrak{w}}
+\newcommand{\frakx}{\mathfrak{x}}
+\newcommand{\fraky}{\mathfrak{y}}
+\newcommand{\frakz}{\mathfrak{z}}
+
+\newcommand{\frakA}{\mathfrak{A}}
+\newcommand{\frakB}{\mathfrak{B}}
+\newcommand{\frakC}{\mathfrak{C}}
+\newcommand{\frakD}{\mathfrak{D}}
+\newcommand{\frakE}{\mathfrak{E}}
+\newcommand{\frakF}{\mathfrak{F}}
+\newcommand{\frakG}{\mathfrak{G}}
+\newcommand{\frakH}{\mathfrak{H}}
+\newcommand{\frakI}{\mathfrak{I}}
+\newcommand{\frakJ}{\mathfrak{J}}
+\newcommand{\frakK}{\mathfrak{K}}
+\newcommand{\frakL}{\mathfrak{L}}
+\newcommand{\frakM}{\mathfrak{M}}
+\newcommand{\frakN}{\mathfrak{N}}
+\newcommand{\frakO}{\mathfrak{O}}
+\newcommand{\frakP}{\mathfrak{P}}
+\newcommand{\frakQ}{\mathfrak{Q}}
+\newcommand{\frakR}{\mathfrak{R}}
+\newcommand{\frakS}{\mathfrak{S}}
+\newcommand{\frakT}{\mathfrak{T}}
+\newcommand{\frakU}{\mathfrak{U}}
+\newcommand{\frakV}{\mathfrak{V}}
+\newcommand{\frakW}{\mathfrak{W}}
+\newcommand{\frakX}{\mathfrak{X}}
+\newcommand{\frakY}{\mathfrak{Y}}
+\newcommand{\frakZ}{\mathfrak{Z}}
+
+%Lowercase Bold Letters
+\newcommand{\bfa}{\mathbf{a}}
+\newcommand{\bfb}{\mathbf{b}}
+\newcommand{\bfc}{\mathbf{c}}
+\newcommand{\bfd}{\mathbf{d}}
+\newcommand{\bfe}{\mathbf{e}}
+\newcommand{\bff}{\mathbf{f}}
+\newcommand{\bfg}{\mathbf{g}}
+\newcommand{\bfh}{\mathbf{h}}
+\newcommand{\bfi}{\mathbf{i}}
+\newcommand{\bfj}{\mathbf{j}}
+\newcommand{\bfk}{\mathbf{k}}
+\newcommand{\bfl}{\mathbf{l}}
+\newcommand{\bfm}{\mathbf{m}}
+\newcommand{\bfn}{\mathbf{n}}
+\newcommand{\bfo}{\mathbf{o}}
+\newcommand{\bfp}{\mathbf{p}}
+\newcommand{\bfq}{\mathbf{q}}
+\newcommand{\bfr}{\mathbf{r}}
+\newcommand{\bfs}{\mathbf{s}}
+\newcommand{\bft}{\mathbf{t}}
+\newcommand{\bfu}{\mathbf{u}}
+\newcommand{\bfv}{\mathbf{v}}
+\newcommand{\bfw}{\mathbf{w}}
+\newcommand{\bfx}{\mathbf{x}}
+\newcommand{\bfy}{\mathbf{y}}
+\newcommand{\bfz}{\mathbf{z}}
+
+
+
+
+%Customized Theorem Environments
+\newtheoremstyle%
+{custom}%
+{}%                         Space above
+{}%													Space below
+{}%													Body font
+{}%                         Indent amount
+{}%                         Theorem head font
+{.}%                        Punctuation after heading
+{ }%                        Space after heading
+{\thmname{}%                Additional specifications for theorem head
+\thmnumber{}%
+\thmnote{\bfseries #3}}%
+
+\newtheoremstyle%
+{Theorem}%
+{}%
+{}%
+{\itshape}%
+{}%
+{}%
+{.}%
+{ }%
+{\thmname{\bfseries #1}%
+\thmnumber{\;\bfseries #2}%
+\thmnote{\;(\bfseries #3)}}%
+
+%Theorem Environments
+\theoremstyle{Theorem}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{cor}{Corollary}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem*{nonumthm}{Theorem}
+\newtheorem*{nonumprop}{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem*{answer}{Answer}
+\newtheorem*{solution}{Solution}
+\newtheorem*{nonumdfn}{Definition}
+\newtheorem*{nonumex}{Example}
+\newtheorem{ex}{Example}[section]
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}[section]
+\newtheorem*{note}{Note}
+\newtheorem*{notation}{Notation}
+\theoremstyle{custom}
+\newtheorem*{cust}{Definition}
+\fancypagestyle{firststyle}
+{
+   \fancyhead[L]{\textbf{Name:}}
+   \fancyhead[R]{\textbf{Worksheet 1: Integration by parts, trig identities, and trig substitution}}
+   \fancyfoot[R]{ Thomas Luckner } %{\footnotesize Page \thepage\ of \pageref{LastPage}}
+}
+
+
+
+
+
+
+\begin{document}
+\thispagestyle{firststyle}
+\pagestyle{plain}
+
+
+Thoughts:\\
+Integration by parts: Always for a product of 2 functions! There really two cases where this is needed.\\
+One function when taking the derivative \textbf{EVENTUALLY} either becomes constant or gets "absorbed" by the other function.\\
+ex: $\int x^3e^x \dx$. The $x^3$ will become a constant when by parts is applied 3 times while $e^x$ remains unchanged.\\
+ex: $\int x\ln(x) \dx$. In this case, the derivative of $\ln(x)$ is $1/x$. Since the antiderivative of $x$ is $x^2/2$, the integral will be of $x/2$. This is an example of what I mean with "absorbing".\\\\
+Trig Identities: It is best to start this with an example. Consider the following integral:
+$$\int \sin^5(x) \dx.$$
+Your first instinct at this point should be $u$-sub.  You'll quickly find that $\cos(x)$ is not in this problem so $u$-sub is a dead end. Now what? Well this leaves us no choice but to use a trig identity! The question now becomes which one? The power here should be the hint.  We know things about $\sin^2(x)$! This is seen in the identity $\sin^2(x)+\cos^2(x)=1$. Thus, $\sin^2(x)=1-\cos^2(x)$.  Before we make use of this, we need to remember that a trig identity is used to help induce a $u$-substitution! Now the question is how do I apply this? Let's see where $\sin^2(x)$ makes its appearance in the problem.
+$$\int \sin^5(x) \dx=\int (\sin^2(x))(\sin^2(x))\sin(x) \dx.$$
+Now what? Well we see $\sin^2(x)$ twice, so let's apply our identity twice!
+$$\int (1-\cos^2(x))^2\sin(x) \dx.$$
+Now is where we stop and think about the $u$-substitution we are trying to induce. Notice we have a product of 2 functions. Thus, the $u$ will live inside one of these functions. $\sin(x)$ is too simple to be a helpful $u$. Thus, it must be in our $du$. That tells us we need something that gives us a constant times $\sin(x)$ as our $du$! That leaves us no choice, but $u=\cos(x)$. So we are left with 
+$$\int (1-\cos^2(x))^2\sin(x) \dx=-\int (1-u^2)^2 \text{ d}u .$$
+This problem is now an example of a basic algebra manipulation to use power rule of antiderivatives!\\ This gives us a general idea for how to approach trig identity problems! First see if $u$-sub works right away. If not, we make it work with trig identities!
+\newpage
+Trig substitution: This is a difficult topic. Many approach this topic in a memorization way which I find unvaluable.  Let's make sense of what is going on with an example.  
+$$\int \dfrac{\sqrt{25x^2-4}}{x} \dx.$$
+Very intimidating problem at first glance.  $u$-sub does not work. Nothing straight and simple about this right away. Thus, we are left to trig substitution! The idea for trig sub stems from the right triangle trig from precalculus.  Notice our difference is of two squares. This should be a \textbf{HUGE} hint to use trig substitution! Here is why.
+We have a lot of identities which are useful to us with squares like this problem has with the difference of 2 squares, but they always include a 1. Let's derive that!\\
+ So, we have $25x^2-4$. Our goal here is to achieve a constant 1. We can do that by dividing by 4! Thus, we have $1/4\left(\dfrac{25x^2}{4}-1\right)$. Now we remember a substitution that is a trig function squared minus 1. This is $\tan^2(\theta)+1=\sec^2(\theta)$ since the manipulation gives us $\tan^2(\theta)=\sec^2(\theta)-1$. We have identified our identity and we notice $\sec^2(\theta)=\dfrac{25x^2}{4}$ in our instance.  Thus, $\sec(\theta)=\dfrac{5x}{2}$ and $x=\dfrac{2\sec(\theta)}{5}$. Let's ignore the $dx$ for now and see what we have with the root.
+ $$\sqrt{25x^2-4}=\sqrt{(4)\left(\dfrac{25x^2}{4}-1\right)}=\sqrt{\sec^2(\theta)-1}=|\tan(\theta)|.$$ 
+ Now what? Well we left out $dx$! $dx=\dfrac{2}{5}\sec(x)\tan(x) \text{ d} \theta$.
+ That gives us
+ $$\int \dfrac{\sqrt{25x^2-4}}{x} \dx=\int \dfrac{|\tan(\theta)|}{\dfrac{2}{5}\sec(\theta)}\left(\dfrac{2}{5}\sec(\theta)\tan(\theta)\right) \text{ d}\theta.$$
+ Now we can apply the before section on trig identities to finish this problem. Now at the end we need to translate things back into x's! That is where right triangle trig comes in!\\
+We can use our $x$ substitution to make the triangle! $\sec(\theta)$ tells us that  $a=2$, $b=\sqrt{25x^2-4}$ and $c=5x$ in the below triangle. Our goal is to use this info to put a trig function in! Let's make it happen using triangles!  
+\begin{center}
+\begin{tikzpicture}[scale=.9]
+	\draw[-] (0,0) -- (4,0) node[pos=0.5, below]{$2$};
+	\draw[-] (0,0) -- (0,4) node[pos=0.5, left]{$\sqrt{25x^2-4}$};
+	\draw[-] (4,0) -- (0,4) node[pos=0.5, right]{$5x$};
+	
+\end{tikzpicture}
+\end{center}
+ Now we have our triangle which gives us the value in terms of x for all trig functions! This is a good basis for trig sustitution.\\\\
+Now some problems.
+\begin{enumerate}[1.]
+\item $\ds \int_0^{2\pi}t^2\sin(2t) \text{ d}t$
+\begin{solution}
+Notice we have a trig function and a polynomial. That means that the polynomial will eventually become a constant. Thus, it should be our $u$. 
+$$u=t^2, du=2t dt, dv=\sin(2t)dt, v=\dfrac{-\cos(2t)}{2}.$$
+Now we apply by parts with some simplifying.
+$$=\dfrac{-t^2\cos(2t)}{2}+\int t\cos(2t) dt.$$
+Let's do by parts again.
+$$u=t, du=dt, dv=\cos(2t)dt, v=\dfrac{\sin(2t)}{2}.$$
+Now apply and finish the integral.
+$$=\dfrac{-t^2\cos(2t)}{2}+\left( \dfrac{t\sin(2t)}{2}-\int \dfrac{\sin(2t)}{2} dt\right)=\dfrac{-t^2\cos(2t)}{2}+\dfrac{t\sin(2t)}{2}+\dfrac{\cos(2t)}{4}\Big\vert^{2\pi}_0.$$
+Now we can use the bounds on the WHOLE expresion to find our answer.\\
+For $2\pi$ we get $\dfrac{-(2\pi)^2}{2}+\dfrac{1}{4}$. For $0$ we get $\dfrac{1}{4}$. Thus, the integral evaluates to $\dfrac{-(2\pi)^2}{2}$.
+
+\end{solution}
+\item $\ds \int_1^2\dfrac{(\ln(x))^2}{x^3} \dx$
+\begin{solution}
+We take note of the $\ln$ in here. Eventually, even with the power, we will lose the $\ln$ and have $\dfrac{1}{x}$ if we take derivatives. Thus, let this be our $u$.
+$$u=(\ln(x))^2, du=\dfrac{2\ln(x)}{x}dx, dv=\dfrac{1}{x^3}dx, v=\dfrac{1}{-2x^2}\text{ (Change to a power rule)}.$$
+Thus, here is our integral:
+$$=\dfrac{(\ln(x))^2}{-2x^2}-\int \dfrac{2\ln(x)}{-2x^3}dx=\dfrac{(\ln(x))^2}{-2x^2}+\int \dfrac{\ln(x)}{x^3}dx.$$
+Again!
+$$u=\ln(x), du=\dfrac{dx}{x}, dv=\dfrac{dx}{x^3}, v=\dfrac{1}{-2x^2}.$$
+Here is the integral!
+$$=\dfrac{(\ln(x))^2}{-2x^2}+\left(\dfrac{\ln(x)}{-2x^2}- \int \dfrac{dx}{-2x^3}\right)=\dfrac{(\ln(x))^2}{-2x^2}+\dfrac{\ln(x)}{-2x^2}+\dfrac{1}{2}\int \dfrac{dx}{x^3}=\dfrac{(\ln(x))^2}{-2x^2}+\dfrac{\ln(x)}{-2x^2}-\dfrac{1}{4x^2}\Big |^2_1.$$
+Now evaluate! When $x=1$ all the $\ln$'s are 0. Thus we are left with $\dfrac{1}{4}$. Therefore our solution is $\dfrac{\ln^2(2)}{-8}+\dfrac{\ln(2)}{-8}-\dfrac{1}{16}-\dfrac{1}{4}$.
+\end{solution}
+\item $\ds \int x\tan^2(x) \dx$
+\begin{solution}
+First note your instinct to choose $x$ as your $u$. This would be fine except we do not know the antiderivative of $\tan^2(x)$! Thus, we can use a trig identity! 
+$$=\int x(\sec^2(x)-1)\dx = \int x\sec^2(x)\dx-\int x\dx= \int x\sec^2(x)\dx-\dfrac{x^2}{2}.$$
+We do know the antiderivative of $\sec^2(x)$ (if we don't, we should know!). Let's focus on our remaining integral above.
+$$u=x, du=dx, dv=\sec^2(x)dx, v=\tan(x).$$
+Thus, our integral is
+$$=x\tan(x)-\int \tan(x) \dx.$$
+Ah yes! Another thing we should know, but probably don't. The integral of $\tan(x)$. Your instructors may or may not expect you to know this (I wouldn't), but it is as follows:
+$$=x\tan(x)-\ln|\sec(x)|+C.$$
+\end{solution}
+\item $\ds \int xe^{-3x}\dx$
+\begin{solution}
+This one is a straight forward by parts problem since $u$-sub is not gonna work. 
+$$u=x, du=dx, dv=e^{-3x}dx, v=\dfrac{e^{-3x}}{-3}.$$
+Thus, our new integral is
+$$=\dfrac{xe^{-3x}}{-3}+\dfrac{1}{3}\int e^{-3x}\dx=\dfrac{xe^{-3x}}{-3}-\dfrac{1}{9}e^{-3x}+C.$$
+\end{solution}
+\newpage
+\item $\ds \int \sin^2(x) \cos^2(x) \dx$ (Hint: half-angle identity)
+\begin{solution}
+Notice the product of 2 trig functions with powers here. This is your hint to use trig identities.  However, your favorite trig identities do not leave you with a good $u$-sub after. Thus, we must resort to the half-angle identities. 
+$$=\int \cos^2(x)\left(\dfrac{1-\cos(2x)}{2}\right)\dx=\dfrac{1}{4}\int (1+\cos(2x))(1-\cos(2x))\dx=\dfrac{1}{4}\int 1-\cos^2(2x)\dx$$
+$$=\dfrac{1}{4}\int \dx-\dfrac{1}{8}\int 1+\cos(4x)\dx \text{ (Use the identity just the same as when it is only x but replace x with 2x)}$$
+Now we can evaluate the integrals!
+$$=\dfrac{x}{4}-\dfrac{x}{8}-\dfrac{\sin(4x)}{32}+C.$$
+\end{solution}
+\item $\ds \int \cos(\theta)\cos^5(\sin(\theta)) \text{ d}\theta$
+\begin{solution}
+We first note that a $u$-sub can be done to get that embedded $\sin(\theta)$ out.
+$$=\int \cos^5(u) du.$$
+Now we can use a trig identity since we do not know how to handle a power of trig functions. All the trig identities we know with powers have a square, so let's find some squares.
+$$=\int (\cos^2(u))^2\cos(u)du.$$
+Now let's apply our favorite identity.
+$$=\int (1-\sin^2(u))^2 \cos(u)du.$$
+Now we can make a $u$-substitution which is what we desire! For this instance, since $u$ was already used, I will be using $g=\sin(u)$.
+$$=\int (1-g^2)^2dg=\int 1-2g^2+g^4 dg=g-\dfrac{2g^3}{3}+\dfrac{g^5}{5}+C.$$
+Bring back our original variable as follows to finish.
+$$=\sin(u)-\dfrac{2\sin^3(u)}{3}+\dfrac{\sin^5(u)}{5}+C=\sin(\sin(\theta))-\dfrac{2\sin^3(\sin(\theta))}{3}+\dfrac{\sin^5(\sin(\theta))}{5}+C.$$
+\end{solution}
+\item $\ds \int \tan^3(x) \sec(x) \dx$
+\begin{solution}
+Now these trig identity substitutions get trickier with $\tan$ and $\sec$.  We have to keep in mind their derivatives. Still, we hunt down the squares as we did in the previous problem.
+$$=\int \tan^2(x) \tan(x)\sec(x) \dx=\int (\sec^2(x)-1)\tan(x)\sec(x) \dx.$$
+These feels like a failure due to the extra $\sec(x)$. However, this is ok since the derivative of $\sec(x)$ is $\sec(x)\tan(x)$! Thus, let $u=\sec(x)$.
+$$=\int (u^2-1)du=\dfrac{u^3}{3}-u+C=\dfrac{\sec^3(x)}{3}-\sec(x)+C.$$
+\end{solution}
+\item $\ds \int \dfrac{x}{\sqrt{36-x^2}}\dx$
+\begin{solution}
+Notice the $x$ is on the right. Thus, we can do the following:
+$$=\int \dfrac{x}{\sqrt{36(1-(x/6)^2}}\dx.$$
+the difference in the root ressembles our favorite trig identity! 
+$$\dfrac{x}{6}=\sin(t) \Rightarrow x=6\sin(t), dx=6\cos(t)dt.$$
+Thus our integral is as follows.
+$$=\int \dfrac{36\sin(t)\cos(t) dt}{6\sqrt{1-\sin^2(t)}}=\int \dfrac{36\sin(t)\cos(t) dt}{6\cos(t)}=6\int \sin(t) dt=-6\cos(t)+C.$$
+Now is where many students get stuck. Let's get this back to being in terms of $x$. Notice it will be difficult with $t$ embedded inside of a $\cos$. This is where our right triangle trig and Pythagorean Theorem come in. Based off of our substitution, $opp=x$ and $hyp=6$. This means that $adj=\sqrt{36-x^2}$. Now we can replace $\cos(t)$ with our Soh Cah Toa.
+$$=-6\left(\dfrac{\sqrt{36-x^2}}{6}\right)+C=-\sqrt{36-x^2}+C.$$
+\end{solution}
+\item $\ds \int \dfrac{\dx}{(x^2+1)^2}$
+\begin{solution}
+Here we have a sum of 2 squares. Thus, we seek a sum identity with the 1. That gives us the following substitution.
+$$x=\tan(t), dx=\sec^2(t)dt.$$
+Here is our new integral.
+$$=\int \dfrac{\sec^2(t)dt}{(\tan^2(t)+1)^2}=\int \dfrac{dt}{sec^2(t)}=\int \cos^2(t)dt.$$
+Now we need to resort back to our ideas with trig identity integrals! This is not an obvious integral. Thus, we need an identity to rid ourselves of the power! Here it is.
+$$=\int \dfrac{1+\cos(2t)}{2}dt=\dfrac{t}{2}+\dfrac{\sin(2t)}{4}+C.$$
+Here is the tricky thing! To get back in terms of $x$, we must find a formula to change $\sin(2t)$ to not have the $2t$!  Here we go!
+$$=\dfrac{t}{2}+\dfrac{2\sin(t)\cos(t)}{4}+C=\dfrac{\arctan(x)}{2}+\dfrac{x}{2(x^2+1)}+C.$$
+\end{solution}
+\item $\ds \int \dfrac{x^2}{(3+4x-4x^2)^{3/2}}\dx$
+\begin{solution}
+THIS ONE IS DIFFICULT! Notice it is not apparent from the beginning that trig substitution is needed. Let's throw it back to precalc. How do we get a square when there is no square to begin with from a polynomial? Complete the square: $a\left(x+\dfrac{b}{2a}\right)^2-\dfrac{b^2}{4a}+c$. Let's make it happen focusing only on the polynomial in the denominator for now!
+$$poly=-4(x-1/2)^2+1+3=-4(x-1/2)^2+4.$$
+Let's plug that in and stare.
+$$=\int \dfrac{x^2}{(-4(x-1/2)^2+4)^{3/2}}\dx.$$
+This vaguely looks like something we can work with, but there is a $x-1/2$ where we want an $x$. Let's $u$-sub it out! $u=x-1/2$ and $du=dx$.
+$$=\int \dfrac{(u+1/2)^2}{(-4u^2+4)^{3/2}}du=\int \dfrac{(u+1/2)^2}{(4(1-u^2))^{3/2}}du.$$
+Now we can use trig substitution! We actually have a difference here with the u on the right so a $\sin$ or $\cos$ sub works! Here it is.
+$$u=\sin(t),du=\cos(t)dt.$$
+And the integral
+$$=\int \dfrac{\cos(t)(\sin(t)+1/2)^2}{(2(1-\sin^2(t)))^{3/2}}dt=\int \dfrac{\cos(t)(\sin(t)+1/2)^2}{(4\cos^2(t))^{3/2}}dt=\int \dfrac{(\sin(t)+1/2)^2}{8\cos^2(t)}dt.$$
+Now we appear stuck. We do have a square on top so let's expand that and break up the integral.
+$$=\int \dfrac{\sin^2(t)+\sin(t)+1/4}{8\cos^2(t)}dt=(1/8)\int \tan^2(t)dt +(1/8)\int \dfrac{\sin(t)}{\cos^2(t)}dt+(1/32)\int \dfrac{1}{\cos^2(t)}dt.$$
+Let's make sense of each integral here. Our first onewe need to apply a trig identity to get $\sec^2(t)$ in there and then integrate. Our second integral we need to use $u$-sub! Our third integral is just going to be $\tan(t)$ since that is $\sec^2(t)$!
+$$=(1/8)\int \sec^2(t)-1dt +(1/8)\int \dfrac{1}{u^2}du+(1/32)\tan(t)+C=\dfrac{\tan(t)}{8}-\dfrac{t}{8}-\dfrac{1}{8\cos(t)}+\dfrac{\tan(t)}{32}+C.$$
+Time to get $x$ back which require us to go to $u$ and then to $x$!
+$$=\dfrac{u}{8\sqrt{1-u^2}}-\dfrac{\arcsin(u)}{8}-\dfrac{1}{8\sqrt{1-u^2}}+\dfrac{u}{32\sqrt{1-u^2}}+C \text{  (Now put x-1/2 in for u).}$$
+\end{solution}
+\item $\ds \int x\sqrt{1-x^4}\dx$
+\begin{solution}
+This we need to think outside the box.  Let's create our square!
+$$=\int x\sqrt{1-(x^2)^2}\dx.$$
+Notice a $u$-sub can happen here!
+$$u=x^2, du=2xdx \Rightarrow \dfrac{du}{2}=xdx.$$
+$$=\dfrac{1}{2}\int \sqrt{1-u^2}du.$$
+Now we apply trig sub: $u=\sin(t)$, $du=\cos(t)dt$.
+$$= \dfrac{1}{2} \int \cos(t)\sqrt{1-\sin^2(t)}dt=\dfrac{1}{2}\int \cos^2(t)dt.$$
+We can now use our tricks from trig identities!
+$$=\dfrac{1}{4}\int 1+\cos(2t) dt=\dfrac{t}{4}+\dfrac{\sin(2t)}{8}+C=\dfrac{t}{4}+\dfrac{\cos(t)\sin(t)}{4}+C.$$
+And finally we use our triangle trig to go all the way back to $x$.
+$$=\dfrac{\arcsin(u)}{4}+\dfrac{u\sqrt{1-u^2}}{4}+C=\dfrac{\arcsin(x^2)}{4}+\dfrac{x^2\sqrt{1-x^4}}{8}+C.$$
+\end{solution}
+\end{enumerate}
+
+\end{document}
+
+
+
+
+
+
+

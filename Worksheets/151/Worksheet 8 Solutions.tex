@@ -1,0 +1,464 @@
+\documentclass[10pt]{article}
+
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{array}
+\usepackage[all]{xy}
+\usepackage{fancyhdr}
+\usepackage{euscript}
+\usepackage{graphics}
+\usepackage{cancel}
+\usepackage{fancybox}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{pgf}
+\usepackage{pgfplots}
+\usepackage[all]{xy}
+\usepackage{graphicx}
+\pgfplotsset{compat=1.14}
+
+\usepackage{pstricks}
+\usepackage{pst-plot}
+
+\usepackage{setspace}
+\onehalfspacing
+
+\setlength{\oddsidemargin}{.5in}
+\setlength{\evensidemargin}{.5in}
+\setlength{\textwidth}{6.in}
+\setlength{\topmargin}{0in}
+\setlength{\headsep}{.20in}
+\setlength{\textheight}{8.5in}
+
+
+\pdfpagewidth 8.5in
+ \pdfpageheight 11in
+
+
+%General
+\newcommand{\WW}{\mathbb {W}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\RR}{\mathbb {R}}
+\newcommand{\II}{\mathbb {I}}
+\newcommand{\QQ}{\mathbb {Q}}
+\newcommand{\CC}{\mathbf C}
+\newcommand{\NN}{\mathbb {N}}
+\newcommand{\Zn}[1]{\mathbf{Z}/#1\mathbf{Z}}
+\newcommand{\Znx}[1]{(\mathbf{Z}/#1\mathbf{Z})^\times}
+\newcommand{\X}{\times} 
+\newcommand{\set}[2]{\left\{#1 : #2\right\}}          
+\newcommand{\sett}[1]{\left\{#1\right\}}                
+\newcommand{\nonempty}{\neq\varnothing}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\abs}[1]{\left| {#1} \right|}
+\newcommand{\qedbox}{\rule{2mm}{2mm}}
+\renewcommand{\qedsymbol}{\qedbox}											
+\newcommand{\aand}{\qquad\hbox{and}\qquad}
+\newcommand{\e}{\varepsilon}
+\newcommand{\tto}{\rightrightarrows}
+\newcommand{\gs}{\geqslant}
+\newcommand{\ls}{\leqslant}
+\renewcommand{\tilde}{\widetilde}
+\renewcommand{\hat}{\widehat}
+\newcommand{\norm}[1]{\left\| #1 \right\|}
+\newcommand{\md}[3]{#1\equiv#2\;(\mathrm{mod}\;#3)}     
+\newcommand{\gen}[1]{\left\langle #1 \right\rangle}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\zero}{\boldsymbol{0}}
+
+\newcommand{\be}[1]{\textbf{\emph{#1}}}
+\newcommand{\hhat}[1]{\hat{\! \hat{#1}}}
+
+\newcommand{\fto}[1]{\xrightarrow{\hspace{4pt} #1 \hspace{4pt}}}
+\newcommand{\flto}[1]{\xrightarrow{\quad #1 \quad}}
+
+
+
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\esssup}{\operatorname{ess\:sup}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\card}{\operatorname{card}}
+
+\newcommand{\dmu}{\:\mathrm{d}\mu}
+\newcommand{\dm}{\:\mathrm{d}m}
+\newcommand{\dx}{\:\mathrm{d}x}
+\newcommand{\dt}{\:\mathrm{d}t}
+\newcommand{\dz}{\:\mathrm{d}z}
+\newcommand{\dtheta}{\:\mathrm{d}\theta}
+\newcommand{\dw}{\:\mathrm{d}w}
+
+%Algebra
+\newcommand{\Sym}{\operatorname {Sym}}
+\newcommand{\Stab}{\operatorname {Stab}}
+\newcommand{\M}{\operatorname{M}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\PGL}{\operatorname{PGL}}
+\newcommand{\SL}{\operatorname{SL}}
+\newcommand{\PSL}{\operatorname{PSL}}
+\newcommand{\Heis}{\operatorname{Heis}}
+\newcommand{\Aff}{\operatorname{Aff}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\image}{\operatorname{im}}
+\newcommand{\Syl}[2]{\operatorname{\emph{Syl}}_{#1}\left(#2\right)}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Tor}{\operatorname{Tor}}
+\newcommand{\Gal}{\operatorname{Gal}}
+\newcommand{\ch}{\operatorname{ch}}
+\newcommand{\rad}{\operatorname{rad}}
+\newcommand{\iso}{\cong}
+\newcommand{\normal}{\unlhd}
+\newcommand{\semi}{\rtimes}
+\newcommand{\Nm}{\operatorname {N}}
+\newcommand{\Tr}{\operatorname {Tr}}
+\newcommand{\disc}{\operatorname {disc}}
+
+
+
+
+
+
+
+
+%Euler Script Characters
+\newcommand{\esa}{\EuScript{A}}
+\newcommand{\esb}{\EuScript{B}}
+\newcommand{\esc}{\EuScript{C}}
+\newcommand{\esd}{\EuScript{D}}
+\newcommand{\ese}{\EuScript{E}}
+\newcommand{\esf}{\EuScript{F}}
+\newcommand{\esg}{\EuScript{G}}
+\newcommand{\esh}{\EuScript{H}}
+\newcommand{\esi}{\EuScript{I}}
+\newcommand{\esj}{\EuScript{J}}
+\newcommand{\esk}{\EuScript{K}}
+\newcommand{\esl}{\EuScript{L}}
+\newcommand{\esm}{\EuScript{M}}
+\newcommand{\esn}{\EuScript{N}}
+\newcommand{\eso}{\EuScript{O}}
+\newcommand{\esp}{\EuScript{P}}
+\newcommand{\esq}{\EuScript{Q}}
+\newcommand{\esr}{\EuScript{R}}
+\newcommand{\ess}{\EuScript{S}}
+\newcommand{\est}{\EuScript{T}}
+\newcommand{\esu}{\EuScript{U}}
+\newcommand{\esv}{\EuScript{V}}
+\newcommand{\esw}{\EuScript{W}}
+\newcommand{\esx}{\EuScript{X}}
+\newcommand{\esy}{\EuScript{Y}}
+\newcommand{\esz}{\EuScript{Z}}
+
+%Calligraphic Characters
+\newcommand{\cala}{\mathcal{A}}
+\newcommand{\calb}{\mathcal{B}}
+\newcommand{\calc}{\mathcal{C}}
+\newcommand{\cald}{\mathcal{D}}
+\newcommand{\cale}{\mathcal{E}}
+\newcommand{\calf}{\mathcal{F}}
+\newcommand{\calg}{\mathcal{G}}
+\newcommand{\calh}{\mathcal{H}}
+\newcommand{\cali}{\mathcal{I}}
+\newcommand{\calj}{\mathcal{J}}
+\newcommand{\calk}{\mathcal{K}}
+\newcommand{\call}{\mathcal{L}}
+\newcommand{\calm}{\mathcal{M}}
+\newcommand{\caln}{\mathcal{N}}
+\newcommand{\calo}{\mathcal{O}}
+\newcommand{\calp}{\mathcal{P}}
+\newcommand{\calq}{\mathcal{Q}}
+\newcommand{\calr}{\mathcal{R}}
+\newcommand{\cals}{\mathcal{S}}
+\newcommand{\calt}{\mathcal{T}}
+\newcommand{\calu}{\mathcal{U}}
+\newcommand{\calv}{\mathcal{V}}
+\newcommand{\calw}{\mathcal{W}}
+\newcommand{\calx}{\mathcal{X}}
+\newcommand{\caly}{\mathcal{Y}}
+\newcommand{\calz}{\mathcal{Z}}
+
+%Gothic Characters
+\newcommand{\fraka}{\mathfrak{a}}
+\newcommand{\frakb}{\mathfrak{b}}
+\newcommand{\frakc}{\mathfrak{c}}
+\newcommand{\frakd}{\mathfrak{d}}
+\newcommand{\frake}{\mathfrak{e}}
+\newcommand{\frakf}{\mathfrak{f}}
+\newcommand{\frakg}{\mathfrak{g}}
+\newcommand{\frakh}{\mathfrak{h}}
+\newcommand{\fraki}{\mathfrak{i}}
+\newcommand{\frakj}{\mathfrak{j}}
+\newcommand{\frakk}{\mathfrak{k}}
+\newcommand{\frakl}{\mathfrak{l}}
+\newcommand{\frakm}{\mathfrak{m}}
+\newcommand{\frakn}{\mathfrak{n}}
+\newcommand{\frako}{\mathfrak{o}}
+\newcommand{\frakp}{\mathfrak{p}}
+\newcommand{\frakq}{\mathfrak{q}}
+\newcommand{\frakr}{\mathfrak{r}}
+\newcommand{\fraks}{\mathfrak{s}}
+\newcommand{\frakt}{\mathfrak{t}}
+\newcommand{\fraku}{\mathfrak{u}}
+\newcommand{\frakv}{\mathfrak{v}}
+\newcommand{\frakw}{\mathfrak{w}}
+\newcommand{\frakx}{\mathfrak{x}}
+\newcommand{\fraky}{\mathfrak{y}}
+\newcommand{\frakz}{\mathfrak{z}}
+
+\newcommand{\frakA}{\mathfrak{A}}
+\newcommand{\frakB}{\mathfrak{B}}
+\newcommand{\frakC}{\mathfrak{C}}
+\newcommand{\frakD}{\mathfrak{D}}
+\newcommand{\frakE}{\mathfrak{E}}
+\newcommand{\frakF}{\mathfrak{F}}
+\newcommand{\frakG}{\mathfrak{G}}
+\newcommand{\frakH}{\mathfrak{H}}
+\newcommand{\frakI}{\mathfrak{I}}
+\newcommand{\frakJ}{\mathfrak{J}}
+\newcommand{\frakK}{\mathfrak{K}}
+\newcommand{\frakL}{\mathfrak{L}}
+\newcommand{\frakM}{\mathfrak{M}}
+\newcommand{\frakN}{\mathfrak{N}}
+\newcommand{\frakO}{\mathfrak{O}}
+\newcommand{\frakP}{\mathfrak{P}}
+\newcommand{\frakQ}{\mathfrak{Q}}
+\newcommand{\frakR}{\mathfrak{R}}
+\newcommand{\frakS}{\mathfrak{S}}
+\newcommand{\frakT}{\mathfrak{T}}
+\newcommand{\frakU}{\mathfrak{U}}
+\newcommand{\frakV}{\mathfrak{V}}
+\newcommand{\frakW}{\mathfrak{W}}
+\newcommand{\frakX}{\mathfrak{X}}
+\newcommand{\frakY}{\mathfrak{Y}}
+\newcommand{\frakZ}{\mathfrak{Z}}
+
+%Lowercase Bold Letters
+\newcommand{\bfa}{\mathbf{a}}
+\newcommand{\bfb}{\mathbf{b}}
+\newcommand{\bfc}{\mathbf{c}}
+\newcommand{\bfd}{\mathbf{d}}
+\newcommand{\bfe}{\mathbf{e}}
+\newcommand{\bff}{\mathbf{f}}
+\newcommand{\bfg}{\mathbf{g}}
+\newcommand{\bfh}{\mathbf{h}}
+\newcommand{\bfi}{\mathbf{i}}
+\newcommand{\bfj}{\mathbf{j}}
+\newcommand{\bfk}{\mathbf{k}}
+\newcommand{\bfl}{\mathbf{l}}
+\newcommand{\bfm}{\mathbf{m}}
+\newcommand{\bfn}{\mathbf{n}}
+\newcommand{\bfo}{\mathbf{o}}
+\newcommand{\bfp}{\mathbf{p}}
+\newcommand{\bfq}{\mathbf{q}}
+\newcommand{\bfr}{\mathbf{r}}
+\newcommand{\bfs}{\mathbf{s}}
+\newcommand{\bft}{\mathbf{t}}
+\newcommand{\bfu}{\mathbf{u}}
+\newcommand{\bfv}{\mathbf{v}}
+\newcommand{\bfw}{\mathbf{w}}
+\newcommand{\bfx}{\mathbf{x}}
+\newcommand{\bfy}{\mathbf{y}}
+\newcommand{\bfz}{\mathbf{z}}
+
+
+
+
+%Customized Theorem Environments
+\newtheoremstyle%
+{custom}%
+{}%                         Space above
+{}%													Space below
+{}%													Body font
+{}%                         Indent amount
+{}%                         Theorem head font
+{.}%                        Punctuation after heading
+{ }%                        Space after heading
+{\thmname{}%                Additional specifications for theorem head
+\thmnumber{}%
+\thmnote{\bfseries #3}}%
+
+\newtheoremstyle%
+{Theorem}%
+{}%
+{}%
+{\itshape}%
+{}%
+{}%
+{.}%
+{ }%
+{\thmname{\bfseries #1}%
+\thmnumber{\;\bfseries #2}%
+\thmnote{\;(\bfseries #3)}}%
+
+%Theorem Environments
+\theoremstyle{Theorem}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{cor}{Corollary}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem*{nonumthm}{Theorem}
+\newtheorem*{nonumprop}{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem*{answer}{Answer}
+\newtheorem*{solution}{Solution}
+\newtheorem*{nonumdfn}{Definition}
+\newtheorem*{nonumex}{Example}
+\newtheorem{ex}{Example}[section]
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}[section]
+\newtheorem*{note}{Note}
+\newtheorem*{notation}{Notation}
+\theoremstyle{custom}
+\newtheorem*{cust}{Definition}
+\fancypagestyle{firststyle}
+{
+   \fancyhead[L]{\textbf{Name:}}
+   \fancyhead[R]{\textbf{Worksheet 8: Max and Mins and Mean Value}}
+   \fancyfoot[R]{ Thomas Luckner } %{\footnotesize Page \thepage\ of \pageref{LastPage}}
+}
+
+
+
+
+
+
+\begin{document}
+\thispagestyle{firststyle}
+\pagestyle{plain}
+
+Thoughts:\\\\
+Max and Mins- Now that you have know how to find a derivative a lot faster than using the limit definition, we can make better use of the derivative and understand why it is so important mathematically. Think of the graph of the function $f(x)=x^2$ (a big U with the vertex at (0,0)). Now consider that point (0,0). What is the slope of the tangent line at that point or what does the tangent line look like? The tangent line is a straight left-to-right line which means it has slope 0! Now draw any function you want and identify the "peaks" and "troughs/valleys". What is the slope of the tangent line at those points? 0!!\\
+Now I want you to try and make a general statement about these points. Before I do, I want to define what we call these points, but a little more background is needed.\\
+It is important to note that not every function goes infinitely in both directions. For example, the domain of $\sqrt{x}$ is $[0, \infty)$ not all real numbers. Even more interesting is that the smallest $y$ value this function takes is 0 which is not a "peak" or a 'trough". This is why we have two definitions.
+\begin{definition}[Absolutes]
+An absolute max/min is the largest/smallest value of the function $f(x)$ on the domain of $f$. 
+\end{definition}
+So the absolute min for $f(x)=\sqrt{x}$ is 0 and is at $x=0$. Also note that $\sqrt{x}$ has no absolute max. There does not need to be an absolute max or min!\\
+Let's consider a function with "peaks" at $x=1$ and $x=5$ where $f(x)=6$ and 9 respectively. Also let the function have a "trough" at $x=-1$ with $f(-1)=-2$, $f(-3)=1$, $f(6)=10$, and the domain of $f$ is $[-3, 6]$. Given this info, let us find the absolute max and min. The abs max is at $x=6$ since $f(6)$ is larger than all "peaks" and the other end point of the domain. The absolute min is at $x=-1$ since $f(-1)$ is the smallest compared to the endpoints of the domain and the "troughs".\\
+What you should gather from what I just did is that to find absolute extrema (max and min), you need to check endpoints of the domain and the "peaks" and "troughs".\\
+You may be wondering why I keep putting peaks and troughs in quotes. This is because these have a very important name.
+\begin{definition}[Locals]
+Local  max(s) and min(s) are the "peaks" and "troughs".
+\end{definition}
+This seems like a silly way to define them, but we will give a theorem to find them right now, so they are better defined.\\
+Before we were talking about slopes of the tagent lines at local maxes and mins. We determined that there was a commonality. You should have gotten that the slopes of the tangent lines here are always 0! This means the following:
+\begin{theorem}[Pre-First Derivative Test]
+If $x$ is a point where $f$ has a local max or min, then $f'(x)=0$.
+\end{theorem}
+Now we can always find these without having to graph! Please try this with $x^2$ and $x^3$.\\
+There is actually more that this condition tells us. Let us define an extension of local extrema.
+\begin{definition}[Critical Points]
+$x$ is a critical point if $f'(x)=0$ OR $f'(x)$ does not exist! 
+\end{definition}
+The big thing here is that all local extrema are critical points. We are now just including points of nonexistence as well.\\
+Now why did we define the above? Well, you will not be learning this right away, but I feel it ties too well to not show it. Before we used a graph to make sense of how we do not need a graph to find critical points (really local extrema). What if we go the other way? I believe we talked lightly on the graph of the derivative with limits, so now we are going to go in a little deeper. Let's consider the function $f(x)=x^2$. Hopefully by now we know the graph of this. If not, go to Wolfram and plot it. You notice that the function, if you read left to right, is decreasing from everywhere out left to 0 but not at 0. Similarly, the function is increasing from 0 (not including) to everywhere out right. Consider the slope of the tangent line on these segements. Do you notice anything similar about any two in the same interval? If you do, then awesome! If not, I encourage you to go back and look after i give this definition.
+\begin{definition}[Increasing/Decreasing]
+\begin{enumerate}[1.]
+\item We say $f$ is increasing on an interval if $f'(x)>0$ on the interval for all $x$.
+\item We say $f$ is decreasing on an interval if $f'(x)<0$ on the interval for all $x$.
+\item We say $f$ is constant on an interval if $f'(x)=0$ on the interval for all $x$.
+\end{enumerate}
+\end{definition}
+You can imagine how helpful this is when going from the graph of the function to graphing the derivative or vice versa! So now you are probably wondering why I felt this ties in so well with critical points. Well, let us consider what is happening around a critical point in terms of increasing and decreasing. For $x^2$, the critical point is when $x=0$. Notice the function is decreasing before and then increasing after this point. This brings us to the most important test in calculus!
+\begin{theorem}[First Derivative Test]
+\begin{enumerate}[1.]
+\item If $f'(x)>0$ before $x=c$ and $f'(x)<0$ after $x=c$ then $f$ has a local max at $x=c$.
+\item If $f'(x)<0$ before $x=c$ and $f'(x)>0$ after $x=c$ then $f$ has a local min at $x=c$.
+\item If $f'(x)$ does not change sign when $x=c$ then $f$ does not have a local max or min at $x=c$.
+\end{enumerate}
+\end{theorem}
+Before we said if we know $x$ is a local max or min, we can say something about the derivative, but here we can now find those local maxex and mins! The biggest question is why can we not say if $f'(x)=0$, then $f$ has a local max or min at $x$? Well, because of annoying functions like $x^3$. The critical point here is $x=0$, but if you look at the graph, this is not a local max or local min. This is because the slope before and after is positive! \\
+How do we use this? The way I approach this is with a number line. Here is my step-by-step process for find local extrema.
+\begin{enumerate}[1.]
+\item Find the derivative. (ex:$(x^4)'=4x^3$)
+\item Set the derivative equal to 0. ($4x^3=0$)
+\item Find all $x$ for which the derivative is 0 (this step often involves factoring). ($x=0$)
+\item Make a number line and put your 0's from above on it. 
+\item Plug in a number into the derivative in each interval and put a '$+$' above the interval if positive and '$-$' if negative (most times you do not even need to plug in if you have a product. Just check the sign of each term in the product). (left of 0 $-$, right of 0 $+$)
+\item If you have $+$ before and $-$ after, your 0 is a local max. If you have the opposite, you have a local min. (0 is a local min)
+\end{enumerate}
+The big thing here is understanding why the above works. Please read through and make notes as to why this works! Now we talk about the concavity. Concavity is easily determined in terms of 'cups'. If a function cups upward, then it is concave up. If it cups down, then it is concave down. Sounds obvious, but let's use our basic example and then make it more mathy. For $x^2$, the function is an upward cup, so the function is concave up on the whole real line. Not a very good example, but the point is clear. Now to make it mathy.
+\begin{definition}[Concavity]
+\begin{enumerate}[1.]
+\item If $f''(x)>0$, then $f$ is concave up at $x$.
+\item If $f''(x)<0$, then $f$ is concave down at $x$.
+\item If $f''(x)=0$, we call $x$ an inflection point if concavity changes here. (DOES NOT ALWAYS CHANGE)
+\end{enumerate}
+\end{definition}
+$x^3$ is a good example. The second derivative is $6x$. Thus, a point of inflection could be $x=0$. The big thing here is to note the difference in inflection points and critical points and the similarity in inflection points and local extrema. Critical points do not care about sign changes. inflection points and local extrema do! In fact, inflection points and local extrema are so closely related we bhave the following:
+\begin{theorem}[Second Derivative Test]
+\begin{enumerate}
+If $f'(x)=0$ and $f''(x)>0$, then $f$ has local minimum at $x$.
+If $f'(x)=0$ and $f''(x)<0$, then $f$ has a local maximum at $x$.
+\end{enumerate}
+\end{theorem}
+The big thing here is to notice the difference in this test and the first derivative test. First, the sign of the min and max is opposite of what is inuitive. Second, you do not actually need this test since the first derivative test with the number line accomplishes the same thing. I encourage you to try this test, but it is less efficient and harder to remember for most students.\\
+Please try to find the local extrema for any polynomial of your choosing to get a better idea of this process!\\\\
+Mean Value Theorem- The mean value theorem is the   Intermediate Value Theorem but for the derivative! \begin{theorem}[Mean Value Theorem]
+\begin{enumerate}[1.]
+\item If $f$ is continuous on $[a,b]$,
+\item and $f$ is differentiable on $(a,b)$, then
+\end{enumerate}
+there exists $c$ in $(a,b)$ such that 
+\[
+f'(c)=\dfrac{f(b)-f(a)}{b-a} \text{ or} f(b)-f(a)=f'(c)(b-a).
+\]
+\end{theorem}
+To be honest, I do not want to go into much more detail than just this since it is so similar to the IVT.
+\newpage
+\noindent Problems: For the below, find all increasing and decreaaing intervals, find all local maxima and minima, find all intervals of concavity, and find all inflection points.
+\begin{enumerate}[1.]
+\item $f(x)=2x^3+3x^2-36x$
+\begin{solution}
+\[
+f'(x)=6x^2+6x-36=0 \Rightarrow 6(x^2+x-6)=0 \Rightarrow 6(x+3)(x-2)=0 \Rightarrow x=-3, 2
+\]
+Test point to left of $-3$. Get $+$. Test point in between. Get $-$. Test point right of $2$. Get $+$. Thus, local max at $x=-3$ and local min at $x=2$. Do a similar process for second derivative to get inflection points.
+\end{solution}
+\item $f(x)=e^{2x}+e^{-x}$
+\begin{solution}
+\[
+f'(x)=2e^{2x}-e^x=e^x(2e^x-1)=0 \Rightarrow x=-\ln(2)
+\]
+Left of $-\ln(2)$ gives $-$. Right of $-\ln(2)$ gives $+$. Thus, local min at $x=-\ln(2)$. Do similar to find inflection points.
+\end{solution}
+\item $f(x)=x^2-x-\ln(x)$
+\begin{solution}
+\[
+f'(x)=2x-1-(1/x) \Rightarrow x=0,1
+\]
+Left of 0 gives $-$. In between gives $-$. Right of 1 gives $+$. Thus, 1 is a local max. Same process for inflection.
+\end{solution}
+\item $f(x)=x^2\ln(x)$
+\begin{solution}
+\[
+f'(x)=2x\ln(x)+x=x(2\ln(x)+1)=0 \Rightarrow x=0, e^{-1/2}
+\]
+Left of 0 is undefined. In between gives $-$. Right of $e^{-1/2}$ gives $+$. Thus, local min at $x=e^{-1/2}$. Similar for inflections.
+\end{solution}
+\item $f(x)=\dfrac{x}{x^2+1}$
+\begin{solution}
+\[
+f'(x)=\dfrac{x^2+1-2x^2}{(x^2+1)^2}=0 \Rightarrow x^2+1-2x^2=0 \Rightarrow x^2=1 \Rightarrow x=1,-1
+\]
+Left of $-1$ gives $-$. In between gives $+$. Right of 1 gives $-$. Thus, local max at $x=1$ and local min at $x=-1$. Similar process for inflection.
+\end{solution}
+\item Try sketching a graph any of these functions using the information found; not the actual function. 
+\begin{solution}
+To draw these solutions is a mess. Thus, I will explain the approach. The derivative gives us max and min and we can plot those. The inflection points also give us info. This is where changes in concavity occur or where we switch from increasing faster to increasing slower and vice versa. Similar for decreasing intervals.  All this info along with 0's and where the function does not exist should give you a fairly accurate graph.
+\end{solution}
+\item Once you have done the above, try sketching the graph of the derivative.
+\begin{solution}
+Use where you see max and mins as zeros. Then increasing decreasing interval become positive or negative.
+\end{solution}
+\end{enumerate}
+\end{document}
+
+
+
+
+
+
+
